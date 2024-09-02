@@ -6,11 +6,9 @@ class AppError extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        message.trim(),
-        style: const TextStyle(fontSize: 16, color: Colors.red, fontWeight: FontWeight.w500),
-      ),
+    return Text(
+      message.trim(),
+      style: const TextStyle(fontSize: 16, color: Colors.red, fontWeight: FontWeight.w500),
     );
   }
 }

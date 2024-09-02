@@ -31,6 +31,11 @@ class AppTheme {
       backgroundColor: AppColor.primary,
       foregroundColor: AppColor.black,
       centerTitle: true,
+      titleTextStyle: TextStyle(
+        fontSize: 20,
+        color: AppColor.black,
+        overflow: TextOverflow.ellipsis,
+      ),
       surfaceTintColor: AppColor.secondary,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: AppColor.primary,

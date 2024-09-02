@@ -29,6 +29,10 @@ class AppStyle {
 
   static TextStyle get storyTitle => levelTitle;
 
+  static TextStyle get dictionaryWord => levelTitle;
+
+  static TextStyle get dictionaryMean => _baseText;
+
   static TextStyle get storyCategoryTitle => _baseText.copyWith(
         fontSize: 15,
         color: Colors.blue.shade900,

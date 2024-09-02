@@ -32,24 +32,31 @@ class DictionaryBloc extends Bloc<DictionaryEvent, DictionaryState> {
   }
 
   Future<void> fetchWord(FetchWordFromDictionary event, emit) async {
+    emit(DictionaryLoading());
+
+    // Eğer sözlük null veya boşsa hata emiti yap
+    if (dictionary == null) {
+      emit(const DictionaryError(message: "Sözlüğe Erişilemedi"));
+      return;
+    }
+
     try {
-      emit(DictionaryLoading());
-      if (dictionary == null) {
-        emit(const DictionaryError(message: "Sözlüğe Erişilemedi"));
-        return;
-      }
+      // Kelimeyi sözlükte arayın
+      final result = dictionary!.firstWhere(
+        (e) => event.word.startsWith(e.word),
+        orElse: () => Dictionary(word: '', mean: ''), // Varsayılan boş bir DictionaryEntry döndür
+      );
 
-      var result = dictionary?.firstWhere((e) => event.word.startsWith(e.word));
-
-      if (result == null) {
+      if (result.word.isEmpty) {
+        // Eğer result, varsayılan boş DictionaryEntry dönerse hata mesajı gönder
         emit(const DictionaryError(message: "Kelime Bulunamadı"));
-        return;
+      } else {
+        // Kelime bulunduysa tanımı yükle
+        emit(DictionaryWordLoaded(mean: result.mean));
       }
-
-      var mean = result.mean;
-      emit(DictionaryWordLoaded(mean: mean));
     } catch (e) {
-      emit(DictionaryError(message: e.toString()));
+      // Hata durumunda uygun bir hata mesajı emiti yap
+      emit(DictionaryError(message: "Bir hata oluştu: ${e.toString()}"));
     }
   }
 }
