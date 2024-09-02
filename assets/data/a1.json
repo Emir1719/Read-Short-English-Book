@@ -60,5 +60,65 @@
             "behind",
             "forward"
         ]
+    },
+    {
+        "id": 4,
+        "title": "Rain",
+        "category": 1,
+        "image": "https://images.pexels.com/photos/9648468/pexels-photo-9648468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "One day, it started to rain. The sky was grey, and the drops were big.",
+            "Liam was at home. He looked out the window. The rain made everything wet.",
+            "Liam loved the sound of the rain. It was soft and relaxing.",
+            "He decided to go outside with his umbrella. He walked in the rain, feeling happy.",
+            "Liam thought rain was beautiful. It made him feel peaceful."
+        ],
+        "definitions": [
+            "rain",
+            "window",
+            "umbrella",
+            "wet",
+            "peaceful"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Football Game",
+        "category": 2,
+        "image": "https://images.pexels.com/photos/3969152/pexels-photo-3969152.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Every Saturday, Jack plays football with his friends. They love the game.",
+            "Jack runs fast on the field. He tries to kick the ball into the goal.",
+            "Today, Jack's team won the game. Everyone was happy and cheered.",
+            "After the game, Jack and his friends drank water and talked about the match.",
+            "Jack was tired but excited. He loved playing football."
+        ],
+        "definitions": [
+            "football",
+            "friends",
+            "goal",
+            "cheered",
+            "tired"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Movie Night",
+        "category": 3,
+        "image": "https://images.pexels.com/photos/1040159/pexels-photo-1040159.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Sara and her family love movie night. Every Friday, they watch a movie together.",
+            "Tonight, they picked a funny movie. Everyone laughed a lot.",
+            "Sara's mom made popcorn. It was warm and tasty.",
+            "They all sat on the couch, enjoying the movie and the snacks.",
+            "Sara was happy to spend time with her family. Movie nights were the best."
+        ],
+        "definitions": [
+            "movie",
+            "popcorn",
+            "couch",
+            "funny",
+            "snacks"
+        ]
     }
 ]

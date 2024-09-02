@@ -1,11 +1,13 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'dart:convert';
 
+import 'package:english_will_fly/features/reading/data/models/category.dart';
+
 class Story {
   final int id;
   final String title;
   final String image;
-  final int category;
+  final Category category;
   final List<String> paragraphs;
   final List<String> definitions;
 
@@ -23,7 +25,7 @@ class Story {
       'id': id,
       'title': title,
       'image': image,
-      'category': category,
+      'category': category.id,
       'paragraphs': paragraphs,
       'definitions': definitions,
     };
@@ -34,7 +36,7 @@ class Story {
       id: map['id'] as int,
       title: map['title'] as String,
       image: map['image'] as String,
-      category: map['category'] as int,
+      category: Category(id: map['category'] as int, title: "", description: ""),
       paragraphs: List<String>.from((map['paragraphs'] as List<dynamic>)),
       definitions: List<String>.from((map['definitions'] as List<dynamic>)),
     );

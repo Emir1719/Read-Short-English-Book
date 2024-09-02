@@ -1,4 +1,4 @@
-import 'package:english_will_fly/features/reading/data/models/story_element.dart';
+import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_image.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read_btn.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/text_parse.dart';

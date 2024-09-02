@@ -1,4 +1,4 @@
-import 'package:english_will_fly/features/reading/data/models/story_element.dart';
+import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/view/story_read/story_read_view.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
@@ -12,6 +12,7 @@ class StoryListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
+        print(story.category.title);
         Navigator.of(context).push(MaterialPageRoute(builder: (context) => StoryReadView(story: story)));
       },
       child: Container(

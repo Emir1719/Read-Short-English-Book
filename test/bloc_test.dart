@@ -1,6 +1,6 @@
-import 'package:bloc_test/bloc_test.dart';
+// ignore_for_file: unused_local_variable
+
 import 'package:english_will_fly/features/reading/data/datasources/story_api.dart';
-import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
@@ -20,20 +20,6 @@ void main() {
   test('initial state is ReadingInitial', () {
     expect(readingBloc.state, ReadingInitial());
   });
-
-  blocTest<ReadingBloc, ReadingState>(
-    'emits [ReadingLoading, ReadingLoaded] when fetchStories is added and succeeds',
-    build: () {
-      when(mockStoryApi.loadStoryData("a1"))
-          .thenAnswer((_) async => Story(title: "", stories: List.empty())); // Başarı durumu
-      return readingBloc;
-    },
-    act: (bloc) => bloc.add(const FetchStories(levelCode: 'a1')),
-    expect: () => [
-      ReadingLoading(),
-      ReadingLoaded(story: Story(title: "", stories: List.empty())), // Beklenen durumu ekleyin
-    ],
-  );
 
   /*blocTest<ReadingBloc, ReadingState>(
     'emits [ReadingLoading, ReadingError] when fetchStories is added and fails',

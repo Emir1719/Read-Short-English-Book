@@ -1,0 +1,82 @@
+[
+    {
+        "id": 1,
+        "title": "A Walk in the Forest",
+        "category": 1,
+        "image": "https://images.pexels.com/photos/1565982/pexels-photo-1565982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "On Saturday morning, Emily decided to take a walk in the forest near her home.",
+            "The trees were tall, and the ground was covered with leaves. She could hear birds chirping and the sound of a small stream.",
+            "As she walked deeper into the forest, she saw a deer standing quietly among the trees. It looked at her, then slowly walked away.",
+            "Emily felt connected to nature. The forest was calm, and it helped her clear her mind.",
+            "She promised herself to visit the forest more often to enjoy the peace it offered."
+        ],
+        "definitions": [
+            "forest",
+            "leaves",
+            "stream",
+            "deer",
+            "connected"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "The Big Race",
+        "category": 2,
+        "image": "https://images.pexels.com/photos/3763888/pexels-photo-3763888.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Tom had been training for weeks for the big race in his town. He ran every morning, trying to get faster.",
+            "The day of the race finally arrived. Tom was nervous but excited. He knew he had worked hard for this moment.",
+            "As the race began, Tom focused on his breathing and pace. The other runners were strong, but he didn’t give up.",
+            "In the last stretch, Tom pushed himself harder. He crossed the finish line, tired but proud.",
+            "Tom didn’t win the race, but he felt like a champion because he gave his best effort."
+        ],
+        "definitions": [
+            "race",
+            "training",
+            "nervous",
+            "pace",
+            "finish line"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "A Night at the Cinema",
+        "category": 3,
+        "image": "https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Sarah and her friends decided to go to the cinema on Friday night. They chose a new action movie that everyone was talking about.",
+            "The cinema was crowded, but they managed to find good seats in the middle of the theater.",
+            "As the movie started, Sarah was immediately hooked. The special effects were amazing, and the story was exciting.",
+            "During the movie, they shared a big bucket of popcorn and laughed at the funny scenes.",
+            "When the movie ended, Sarah and her friends couldn’t stop talking about it. They all agreed it was one of the best movies they had seen in a long time."
+        ],
+        "definitions": [
+            "cinema",
+            "crowded",
+            "hooked",
+            "special effects",
+            "theater"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Helping a Stranger",
+        "category": 4,
+        "image": "https://images.pexels.com/photos/3993214/pexels-photo-3993214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "One afternoon, while walking home from school, James saw an elderly man struggling to carry his groceries.",
+            "The bags were heavy, and the man looked tired. James decided to help him.",
+            "He offered to carry the bags, and the man gratefully accepted. Together, they walked to the man’s house, which was not far.",
+            "The man thanked James for his kindness and offered him a small reward, but James politely refused.",
+            "As he walked away, James felt good about helping someone in need. He knew that a small act of kindness could make a big difference."
+        ],
+        "definitions": [
+            "elderly",
+            "groceries",
+            "struggling",
+            "gratefully",
+            "kindness"
+        ]
+    }
+]

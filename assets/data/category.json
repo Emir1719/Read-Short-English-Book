@@ -1,18 +1,37 @@
 [
     {
         "id": 1,
-        "title": "Enviroment"
+        "title": "Environment",
+        "description": "Topics related to nature, climate change, and sustainability."
     },
     {
         "id": 2,
-        "title": "Sport"
+        "title": "Sport",
+        "description": "All about physical activities, games, and fitness."
     },
     {
         "id": 3,
-        "title": "Film"
+        "title": "Film",
+        "description": "Cinema, movies, and the film industry."
     },
     {
         "id": 4,
-        "title": "People"
+        "title": "People",
+        "description": "Stories and profiles about individuals and communities."
+    },
+    {
+        "id": 5,
+        "title": "Technology",
+        "description": "Latest advancements in tech, gadgets, and software."
+    },
+    {
+        "id": 6,
+        "title": "Health",
+        "description": "Information and tips on maintaining physical and mental well-being."
+    },
+    {
+        "id": 7,
+        "title": "Education",
+        "description": "Insights on learning, teaching, and educational systems."
     }
 ]
