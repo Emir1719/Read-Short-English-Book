@@ -10,19 +10,31 @@ class AppTheme {
   factory AppTheme() => _instance;
 
   static ThemeData get light => ThemeData(
-        primaryColor: AppColor.white,
+        primaryColor: AppColor.primary,
         appBarTheme: _appBarTheme(),
-        scaffoldBackgroundColor: AppColor.white,
+        scaffoldBackgroundColor: AppColor.primary,
+        textButtonTheme: _textButtonTheme(),
       );
+
+  static TextButtonThemeData _textButtonTheme() {
+    return TextButtonThemeData(
+      style: ButtonStyle(
+        textStyle: const WidgetStatePropertyAll(TextStyle(fontSize: 16)),
+        foregroundColor: WidgetStatePropertyAll(AppColor.secondary),
+        surfaceTintColor: WidgetStatePropertyAll(AppColor.secondary),
+      ),
+    );
+  }
 
   static AppBarTheme _appBarTheme() {
     return AppBarTheme(
-      backgroundColor: AppColor.white,
+      backgroundColor: AppColor.primary,
       foregroundColor: AppColor.black,
       centerTitle: true,
+      surfaceTintColor: AppColor.secondary,
       systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: AppColor.white,
-        systemNavigationBarColor: AppColor.white,
+        statusBarColor: AppColor.primary,
+        systemNavigationBarColor: AppColor.primary,
         systemNavigationBarIconBrightness: Brightness.dark,
         statusBarIconBrightness: Brightness.dark,
       ),

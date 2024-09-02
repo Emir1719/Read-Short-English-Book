@@ -1,0 +1,101 @@
+[
+    {
+        "id": 1,
+        "title": "The Mountain Hike",
+        "category": 1,
+        "image": "https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Last summer, Daniel and his friends decided to go on a hike in the mountains. They had been planning the trip for weeks and were excited to finally start the adventure.",
+            "The trail was steep and challenging, but the views were worth the effort. As they climbed higher, they could see the entire valley below, dotted with small villages.",
+            "At the summit, they took a break and enjoyed a picnic while admiring the stunning scenery. The fresh mountain air was refreshing, and they felt a sense of accomplishment.",
+            "On the way down, they encountered a small waterfall, and Daniel couldn't resist taking a quick dip in the cool water.",
+            "By the time they reached the base of the mountain, they were exhausted but happy. The hike had been tough, but it was an experience they would never forget."
+        ],
+        "definitions": [
+            "hike",
+            "trail",
+            "summit",
+            "scenery",
+            "refreshing"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "The Football Tournament",
+        "category": 2,
+        "image": "https://images.pexels.com/photos/1263423/pexels-photo-1263423.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "The annual football tournament at Mark's school was a big event, and everyone was looking forward to it. Mark had been practicing hard, determined to lead his team to victory.",
+            "The tournament began with a series of group stage matches. Mark's team played well, winning most of their games and securing a spot in the semifinals.",
+            "In the semifinal match, the score was tied until the last minute when Mark managed to score a decisive goal. The crowd erupted in cheers, and Mark felt a surge of pride.",
+            "The final was intense, with both teams giving their best. Mark's team worked together flawlessly, and in the end, they won the championship.",
+            "As they lifted the trophy, Mark realized that all their hard work had paid off. The tournament had not only been about winning but also about teamwork and perseverance."
+        ],
+        "definitions": [
+            "tournament",
+            "semifinal",
+            "decisive",
+            "erupted",
+            "perseverance"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "The Lost Necklace",
+        "category": 4,
+        "image": "https://images.pexels.com/photos/6614313/pexels-photo-6614313.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "One afternoon, Lisa was walking through the market when she suddenly realized that her necklace was missing. It was a family heirloom, and she felt a wave of panic.",
+            "Lisa retraced her steps, searching every stall she had visited. She asked the vendors if they had seen her necklace, but no one had noticed anything.",
+            "Just when she was about to give up, a little girl approached her, holding the necklace in her hand. The girl explained that she had found it on the ground and was looking for its owner.",
+            "Lisa was overwhelmed with relief and gratitude. She thanked the girl and offered her a small reward, but the girl politely declined, saying that returning the necklace was the right thing to do.",
+            "As Lisa walked home, she couldn't stop thinking about the little girl's honesty. She knew that she would always cherish the necklace even more because of this experience."
+        ],
+        "definitions": [
+            "heirloom",
+            "panic",
+            "retrace",
+            "gratitude",
+            "cherish"
+        ]
+    },
+    {
+        "id": 4,
+        "title": "The Unexpected Detour",
+        "category": 3,
+        "image": "https://images.pexels.com/photos/9826960/pexels-photo-9826960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "During their road trip, Tom and his friends decided to take a detour to visit a small town they had heard about in a recent film. The town was supposed to have charming old streets and a famous local diner.",
+            "However, their GPS led them down a series of winding roads that seemed to go on forever. After a while, they began to worry that they were lost.",
+            "Just as they were about to turn back, they stumbled upon a hidden gem: a beautiful lake surrounded by forests, completely deserted. It was the perfect spot for a break.",
+            "They spent the afternoon swimming and relaxing by the lake, enjoying the unexpected adventure. The detour turned out to be the highlight of their trip.",
+            "Later, when they finally arrived at the town, they realized that the journey itself had been more memorable than the destination. They decided to let go of their plans and embrace the spontaneity of the moment."
+        ],
+        "definitions": [
+            "detour",
+            "winding",
+            "deserted",
+            "gem",
+            "spontaneity"
+        ]
+    },
+    {
+        "id": 5,
+        "title": "The Boy Who Lived: Harry Potter",
+        "category": 3,
+        "image": "https://images.pexels.com/photos/8391282/pexels-photo-8391282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Harry Potter was an ordinary boy who lived with his aunt, uncle, and cousin. However, on his eleventh birthday, everything changed when he discovered that he was a wizard.",
+            "A giant named Hagrid came to take Harry to Hogwarts, a school of magic. At Hogwarts, Harry made new friends, learned about magic, and discovered the truth about his parents’ mysterious deaths.",
+            "Harry also learned that he was famous in the wizarding world as 'The Boy Who Lived,' because he had survived an attack by the dark wizard Voldemort when he was a baby.",
+            "Throughout his years at Hogwarts, Harry faced many challenges, including battling dangerous creatures, solving mysteries, and confronting Voldemort, who was determined to return to power.",
+            "Despite the dangers, Harry was brave and loyal to his friends. He knew that as long as he had their support, he could face any obstacle."
+        ],
+        "definitions": [
+            "wizard",
+            "mysterious",
+            "creatures",
+            "obstacle"
+        ]
+    }
+]

@@ -12,34 +12,61 @@ class StoryListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print(story.category.title);
         Navigator.of(context).push(MaterialPageRoute(builder: (context) => StoryReadView(story: story)));
       },
       child: Container(
         decoration: AppStyle.level,
         child: Row(
           children: [
-            story.image.isNotEmpty ? image(story) : const SizedBox(),
-            title(story),
+            story.image.isNotEmpty ? _image(story) : const SizedBox(),
+            Expanded(
+              child: Padding(
+                padding: AppPadding.storyItem,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _title(),
+                    const SizedBox(height: 5),
+                    _icon(),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 
-  Padding title(Story story) {
-    return Padding(
-      padding: AppPadding.defaults,
-      child: Text(story.title, style: AppStyle.storyTitle),
+  Row _icon() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Text(story.category.title, style: AppStyle.storyCategoryTitle),
+        Icon(
+          Icons.check_circle_outline_outlined,
+          size: 20,
+          color: AppStyle.compliteColor(story.isCompleted),
+        ),
+      ],
     );
   }
 
-  ClipRRect image(Story story) {
+  Text _title() {
+    return Text(
+      story.title,
+      style: AppStyle.storyTitle,
+      overflow: TextOverflow.ellipsis,
+      maxLines: 2,
+    );
+  }
+
+  ClipRRect _image(Story story) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(10.0),
       child: Image.network(
         story.image,
-        width: 130,
+        width: 140,
         height: 90,
         fit: BoxFit.cover,
       ),

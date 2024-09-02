@@ -16,7 +16,7 @@ class StoryReadButton extends StatelessWidget {
           print(story.id);
         },
         label: const Text("Okudum"),
-        icon: const Icon(Icons.check_box),
+        icon: const Icon(Icons.check_circle_outline_rounded),
       ),
     );
   }

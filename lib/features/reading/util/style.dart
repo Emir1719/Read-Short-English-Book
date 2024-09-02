@@ -29,22 +29,31 @@ class AppStyle {
 
   static TextStyle get storyTitle => levelTitle;
 
-  static Color? levelColor(int index) {
-    switch (index) {
-      case 0:
+  static TextStyle get storyCategoryTitle => _baseText.copyWith(
+        fontSize: 15,
+        color: Colors.blue.shade900,
+      );
+
+  static Color? levelColor(String level) {
+    switch (level) {
+      case "a1":
         return AppColor.a1;
-      case 1:
+      case "a2":
         return AppColor.a2;
-      case 2:
+      case "b1":
         return AppColor.b1;
-      case 3:
+      case "b2":
         return AppColor.b2;
-      case 4:
+      case "c1":
         return AppColor.c1;
-      case 5:
+      case "c2":
         return AppColor.c2;
       default:
         return AppColor.a1;
     }
+  }
+
+  static Color? compliteColor(bool isCompleted) {
+    return isCompleted ? Colors.green : Colors.black;
   }
 }

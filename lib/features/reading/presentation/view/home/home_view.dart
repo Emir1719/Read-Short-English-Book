@@ -1,10 +1,7 @@
 import 'package:english_will_fly/features/reading/data/datasources/story_api.dart';
-import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
-import 'package:english_will_fly/features/reading/presentation/view/stories/stories_view.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/home_level_list.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
-import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -23,22 +20,7 @@ class HomeView extends StatelessWidget {
         itemBuilder: (context, index) {
           var level = levels[index];
 
-          return GestureDetector(
-            onTap: () async {
-              context.read<ReadingBloc>().add(FetchStories(levelCode: level));
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => const StoriesView()));
-            },
-            child: Container(
-              decoration: AppStyle.level,
-              child: ListTile(
-                title: Text(level, style: AppStyle.levelTitle),
-                trailing: CircleAvatar(
-                  radius: 10,
-                  backgroundColor: AppStyle.levelColor(index),
-                ),
-              ),
-            ),
-          );
+          return HomeStoryLevelList(level: level);
         },
       ),
     );

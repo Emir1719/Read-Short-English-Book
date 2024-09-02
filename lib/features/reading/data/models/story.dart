@@ -10,6 +10,7 @@ class Story {
   final Category category;
   final List<String> paragraphs;
   final List<String> definitions;
+  bool isCompleted;
 
   Story({
     required this.id,
@@ -18,6 +19,7 @@ class Story {
     required this.definitions,
     required this.image,
     required this.category,
+    this.isCompleted = false,
   });
 
   Map<String, dynamic> toMap() {
@@ -28,10 +30,13 @@ class Story {
       'category': category.id,
       'paragraphs': paragraphs,
       'definitions': definitions,
+      'isCompleted': isCompleted,
     };
   }
 
   factory Story.fromMap(Map<String, dynamic> map) {
+    // category and isCompleted placeholder, namely these fields will be changed in the bloc file
+
     return Story(
       id: map['id'] as int,
       title: map['title'] as String,
@@ -39,6 +44,7 @@ class Story {
       category: Category(id: map['category'] as int, title: "", description: ""),
       paragraphs: List<String>.from((map['paragraphs'] as List<dynamic>)),
       definitions: List<String>.from((map['definitions'] as List<dynamic>)),
+      isCompleted: false,
     );
   }
 

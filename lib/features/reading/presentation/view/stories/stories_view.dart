@@ -5,12 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StoriesView extends StatelessWidget {
-  const StoriesView({super.key});
+  const StoriesView({super.key, required this.level});
+  final String level;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Hikayeler")),
+      appBar: AppBar(title: Text("${level.toUpperCase()} Hikayeler")),
       body: BlocBuilder<ReadingBloc, ReadingState>(
         builder: (context, state) {
           if (state is ReadingLoading) {

@@ -9,7 +9,8 @@ class AppColor {
 
   // colors of the project
   static Color? get black => Colors.black;
-  static Color? get white => Colors.white;
+  static Color? get primary => Colors.white;
+  static Color? get secondary => Colors.blue;
 
   // levels
   static Color? get a1 => Colors.green;
