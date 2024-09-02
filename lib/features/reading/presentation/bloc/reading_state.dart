@@ -12,7 +12,7 @@ class ReadingInitial extends ReadingState {}
 class ReadingLoading extends ReadingState {}
 
 class ReadingLoaded extends ReadingState {
-  final Story story;
+  final List<Story> story;
 
   const ReadingLoaded({required this.story});
 }

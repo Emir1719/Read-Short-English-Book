@@ -1,24 +1,24 @@
 import 'dart:convert';
 
 import 'package:english_will_fly/features/reading/data/models/dictionary.dart';
-import 'package:english_will_fly/features/reading/data/models/story.dart';
+import 'package:english_will_fly/features/reading/data/models/story_element.dart';
 import 'package:flutter/services.dart';
 
 /// Singleton yapısına sahip ve hikayeler hakkında işlem yapar
 class StoryApi {
-  static final instance = StoryApi._();
+  static final _instance = StoryApi._();
 
   StoryApi._();
 
-  factory StoryApi() => instance;
+  factory StoryApi() => _instance;
 
   /// Seviyeye göre hikayeleri getirir
-  Future<Story> loadStoryData(String level) async {
+  Future<List<Story>> loadStoryData(String level) async {
     String path = 'assets/data/${level.trim().toLowerCase()}.json';
     final jsonString = await rootBundle.loadString(path);
-    final jsonData = jsonDecode(jsonString) as Map<String, dynamic>;
+    final jsonData = jsonDecode(jsonString) as List;
 
-    return Story.fromMap(jsonData);
+    return jsonData.map((e) => Story.fromMap(e)).toList();
   }
 
   List<String> getLevels() {

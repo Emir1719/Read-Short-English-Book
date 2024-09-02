@@ -1,64 +1,64 @@
-{
-    "title": "A1 Level",
-    "stories": [
-        {
-            "id": 1,
-            "title": "Autumn Days",
-            "image": "https://images.pexels.com/photos/531857/pexels-photo-531857.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            "paragraphs": [
-                "It is autumn. The leaves turn red, yellow, and orange. The weather is cool. Mary wears a warm jacket and a hat. She walks in the park with her dog, Max.",
-                "Mary and Max see many leaves on the ground. Max likes to play with the leaves. He jumps and runs. Mary smiles and takes pictures.",
-                "They also see pumpkins in the park. Mary thinks the pumpkins are nice. She wants to make a pumpkin pie.",
-                "After walking, Mary and Max go home. They are happy. Mary feels the joy of autumn."
-            ],
-            "definitions": [
-                "autumn",
-                "pumpkin",
-                "wear",
-                "pie",
-                "feel",
-                "leave",
-                "turn"
-            ]
-        },
-        {
-            "id": 2,
-            "title": "The Big Ocean",
-            "image": "https://images.pexels.com/photos/1298684/pexels-photo-1298684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            "paragraphs": [
-                "Once upon a time, there was a big ocean. The ocean was very wide and blue. Many fish lived in the ocean. They were happy and swam all day.",
-                "One day, a small fish named Timmy was swimming near the surface. Timmy saw a big boat. He was curious and swam closer. Timmy saw people on the boat. They were fishing and having fun.",
-                "Timmy wanted to talk to the people, but he knew he could not. He just watched them from the water. The people threw some food into the ocean. Timmy and his friends were excited. They swam to the food and ate it.",
-                "After a while, the boat left, and the ocean was quiet again. Timmy and his friends continued to swim and play. They were happy in their big, beautiful ocean.",
-                "And so, Timmy lived happily in the ocean, always enjoying the beautiful blue water and his fish friends."
-            ],
-            "definitions": [
-                "once",
-                "upon",
-                "wide",
-                "surface",
-                "quiet",
-                "enjoy"
-            ]
-        },
-        {
-            "id": 3,
-            "title": "Sunset",
-            "image": "https://images.pexels.com/photos/267151/pexels-photo-267151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-            "paragraphs": [
-                "Every day, the sun goes down. This is called sunset.",
-                "One evening, Anna went to the park. She saw the sky turn orange and pink. It was beautiful.",
-                "Anna sat on a bench and watched. The sun was getting lower. Soon, it disappeared behind the hills.",
-                "Anna felt happy and calm. She loved the sunset. It made her smile.",
-                "And so, every evening, Anna looked forward to the sunset."
-            ],
-            "definitions": [
-                "sunset",
-                "pink",
-                "disappeared",
-                "behind",
-                "forward"
-            ]
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+        "title": "Autumn Days",
+        "category": 1,
+        "image": "https://images.pexels.com/photos/531857/pexels-photo-531857.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "It is autumn. The leaves turn red, yellow, and orange. The weather is cool. Mary wears a warm jacket and a hat. She walks in the park with her dog, Max.",
+            "Mary and Max see many leaves on the ground. Max likes to play with the leaves. He jumps and runs. Mary smiles and takes pictures.",
+            "They also see pumpkins in the park. Mary thinks the pumpkins are nice. She wants to make a pumpkin pie.",
+            "After walking, Mary and Max go home. They are happy. Mary feels the joy of autumn."
+        ],
+        "definitions": [
+            "autumn",
+            "pumpkin",
+            "wear",
+            "pie",
+            "feel",
+            "leave",
+            "turn"
+        ]
+    },
+    {
+        "id": 2,
+        "title": "The Big Ocean",
+        "category": 1,
+        "image": "https://images.pexels.com/photos/1298684/pexels-photo-1298684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Once upon a time, there was a big ocean. The ocean was very wide and blue. Many fish lived in the ocean. They were happy and swam all day.",
+            "One day, a small fish named Timmy was swimming near the surface. Timmy saw a big boat. He was curious and swam closer. Timmy saw people on the boat. They were fishing and having fun.",
+            "Timmy wanted to talk to the people, but he knew he could not. He just watched them from the water. The people threw some food into the ocean. Timmy and his friends were excited. They swam to the food and ate it.",
+            "After a while, the boat left, and the ocean was quiet again. Timmy and his friends continued to swim and play. They were happy in their big, beautiful ocean.",
+            "And so, Timmy lived happily in the ocean, always enjoying the beautiful blue water and his fish friends."
+        ],
+        "definitions": [
+            "once",
+            "upon",
+            "wide",
+            "surface",
+            "quiet",
+            "enjoy"
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Sunset",
+        "category": 1,
+        "image": "https://images.pexels.com/photos/267151/pexels-photo-267151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Every day, the sun goes down. This is called sunset.",
+            "One evening, Anna went to the park. She saw the sky turn orange and pink. It was beautiful.",
+            "Anna sat on a bench and watched. The sun was getting lower. Soon, it disappeared behind the hills.",
+            "Anna felt happy and calm. She loved the sunset. It made her smile.",
+            "And so, every evening, Anna looked forward to the sunset."
+        ],
+        "definitions": [
+            "sunset",
+            "pink",
+            "disappeared",
+            "behind",
+            "forward"
+        ]
+    }
+]

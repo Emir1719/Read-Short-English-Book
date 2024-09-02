@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:english_will_fly/features/reading/data/datasources/story_api.dart';
-import 'package:english_will_fly/features/reading/data/models/story.dart';
+import 'package:english_will_fly/features/reading/data/models/story_element.dart';
 import 'package:equatable/equatable.dart';
 
 part 'reading_event.dart';

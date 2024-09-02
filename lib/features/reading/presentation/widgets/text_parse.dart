@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TextParse {
-  TextSpan build(String text, BuildContext context, StoryElement story) {
+  static TextSpan build(String text, BuildContext context, Story story) {
     List<TextSpan> textSpans = [];
     int start = 0;
 

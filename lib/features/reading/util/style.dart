@@ -1,3 +1,4 @@
+import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:flutter/material.dart';
 
 class AppStyle {
@@ -13,30 +14,37 @@ class AppStyle {
         borderRadius: BorderRadius.circular(10),
       );
 
-  static TextStyle get levelTitle => const TextStyle(
-        color: Colors.black,
+  static TextStyle get _baseText => TextStyle(
+        color: AppColor.text,
+        fontWeight: FontWeight.normal,
+        fontSize: 16,
+        overflow: TextOverflow.ellipsis,
+        fontStyle: FontStyle.normal,
+      );
+
+  static TextStyle get levelTitle => _baseText.copyWith(
         fontWeight: FontWeight.w500,
         fontSize: 18,
       );
 
   static TextStyle get storyTitle => levelTitle;
 
-  static Color levelColor(int index) {
+  static Color? levelColor(int index) {
     switch (index) {
       case 0:
-        return Colors.green;
+        return AppColor.a1;
       case 1:
-        return Colors.green.shade700;
+        return AppColor.a2;
       case 2:
-        return Colors.orange;
+        return AppColor.b1;
       case 3:
-        return Colors.orange.shade700;
+        return AppColor.b2;
       case 4:
-        return Colors.red;
+        return AppColor.c1;
       case 5:
-        return Colors.red.shade700;
+        return AppColor.c2;
       default:
-        return Colors.green;
+        return AppColor.a1;
     }
   }
 }
