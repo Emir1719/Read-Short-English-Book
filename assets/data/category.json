@@ -33,5 +33,10 @@
         "id": 7,
         "title": "Education",
         "description": "Insights on learning, teaching, and educational systems."
+    },
+    {
+        "id": 8,
+        "title": "Islamic",
+        "description": "Insights on learning, teaching, and educational systems."
     }
 ]

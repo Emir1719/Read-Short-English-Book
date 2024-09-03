@@ -10,5 +10,125 @@
     {
         "word": "wear",
         "mean": "giymek"
+    },
+    {
+        "word": "rain",
+        "mean": "yağmur"
+    },
+    {
+        "word": "window",
+        "mean": "pencere"
+    },
+    {
+        "word": "umbrella",
+        "mean": "şemsiye"
+    },
+    {
+        "word": "wet",
+        "mean": "ıslak"
+    },
+    {
+        "word": "peaceful",
+        "mean": "huzurlu"
+    },
+    {
+        "word": "football",
+        "mean": "futbol"
+    },
+    {
+        "word": "friends",
+        "mean": "arkadaşlar"
+    },
+    {
+        "word": "goal",
+        "mean": "gol"
+    },
+    {
+        "word": "cheered",
+        "mean": "tezahürat yaptı"
+    },
+    {
+        "word": "tired",
+        "mean": "yorgun"
+    },
+    {
+        "word": "movie",
+        "mean": "film"
+    },
+    {
+        "word": "popcorn",
+        "mean": "patlamış mısır"
+    },
+    {
+        "word": "couch",
+        "mean": "kanepe"
+    },
+    {
+        "word": "funny",
+        "mean": "komik"
+    },
+    {
+        "word": "snacks",
+        "mean": "atıştırmalıklar"
+    },
+    {
+        "word": "forest",
+        "mean": "orman"
+    },
+    {
+        "word": "leaves",
+        "mean": "yapraklar"
+    },
+    {
+        "word": "stream",
+        "mean": "dere"
+    },
+    {
+        "word": "deer",
+        "mean": "geyik"
+    },
+    {
+        "word": "connected",
+        "mean": "bağlantılı"
+    },
+    {
+        "word": "race",
+        "mean": "yarış"
+    },
+    {
+        "word": "training",
+        "mean": "antrenman"
+    },
+    {
+        "word": "nervous",
+        "mean": "gergin"
+    },
+    {
+        "word": "pace",
+        "mean": "tempo"
+    },
+    {
+        "word": "finish line",
+        "mean": "bitiş çizgisi"
+    },
+    {
+        "word": "cinema",
+        "mean": "sinema"
+    },
+    {
+        "word": "crowded",
+        "mean": "kalabalık"
+    },
+    {
+        "word": "hooked",
+        "mean": "bağlanmış"
+    },
+    {
+        "word": "special effects",
+        "mean": "özel efektler"
+    },
+    {
+        "word": "theater",
+        "mean": "tiyatro"
     }
 ]

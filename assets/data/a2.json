@@ -78,5 +78,85 @@
             "gratefully",
             "kindness"
         ]
+    },
+    {
+        "id": 5,
+        "title": "The Friday Prayer",
+        "category": 8,
+        "image": "https://images.pexels.com/photos/461918/pexels-photo-461918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Omar woke up early on Friday morning. He knew it was a special day because it was time for the Friday prayer.",
+            "He took a shower, wore his best clothes, and walked to the mosque with his father.",
+            "The mosque was peaceful, and many people were there, ready for the prayer.",
+            "Omar listened carefully to the sermon. The Imam talked about kindness and helping others.",
+            "After the prayer, Omar felt happy and peaceful. He decided to help his neighbors that afternoon."
+        ],
+        "definitions": [
+            "Friday",
+            "prayer",
+            "mosque",
+            "sermon",
+            "kindness"
+        ]
+    },
+    {
+        "id": 6,
+        "title": "A Visit to the Orphanage",
+        "category": 8,
+        "image": "https://images.pexels.com/photos/3076178/pexels-photo-3076178.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Amina and her family planned to visit the orphanage on Saturday.",
+            "They brought toys, clothes, and food for the children living there.",
+            "When they arrived, the children were so happy to see them. Amina played with the kids and made new friends.",
+            "Her father spoke to the orphanage manager and learned about the children's needs.",
+            "Amina felt grateful for what she had and decided to come back every month to help the children."
+        ],
+        "definitions": [
+            "orphanage",
+            "toys",
+            "clothes",
+            "grateful",
+            "help"
+        ]
+    },
+    {
+        "id": 7,
+        "title": "Sharing in Ramadan",
+        "category": 8,
+        "image": "https://images.pexels.com/photos/2233416/pexels-photo-2233416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "During Ramadan, Ali’s family prepared food to share with their neighbors.",
+            "Ali helped his mother cook delicious meals and pack them in boxes.",
+            "In the evening, they went door to door, giving the food to their neighbors.",
+            "The neighbors were thankful and happy to receive the food.",
+            "Ali felt proud and happy that he could help others during this special month."
+        ],
+        "definitions": [
+            "Ramadan",
+            "share",
+            "neighbors",
+            "thankful",
+            "special"
+        ]
+    },
+    {
+        "id": 8,
+        "title": "Helping the Poor",
+        "category": 8,
+        "image": "https://images.pexels.com/photos/1250452/pexels-photo-1250452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "One day, Fatima saw a poor man on the street. He looked hungry and cold.",
+            "She quickly went home, packed some food and clothes, and brought them to the man.",
+            "The man smiled and thanked Fatima. She felt so happy that she could help someone in need.",
+            "Fatima learned that helping others is very important in Islam.",
+            "She decided to always carry some food and clothes with her to help the poor."
+        ],
+        "definitions": [
+            "poor",
+            "hungry",
+            "help",
+            "important",
+            "Islam"
+        ]
     }
 ]

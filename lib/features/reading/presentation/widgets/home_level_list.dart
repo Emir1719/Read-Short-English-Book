@@ -1,5 +1,6 @@
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/view/stories/stories_view.dart';
+import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,9 +20,10 @@ class HomeStoryLevelList extends StatelessWidget {
       child: Container(
         decoration: AppStyle.level,
         child: ListTile(
+          contentPadding: AppPadding.storyLevel,
           title: Text(level, style: AppStyle.levelTitle),
           trailing: CircleAvatar(
-            radius: 10,
+            radius: 8,
             backgroundColor: AppStyle.levelColor(level.toLowerCase()),
           ),
         ),

@@ -15,6 +15,9 @@ final class DictionaryLoaded extends DictionaryState {
   final List<Dictionary> dictionary;
 
   const DictionaryLoaded({required this.dictionary});
+
+  @override
+  List<Object> get props => [dictionary];
 }
 
 final class DictionaryWordLoaded extends DictionaryState {
@@ -22,10 +25,16 @@ final class DictionaryWordLoaded extends DictionaryState {
   final String mean;
 
   const DictionaryWordLoaded({required this.mean});
+
+  @override
+  List<Object> get props => [mean];
 }
 
 final class DictionaryError extends DictionaryState {
   final String message;
 
   const DictionaryError({required this.message});
+
+  @override
+  List<Object> get props => [message];
 }

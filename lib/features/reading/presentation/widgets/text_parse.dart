@@ -85,6 +85,8 @@ class TextParse {
                           return AppError(message: state.message);
                         } else if (state is DictionaryWordLoaded) {
                           return Text(state.mean, style: AppStyle.dictionaryMean);
+                        } else if (state is DictionaryInitial) {
+                          return const SizedBox.shrink();
                         }
                         return const Text("...");
                       },

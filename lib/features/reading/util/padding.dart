@@ -8,5 +8,8 @@ class AppPadding {
   factory AppPadding() => instance;
 
   static EdgeInsets get defaults => const EdgeInsets.all(20);
+
   static EdgeInsets get storyItem => const EdgeInsets.all(15);
+
+  static EdgeInsets get storyLevel => const EdgeInsets.symmetric(horizontal: 20, vertical: 5);
 }

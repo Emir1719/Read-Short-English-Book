@@ -21,6 +21,7 @@ class MainApp extends StatelessWidget {
         BlocProvider(create: (context) => DictionaryBloc()..add(FetchDictionary())),
       ],
       child: MaterialApp(
+        title: "English Will Fly",
         debugShowCheckedModeBanner: false,
         theme: AppTheme.light,
         home: const HomeView(),
