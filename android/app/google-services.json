@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "668758974932",
+    "project_id": "english-story-9b2dd",
+    "storage_bucket": "english-story-9b2dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:668758974932:android:adb557009dd74495b43641",
+        "android_client_info": {
+          "package_name": "com.example.english_will_fly"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFh3dWQyYwHytlsSmi2nRlRhtIQReGtBI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
