@@ -1,10 +1,9 @@
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
-import 'package:english_will_fly/features/auth/presentation/widgets/auth/error_listener.dart';
-import 'package:english_will_fly/features/auth/presentation/widgets/auth/login_button.dart';
-import 'package:english_will_fly/features/auth/presentation/widgets/auth/signup_button.dart';
+import 'package:english_will_fly/features/auth/presentation/widgets/auth/content.dart';
 import 'package:english_will_fly/features/reading/presentation/view/home/home_view.dart';
-import 'package:english_will_fly/features/reading/util/padding.dart';
+import 'package:english_will_fly/features/reading/util/init_state/error.dart';
+import 'package:english_will_fly/features/reading/util/init_state/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,35 +12,20 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController email = TextEditingController();
-    final TextEditingController password = TextEditingController();
-    const space = SizedBox(height: 20);
-
     return Scaffold(
       appBar: AppBar(title: const Text("Login")),
       body: BlocListener<AuthenticationBloc, AuthenticationState>(
         listener: _listener,
-        child: Padding(
-          padding: AppPadding.defaults,
-          child: ListView(
-            children: [
-              TextField(
-                controller: email,
-                decoration: const InputDecoration(labelText: "Email"),
-              ),
-              space,
-              TextField(
-                controller: password,
-                decoration: const InputDecoration(labelText: "Password"),
-                obscureText: true,
-              ),
-              space,
-              LoginButton(email: email, password: password),
-              space,
-              SignUpButton(email: email, password: password),
-              const AuthErrorListener(),
-            ],
-          ),
+        child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+          builder: (context, state) {
+            if (state is AuthenticationUnauthenticated) {
+              return const LoginContent();
+            } else if (state is AuthenticationLoading) {
+              return const AppLoading();
+            } else {
+              return const AppError(message: "No user information available");
+            }
+          },
         ),
       ),
     );

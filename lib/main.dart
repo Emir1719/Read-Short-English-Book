@@ -1,5 +1,6 @@
 import 'package:english_will_fly/features/auth/data/dependency/auth_dependency.dart';
 import 'package:english_will_fly/features/auth/data/repositories/i_auth_repository.dart';
+import 'package:english_will_fly/features/auth/data/repositories/i_firestore_repository.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_event.dart';
 import 'package:english_will_fly/features/auth/presentation/view/splash/splash_view.dart';
@@ -29,7 +30,12 @@ class MainApp extends StatelessWidget {
       providers: [
         BlocProvider(create: (context) => ReadingBloc()),
         BlocProvider(create: (context) => DictionaryBloc()..add(FetchDictionary())),
-        BlocProvider(create: (context) => AuthenticationBloc(getIt<AuthenticationRepository>())..add(AppStarted()))
+        BlocProvider(
+          create: (context) => AuthenticationBloc(
+            getIt<AuthenticationRepository>(),
+            getIt<IFirestoreRepository>(),
+          )..add(AppStarted()),
+        )
       ],
       child: MaterialApp(
         title: "English Will Fly",

@@ -1,12 +1,15 @@
+import 'package:english_will_fly/features/auth/data/models/user.dart';
 import 'package:english_will_fly/features/auth/data/repositories/i_auth_repository.dart';
+import 'package:english_will_fly/features/auth/data/repositories/i_firestore_repository.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_event.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
   final AuthenticationRepository _authRepository;
+  final IFirestoreRepository _firestoreRepository;
 
-  AuthenticationBloc(this._authRepository) : super(AuthenticationInitial()) {
+  AuthenticationBloc(this._authRepository, this._firestoreRepository) : super(AuthenticationInitial()) {
     on<AppStarted>(_onAppStarted);
     on<SignUpRequested>(_onSignUpRequested);
     on<SignInRequested>(_onSignInRequested);
@@ -17,11 +20,8 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     emit(AuthenticationLoading());
     try {
       final user = await _authRepository.getCurrentUser();
-      if (user != null) {
-        emit(AuthenticationAuthenticated(user));
-      } else {
-        emit(AuthenticationUnauthenticated());
-      }
+      final appUser = AppUser.fromFirebaseUser(user!);
+      emit(AuthenticationAuthenticated(appUser));
     } catch (_) {
       emit(AuthenticationUnauthenticated());
     }
@@ -31,9 +31,9 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     emit(AuthenticationLoading());
     try {
       final user = await _authRepository.signUp(event.email, event.password);
-      if (user != null) {
-        emit(AuthenticationAuthenticated(user));
-      }
+      final appUser = AppUser.fromFirebaseUser(user!);
+      await _firestoreRepository.saveUser(user);
+      emit(AuthenticationAuthenticated(appUser));
     } catch (e) {
       emit(AuthenticationFailure(e.toString()));
     }
@@ -43,9 +43,8 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     emit(AuthenticationLoading());
     try {
       final user = await _authRepository.signIn(event.email, event.password);
-      if (user != null) {
-        emit(AuthenticationAuthenticated(user));
-      }
+      final appUser = AppUser.fromFirebaseUser(user!);
+      emit(AuthenticationAuthenticated(appUser));
     } catch (e) {
       emit(AuthenticationFailure(e.toString()));
     }

@@ -1,5 +1,5 @@
+import 'package:english_will_fly/features/auth/data/models/user.dart';
 import 'package:equatable/equatable.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class AuthenticationState extends Equatable {
   const AuthenticationState();
@@ -13,7 +13,7 @@ class AuthenticationInitial extends AuthenticationState {}
 class AuthenticationLoading extends AuthenticationState {}
 
 class AuthenticationAuthenticated extends AuthenticationState {
-  final User user;
+  final AppUser user;
 
   const AuthenticationAuthenticated(this.user);
 
