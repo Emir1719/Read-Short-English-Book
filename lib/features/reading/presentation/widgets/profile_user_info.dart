@@ -16,11 +16,6 @@ class UserInfo extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
-            "User Information",
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 20),
           ListTile(
             title: const Text("Email:"),
             subtitle: Text(user.email),

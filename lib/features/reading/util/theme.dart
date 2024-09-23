@@ -14,7 +14,23 @@ class AppTheme {
         appBarTheme: _appBarTheme(),
         scaffoldBackgroundColor: AppColor.primary,
         textButtonTheme: _textButtonTheme(),
+        textTheme: _textTheme(),
       );
+
+  static TextTheme _textTheme() {
+    return const TextTheme(
+      // body style
+      bodyLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+      bodyMedium: TextStyle(fontSize: 16),
+      bodySmall: TextStyle(fontSize: 14),
+
+      // title
+      titleLarge: TextStyle(fontSize: 24),
+
+      // label
+      labelMedium: TextStyle(fontSize: 16),
+    );
+  }
 
   static TextButtonThemeData _textButtonTheme() {
     return TextButtonThemeData(

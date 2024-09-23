@@ -4,6 +4,7 @@ import 'package:english_will_fly/features/auth/data/repositories/i_firestore_rep
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_event.dart';
 import 'package:english_will_fly/features/auth/presentation/view/splash/splash_view.dart';
+import 'package:english_will_fly/features/navigation/bloc/nav_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/dictionary/dictionary_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
 import 'package:english_will_fly/features/reading/util/theme.dart';
@@ -29,6 +30,7 @@ class MainApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => ReadingBloc()),
+        BlocProvider(create: (context) => NavBloc()),
         BlocProvider(create: (context) => DictionaryBloc()..add(FetchDictionary())),
         BlocProvider(
           create: (context) => AuthenticationBloc(

@@ -1,7 +1,7 @@
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
 import 'package:english_will_fly/features/auth/presentation/view/auth/login_view.dart';
-import 'package:english_will_fly/features/reading/presentation/view/home/home_view.dart';
+import 'package:english_will_fly/features/navigation/view/nav_view.dart';
 import 'package:english_will_fly/features/reading/util/init_state/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,7 +21,7 @@ class SplashView extends StatelessWidget {
     if (state is AuthenticationAuthenticated) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const HomeView()),
+        MaterialPageRoute(builder: (context) => const NavView()),
       );
     } else if (state is AuthenticationUnauthenticated) {
       Navigator.pushReplacement(
