@@ -1,6 +1,7 @@
 import 'package:english_will_fly/features/auth/presentation/widgets/auth/error_listener.dart';
+import 'package:english_will_fly/features/auth/presentation/widgets/auth/go_signup_view_button.dart';
 import 'package:english_will_fly/features/auth/presentation/widgets/auth/login_button.dart';
-import 'package:english_will_fly/features/auth/presentation/widgets/auth/signup_button.dart';
+import 'package:english_will_fly/features/reading/util/image.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:flutter/material.dart';
 
@@ -13,27 +14,28 @@ class LoginContent extends StatelessWidget {
     final TextEditingController password = TextEditingController();
     const space = SizedBox(height: 20);
 
-    return Padding(
+    return ListView(
       padding: AppPadding.defaults,
-      child: ListView(
-        children: [
-          TextField(
-            controller: email,
-            decoration: const InputDecoration(labelText: "Email"),
-          ),
-          space,
-          TextField(
-            controller: password,
-            decoration: const InputDecoration(labelText: "Password"),
-            obscureText: true,
-          ),
-          space,
-          LoginButton(email: email, password: password),
-          space,
-          SignUpButton(email: email, password: password),
-          const AuthErrorListener(),
-        ],
-      ),
+      children: [
+        Image.asset(AppImage.auth, fit: BoxFit.cover),
+        space,
+        TextField(
+          controller: email,
+          decoration: const InputDecoration(labelText: "Email"),
+          keyboardType: TextInputType.emailAddress,
+        ),
+        space,
+        TextField(
+          controller: password,
+          decoration: const InputDecoration(labelText: "Password"),
+          obscureText: true,
+        ),
+        space,
+        LoginButton(email: email, password: password),
+        space,
+        const GoSignUpButton(),
+        const AuthErrorListener(),
+      ],
     );
   }
 }

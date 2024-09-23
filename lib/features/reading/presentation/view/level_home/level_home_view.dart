@@ -12,7 +12,7 @@ class StoryLevelHomeView extends StatelessWidget {
     List<String> levels = api.getLevels();
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Seviyeler")),
+      appBar: AppBar(title: const Text("Stories by Levels")),
       body: ListView.separated(
         separatorBuilder: (context, index) => const SizedBox(height: 20),
         padding: AppPadding.defaults,

@@ -1,7 +1,7 @@
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
 import 'package:english_will_fly/features/auth/presentation/widgets/auth/content.dart';
-import 'package:english_will_fly/features/reading/presentation/view/level_home/level_home_view.dart';
+import 'package:english_will_fly/features/navigation/view/nav_view.dart';
 import 'package:english_will_fly/features/reading/util/init_state/error.dart';
 import 'package:english_will_fly/features/reading/util/init_state/loading.dart';
 import 'package:flutter/material.dart';
@@ -36,7 +36,7 @@ class LoginView extends StatelessWidget {
       // Kayıt ya da giriş başarılıysa ana sayfaya yönlendir
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => const StoryLevelHomeView()),
+        MaterialPageRoute(builder: (context) => const NavView()),
       );
     } else if (state is AuthenticationFailure) {
       // Hata mesajı göster

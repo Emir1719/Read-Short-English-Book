@@ -11,7 +11,7 @@ class StoriesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("${level.toUpperCase()} Hikayeler")),
+      appBar: AppBar(title: Text("${level.toUpperCase()} Stories")),
       body: BlocBuilder<ReadingBloc, ReadingState>(
         builder: (context, state) {
           if (state is ReadingLoading) {

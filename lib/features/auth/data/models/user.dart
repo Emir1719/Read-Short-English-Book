@@ -7,13 +7,15 @@ import 'package:firebase_auth/firebase_auth.dart';
 class AppUser {
   final String id;
   final String email;
+  String age;
 
-  AppUser({required this.id, required this.email});
+  AppUser({required this.id, required this.email, required this.age});
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
       'id': id,
       'email': email,
+      'age': age,
     };
   }
 
@@ -25,6 +27,7 @@ class AppUser {
     return AppUser(
       id: map['id'] as String,
       email: map['email'] as String,
+      age: map['age'] as String,
     );
   }
 
@@ -37,6 +40,7 @@ class AppUser {
     return AppUser(
       id: user.uid,
       email: user.email ?? "",
+      age: "",
     );
   }
 

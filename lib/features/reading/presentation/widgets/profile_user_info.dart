@@ -22,8 +22,8 @@ class UserInfo extends StatelessWidget {
             contentPadding: EdgeInsets.zero,
           ),
           ListTile(
-            title: const Text("ID:"),
-            subtitle: Text(user.id),
+            title: const Text("Age:"),
+            subtitle: Text(user.age),
             contentPadding: EdgeInsets.zero,
           ),
         ],

@@ -15,7 +15,54 @@ class AppTheme {
         scaffoldBackgroundColor: AppColor.primary,
         textButtonTheme: _textButtonTheme(),
         textTheme: _textTheme(),
+        listTileTheme: _listTileTheme(),
+        inputDecorationTheme: _inputDecorationTheme(),
+        elevatedButtonTheme: _elevatedButtonTheme(),
       );
+
+  static ElevatedButtonThemeData _elevatedButtonTheme() {
+    return ElevatedButtonThemeData(
+      style: ButtonStyle(
+        fixedSize: const WidgetStatePropertyAll(Size.fromHeight(55)),
+        textStyle: const WidgetStatePropertyAll(TextStyle(fontSize: 16)),
+        backgroundColor: WidgetStatePropertyAll(AppColor.primary),
+        foregroundColor: WidgetStatePropertyAll(AppColor.secondary),
+        surfaceTintColor: WidgetStatePropertyAll(AppColor.secondary),
+        shape: _buttonShape(),
+      ),
+    );
+  }
+
+  static WidgetStatePropertyAll<OutlinedBorder?> _buttonShape() {
+    return const WidgetStatePropertyAll(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+      ),
+    );
+  }
+
+  static InputDecorationTheme _inputDecorationTheme() {
+    var radius = const BorderRadius.all(Radius.circular(8));
+
+    return InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderRadius: radius,
+        borderSide: const BorderSide(color: Colors.black),
+      ),
+      labelStyle: TextStyle(fontSize: 16, color: AppColor.black),
+      focusedBorder: OutlineInputBorder(
+        borderRadius: radius,
+        borderSide: const BorderSide(color: Colors.black, width: 2),
+      ),
+    );
+  }
+
+  static ListTileThemeData _listTileTheme() {
+    return const ListTileThemeData(
+      titleTextStyle: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
+      subtitleTextStyle: TextStyle(fontSize: 15, color: Colors.black),
+    );
+  }
 
   static TextTheme _textTheme() {
     return const TextTheme(
@@ -35,9 +82,11 @@ class AppTheme {
   static TextButtonThemeData _textButtonTheme() {
     return TextButtonThemeData(
       style: ButtonStyle(
+        fixedSize: const WidgetStatePropertyAll(Size.fromHeight(55)),
         textStyle: const WidgetStatePropertyAll(TextStyle(fontSize: 16)),
         foregroundColor: WidgetStatePropertyAll(AppColor.secondary),
         surfaceTintColor: WidgetStatePropertyAll(AppColor.secondary),
+        shape: _buttonShape(),
       ),
     );
   }

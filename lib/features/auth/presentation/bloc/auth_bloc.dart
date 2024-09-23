@@ -20,7 +20,16 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     emit(AuthenticationLoading());
     try {
       final user = await _authRepository.getCurrentUser();
-      final appUser = AppUser.fromFirebaseUser(user!);
+      if (user == null) {
+        emit(const AuthenticationFailure("Kullanıcı yok"));
+        return;
+      }
+      final appUser = await _firestoreRepository.getCurrentUser(user.uid);
+
+      if (appUser == null) {
+        emit(const AuthenticationFailure("Kullanıcı yok"));
+        return;
+      }
       emit(AuthenticationAuthenticated(appUser));
     } catch (_) {
       emit(AuthenticationUnauthenticated());
@@ -32,7 +41,8 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     try {
       final user = await _authRepository.signUp(event.email, event.password);
       final appUser = AppUser.fromFirebaseUser(user!);
-      await _firestoreRepository.saveUser(user);
+      await _firestoreRepository.saveUser(user, event.age);
+      appUser.age = event.age;
       emit(AuthenticationAuthenticated(appUser));
     } catch (e) {
       emit(AuthenticationFailure(e.toString()));
@@ -43,7 +53,17 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     emit(AuthenticationLoading());
     try {
       final user = await _authRepository.signIn(event.email, event.password);
-      final appUser = AppUser.fromFirebaseUser(user!);
+      if (user == null) {
+        emit(const AuthenticationFailure("Kullanıcı yok"));
+        return;
+      }
+      final appUser = await _firestoreRepository.getCurrentUser(user.uid);
+
+      if (appUser == null) {
+        emit(const AuthenticationFailure("Kullanıcı yok"));
+        return;
+      }
+
       emit(AuthenticationAuthenticated(appUser));
     } catch (e) {
       emit(AuthenticationFailure(e.toString()));

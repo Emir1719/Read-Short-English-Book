@@ -24,12 +24,13 @@ class FirestoreRepository implements IFirestoreRepository {
   }
 
   @override
-  Future<bool> saveUser(User firebaseUser) async {
+  Future<bool> saveUser(User firebaseUser, String age) async {
     try {
       // Create an AppUser instance using the Firebase User
       final appUser = AppUser(
         id: firebaseUser.uid,
         email: firebaseUser.email ?? '', // Use an empty string if email is null
+        age: age,
       );
 
       // Save the AppUser to Firestore
