@@ -14,6 +14,15 @@ class AppStyle {
         borderRadius: BorderRadius.circular(10),
       );
 
+  static BoxDecoration get dictionary => BoxDecoration(
+        color: AppColor.primary,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(10),
+          topRight: Radius.circular(10),
+        ),
+        border: Border(top: BorderSide(color: AppColor.secondary!, width: 6)),
+      );
+
   static TextStyle get _baseText => TextStyle(
         color: AppColor.text,
         fontWeight: FontWeight.normal,

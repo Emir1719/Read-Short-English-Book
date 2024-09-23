@@ -11,7 +11,7 @@ final getIt = GetIt.instance;
 
 void setupDependencies() {
   // FirebaseAuth bağımlılığını sağla
-  getIt.registerLazySingleton<AuthenticationRepository>(
+  getIt.registerLazySingleton<IAuthenticationRepository>(
     () => FirebaseAuthenticationRepository(FirebaseAuth.instance),
   );
 

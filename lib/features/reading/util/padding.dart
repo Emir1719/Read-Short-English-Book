@@ -11,5 +11,5 @@ class AppPadding {
 
   static EdgeInsets get storyItem => const EdgeInsets.all(15);
 
-  static EdgeInsets get storyLevel => const EdgeInsets.symmetric(horizontal: 20, vertical: 5);
+  static EdgeInsets get storyLevel => const EdgeInsets.symmetric(horizontal: 20, vertical: 2);
 }

@@ -1,7 +1,7 @@
 import 'package:english_will_fly/features/auth/data/repositories/i_auth_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class FirebaseAuthenticationRepository implements AuthenticationRepository {
+class FirebaseAuthenticationRepository implements IAuthenticationRepository {
   final FirebaseAuth _firebaseAuth;
 
   FirebaseAuthenticationRepository(this._firebaseAuth);

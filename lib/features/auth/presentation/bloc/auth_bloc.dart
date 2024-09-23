@@ -6,7 +6,7 @@ import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
-  final AuthenticationRepository _authRepository;
+  final IAuthenticationRepository _authRepository;
   final IFirestoreRepository _firestoreRepository;
 
   AuthenticationBloc(this._authRepository, this._firestoreRepository) : super(AuthenticationInitial()) {

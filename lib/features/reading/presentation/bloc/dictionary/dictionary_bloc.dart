@@ -37,7 +37,7 @@ class DictionaryBloc extends Bloc<DictionaryEvent, DictionaryState> {
     // Eğer sözlük null veya boşsa hata emiti yap
     if (_dictionary == null) {
       emit(const DictionaryError(message: "Sözlüğe Erişilemedi"));
-      return;
+      _dictionary = await _api.loadDictionary();
     }
 
     try {

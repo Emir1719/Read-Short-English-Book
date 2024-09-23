@@ -34,7 +34,7 @@ class MainApp extends StatelessWidget {
         BlocProvider(create: (context) => DictionaryBloc()..add(FetchDictionary())),
         BlocProvider(
           create: (context) => AuthenticationBloc(
-            getIt<AuthenticationRepository>(),
+            getIt<IAuthenticationRepository>(),
             getIt<IFirestoreRepository>(),
           )..add(AppStarted()),
         )
