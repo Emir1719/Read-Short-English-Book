@@ -12,12 +12,12 @@ class ReadingInitial extends ReadingState {}
 class ReadingLoading extends ReadingState {}
 
 class ReadingLoaded extends ReadingState {
-  final List<Story> story;
+  final List<Story> stories;
 
-  const ReadingLoaded({required this.story});
+  const ReadingLoaded({required this.stories});
 
   @override
-  List<Object> get props => [story];
+  List<Object> get props => [stories];
 }
 
 class ReadingError extends ReadingState {

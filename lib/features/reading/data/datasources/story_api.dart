@@ -22,8 +22,34 @@ class StoryApi {
     return jsonData.map((e) => Story.fromMap(e)).toList();
   }
 
+  /// hikayeleri getirir
+  Future<List<Story>> loadAllStoriesData() async {
+    List<dynamic> jsonData = [];
+
+    // Paralel olarak bütün dosyaları yüklemek için Future kullanıyoruz.
+    var futures = getLevelsNotEmptyFile().map((level) async {
+      String path = 'assets/data/${level.trim().toLowerCase()}.json';
+      final jsonString = await rootBundle.loadString(path);
+      return jsonDecode(jsonString) as List;
+    });
+
+    // Tüm işlemleri bekliyoruz ve sonuçları listeye ekliyoruz.
+    var results = await Future.wait(futures);
+
+    // Sonuçları düz bir listeye dönüştürüyoruz.
+    for (var result in results) {
+      jsonData += result;
+    }
+
+    return jsonData.map((e) => Story.fromMap(e)).toList();
+  }
+
   List<String> getLevels() {
     return ["A1", "A2", "B1", "B2", "C1", "C2"];
+  }
+
+  List<String> getLevelsNotEmptyFile() {
+    return ["A1", "A2", "B1"];
   }
 
   Future<List<Dictionary>> loadDictionary() async {

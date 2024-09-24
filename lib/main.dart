@@ -29,9 +29,9 @@ class MainApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => ReadingBloc()),
+        BlocProvider(create: (context) => ReadingBloc()..add(LoadAllStories())),
         BlocProvider(create: (context) => NavBloc()),
-        BlocProvider(create: (context) => DictionaryBloc()..add(FetchDictionary())),
+        BlocProvider(create: (context) => DictionaryBloc()),
         BlocProvider(
           create: (context) => AuthenticationBloc(
             getIt<IAuthenticationRepository>(),

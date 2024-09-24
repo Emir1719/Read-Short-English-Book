@@ -13,3 +13,5 @@ class FetchStories extends ReadingEvent {
 
   const FetchStories({required this.levelCode});
 }
+
+class LoadAllStories extends ReadingEvent {}

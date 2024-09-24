@@ -7,6 +7,7 @@ class Story {
   final int id;
   final String title;
   final String image;
+  final String level;
   final Category category;
   final List<String> paragraphs;
   final List<String> definitions;
@@ -18,6 +19,7 @@ class Story {
     required this.paragraphs,
     required this.definitions,
     required this.image,
+    required this.level,
     required this.category,
     this.isCompleted = false,
   });
@@ -31,6 +33,7 @@ class Story {
       'paragraphs': paragraphs,
       'definitions': definitions,
       'isCompleted': isCompleted,
+      'level': level,
     };
   }
 
@@ -45,6 +48,7 @@ class Story {
       paragraphs: List<String>.from((map['paragraphs'] as List<dynamic>)),
       definitions: List<String>.from((map['definitions'] as List<dynamic>)),
       isCompleted: false,
+      level: "a1",
     );
   }
 

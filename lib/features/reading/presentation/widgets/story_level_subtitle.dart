@@ -9,16 +9,8 @@ class StoryLevelSubtitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ReadingBloc, ReadingState>(
-      bloc: ReadingBloc()..add(FetchStories(levelCode: level)),
-      builder: (context, state) {
-        if (state is ReadingLoading) {
-          return const CircularProgressIndicator();
-        } else if (state is ReadingLoaded) {
-          return Text("${state.story.length} stories");
-        }
-        return const Text("No any story");
-      },
-    );
+    var list = context.read<ReadingBloc>().stories!.where((element) => element.level == level.toLowerCase()).toList();
+
+    return list.isNotEmpty ? Text("${list.length} stories") : const Text("No any story");
   }
 }

@@ -10,4 +10,7 @@ abstract class IStory {
 
   /// Seviye koduna göre tüm hikayeleri, kategori id'si ile eşleştirip getirir
   Future<List<Story>> getStoriesWithCategories(String levelCode);
+
+  /// Tüm hikayeleri, kategori id'si ile eşleştirip getirir
+  Future<List<Story>> getStoriesWithCategoriesForAllLevels();
 }

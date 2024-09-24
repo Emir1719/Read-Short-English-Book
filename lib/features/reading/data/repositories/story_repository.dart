@@ -17,6 +17,44 @@ final class StoryRepository extends IStory {
   }
 
   @override
+  Future<List<Story>> getStoriesWithCategoriesForAllLevels() async {
+    List<Story> allStories = [];
+
+    // Get levels with non-empty files
+    var levels = getLevelsNotEmptyFile();
+
+    // Her level için hikayeleri yükle
+    for (var levelCode in levels) {
+      var stories = await _api.loadStoryData(levelCode);
+      var categories = await _api.loadCategories();
+
+      // Hikayeleri kategorilerle eşleştir
+      var storiesWithCategories = stories.map((story) {
+        var category = categories.firstWhere((category) => category.id == story.category.id);
+
+        return Story(
+          id: story.id,
+          title: story.title,
+          category: category, // Eşleştirilmiş kategori
+          image: story.image,
+          level: levelCode.toLowerCase(),
+          paragraphs: story.paragraphs,
+          definitions: story.definitions,
+        );
+      }).toList();
+
+      // Her level'dan gelen hikayeleri genel listeye ekle
+      allStories.addAll(storiesWithCategories);
+    }
+
+    return allStories;
+  }
+
+  List<String> getLevelsNotEmptyFile() {
+    return ["A1", "A2", "B1"];
+  }
+
+  @override
   Future<List<Story>> getStoriesWithCategories(String levelCode) async {
     var stories = await _api.loadStoryData(levelCode);
     var categories = await _api.loadCategories();
@@ -30,6 +68,7 @@ final class StoryRepository extends IStory {
         title: story.title,
         category: category, // Eşleştirilmiş kategori
         image: story.image,
+        level: levelCode.toLowerCase(),
         paragraphs: story.paragraphs,
         definitions: story.definitions,
       );

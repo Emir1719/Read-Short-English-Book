@@ -3,16 +3,16 @@ import 'package:english_will_fly/features/reading/presentation/widgets/story_lis
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:flutter/material.dart';
 
-class StoryList extends StatelessWidget {
-  const StoryList({super.key, required this.state});
+class HomeStoriesList extends StatelessWidget {
+  const HomeStoriesList({super.key, required this.state});
   final ReadingLoaded state;
 
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
-      separatorBuilder: (context, index) => const SizedBox(height: 20),
-      padding: AppPadding.defaults,
       itemCount: state.stories.length,
+      padding: AppPadding.defaults,
+      separatorBuilder: (context, index) => const SizedBox(height: 20),
       itemBuilder: (context, index) {
         var story = state.stories[index];
 
