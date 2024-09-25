@@ -11,6 +11,8 @@ class ReadingInitial extends ReadingState {}
 
 class ReadingLoading extends ReadingState {}
 
+class ReadingSaveSuccess extends ReadingState {}
+
 class ReadingLoaded extends ReadingState {
   final List<Story> stories;
 

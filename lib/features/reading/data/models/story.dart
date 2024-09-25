@@ -4,7 +4,7 @@ import 'dart:convert';
 import 'package:english_will_fly/features/reading/data/models/category.dart';
 
 class Story {
-  final int id;
+  final String id;
   final String title;
   final String image;
   final String level;
@@ -41,7 +41,7 @@ class Story {
     // category and isCompleted placeholder, namely these fields will be changed in the bloc file
 
     return Story(
-      id: map['id'] as int,
+      id: map['id'] as String,
       title: map['title'] as String,
       image: map['image'] as String,
       category: Category(id: map['category'] as int, title: "", description: ""),
@@ -55,4 +55,26 @@ class Story {
   String toJson() => json.encode(toMap());
 
   factory Story.fromJson(String source) => Story.fromMap(json.decode(source) as Map<String, dynamic>);
+
+  Story copyWith({
+    String? id,
+    String? title,
+    String? image,
+    String? level,
+    Category? category,
+    List<String>? paragraphs,
+    List<String>? definitions,
+    bool? isCompleted,
+  }) {
+    return Story(
+      id: id ?? this.id,
+      title: title ?? this.title,
+      image: image ?? this.image,
+      level: level ?? this.level,
+      category: category ?? this.category,
+      paragraphs: paragraphs ?? this.paragraphs,
+      definitions: definitions ?? this.definitions,
+      isCompleted: isCompleted ?? this.isCompleted,
+    );
+  }
 }

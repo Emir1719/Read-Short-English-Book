@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "a2_1",
         "title": "A Walk in the Forest",
         "category": 1,
         "image": "https://images.pexels.com/photos/167698/pexels-photo-167698.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -20,7 +20,7 @@
         ]
     },
     {
-        "id": 2,
+        "id": "a2_2",
         "title": "The Big Race",
         "category": 2,
         "image": "https://images.pexels.com/photos/158971/pexels-photo-158971.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -40,7 +40,7 @@
         ]
     },
     {
-        "id": 3,
+        "id": "a2_3",
         "title": "A Night at the Cinema",
         "category": 3,
         "image": "https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -60,7 +60,7 @@
         ]
     },
     {
-        "id": 4,
+        "id": "a2_4",
         "title": "Helping a Stranger",
         "category": 4,
         "image": "https://images.pexels.com/photos/3993214/pexels-photo-3993214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -80,7 +80,7 @@
         ]
     },
     {
-        "id": 5,
+        "id": "a2_5",
         "title": "The Friday Prayer",
         "category": 8,
         "image": "https://images.pexels.com/photos/461918/pexels-photo-461918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -100,7 +100,7 @@
         ]
     },
     {
-        "id": 6,
+        "id": "a2_6",
         "title": "A Visit to the Orphanage",
         "category": 8,
         "image": "https://images.pexels.com/photos/3076178/pexels-photo-3076178.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -120,7 +120,7 @@
         ]
     },
     {
-        "id": 7,
+        "id": "a2_7",
         "title": "Sharing in Ramadan",
         "category": 8,
         "image": "https://images.pexels.com/photos/2233416/pexels-photo-2233416.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -140,7 +140,7 @@
         ]
     },
     {
-        "id": 8,
+        "id": "a2_8",
         "title": "Helping the Poor",
         "category": 8,
         "image": "https://images.pexels.com/photos/1250452/pexels-photo-1250452.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",

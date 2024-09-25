@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "b1_1",
         "title": "The Mountain Hike",
         "category": 1,
         "image": "https://images.pexels.com/photos/1365425/pexels-photo-1365425.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -20,7 +20,7 @@
         ]
     },
     {
-        "id": 2,
+        "id": "b1_2",
         "title": "The Football Tournament",
         "category": 2,
         "image": "https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -40,7 +40,7 @@
         ]
     },
     {
-        "id": 3,
+        "id": "b1_3",
         "title": "The Lost Necklace",
         "category": 4,
         "image": "https://images.pexels.com/photos/6614313/pexels-photo-6614313.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -60,7 +60,7 @@
         ]
     },
     {
-        "id": 4,
+        "id": "b1_4",
         "title": "The Unexpected Detour",
         "category": 3,
         "image": "https://images.pexels.com/photos/9826960/pexels-photo-9826960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -80,7 +80,7 @@
         ]
     },
     {
-        "id": 5,
+        "id": "b1_5",
         "title": "The Boy Who Lived: Harry Potter",
         "category": 3,
         "image": "https://images.pexels.com/photos/8391282/pexels-photo-8391282.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",

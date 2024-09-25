@@ -1,5 +1,6 @@
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/home/stories_list.dart';
+import 'package:english_will_fly/features/reading/util/init_state/error.dart';
 import 'package:english_will_fly/features/reading/util/init_state/loading.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,7 +20,7 @@ class HomeView extends StatelessWidget {
           } else if (state is ReadingLoaded) {
             return HomeStoriesList(state: state);
           } else if (state is ReadingError) {
-            return Text(state.message.toString());
+            return AppError(message: state.message);
           }
           return Container();
         },

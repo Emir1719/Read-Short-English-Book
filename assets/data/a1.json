@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": "a1_1",
         "title": "Autumn Days",
         "category": 1,
         "image": "https://images.pexels.com/photos/531857/pexels-photo-531857.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -21,7 +21,7 @@
         ]
     },
     {
-        "id": 2,
+        "id": "a1_2",
         "title": "The Big Ocean",
         "category": 1,
         "image": "https://images.pexels.com/photos/1298684/pexels-photo-1298684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -42,7 +42,7 @@
         ]
     },
     {
-        "id": 3,
+        "id": "a1_3",
         "title": "Sunset",
         "category": 1,
         "image": "https://images.pexels.com/photos/267151/pexels-photo-267151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -62,7 +62,7 @@
         ]
     },
     {
-        "id": 4,
+        "id": "a1_4",
         "title": "Rain",
         "category": 1,
         "image": "https://images.pexels.com/photos/9648468/pexels-photo-9648468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -82,7 +82,7 @@
         ]
     },
     {
-        "id": 5,
+        "id": "a1_5",
         "title": "Football Game",
         "category": 2,
         "image": "https://images.pexels.com/photos/399187/pexels-photo-399187.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
@@ -102,7 +102,7 @@
         ]
     },
     {
-        "id": 6,
+        "id": "a1_6",
         "title": "Movie Night",
         "category": 3,
         "image": "https://images.pexels.com/photos/2507025/pexels-photo-2507025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",

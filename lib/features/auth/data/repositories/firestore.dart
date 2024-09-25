@@ -5,9 +5,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 class FirestoreRepository implements IFirestoreRepository {
   final FirebaseFirestore _firestore;
+  final FirebaseAuth _auth;
   final String _usersCollection = "users";
+  final String _readingCollection = "reading";
 
-  FirestoreRepository(this._firestore);
+  FirestoreRepository(this._firestore, this._auth);
 
   @override
   Future<AppUser?> getCurrentUser(String userId) async {
@@ -38,6 +40,36 @@ class FirestoreRepository implements IFirestoreRepository {
       return true;
     } catch (e) {
       // Log error or handle accordingly
+      return false;
+    }
+  }
+
+  @override
+  Future<bool> saveReading(String storyId) async {
+    try {
+      final id = _auth.currentUser!.uid;
+
+      // Reference to the user's document
+      final docRef = _firestore.collection(_readingCollection).doc(id);
+
+      // Check if the document exists
+      final docSnapshot = await docRef.get();
+
+      if (docSnapshot.exists) {
+        // If the document exists, update the list
+        await docRef.update({
+          "storyIds": FieldValue.arrayUnion([storyId])
+        });
+      } else {
+        // If the document doesn't exist, create it with the storyId
+        await docRef.set({
+          "id": id,
+          "storyIds": [storyId]
+        });
+      }
+
+      return true;
+    } catch (e) {
       return false;
     }
   }

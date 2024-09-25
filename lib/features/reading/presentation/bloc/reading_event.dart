@@ -12,6 +12,18 @@ class FetchStories extends ReadingEvent {
   final String levelCode;
 
   const FetchStories({required this.levelCode});
+
+  @override
+  List<Object> get props => [levelCode];
 }
 
 class LoadAllStories extends ReadingEvent {}
+
+class SaveStoryAsReaded extends ReadingEvent {
+  final String storyId;
+
+  const SaveStoryAsReaded({required this.storyId});
+
+  @override
+  List<Object> get props => [storyId];
+}

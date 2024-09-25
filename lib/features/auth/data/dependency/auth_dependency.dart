@@ -16,6 +16,6 @@ void setupDependencies() {
   );
 
   getIt.registerLazySingleton<IFirestoreRepository>(
-    () => FirestoreRepository(FirebaseFirestore.instance),
+    () => FirestoreRepository(FirebaseFirestore.instance, FirebaseAuth.instance),
   );
 }

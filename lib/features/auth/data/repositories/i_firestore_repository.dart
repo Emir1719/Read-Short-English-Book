@@ -4,4 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 abstract class IFirestoreRepository {
   Future<bool> saveUser(User firebaseUser, String age);
   Future<AppUser?> getCurrentUser(String userId);
+
+  Future<bool> saveReading(String storyId);
 }
