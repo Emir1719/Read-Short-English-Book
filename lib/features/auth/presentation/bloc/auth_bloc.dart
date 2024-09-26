@@ -21,7 +21,7 @@ class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> 
     try {
       final user = await _authRepository.getCurrentUser();
       if (user == null) {
-        emit(const AuthenticationFailure("Kullanıcı yok"));
+        emit(AuthenticationUnauthenticated());
         return;
       }
       final appUser = await _firestoreRepository.getCurrentUser(user.uid);

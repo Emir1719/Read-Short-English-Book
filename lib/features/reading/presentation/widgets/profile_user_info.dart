@@ -36,7 +36,7 @@ class UserInfo extends StatelessWidget {
               future: repo.getReading(),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.done) {
-                  return Text(snapshot.data!.storyIds.length.toString());
+                  return Text(snapshot.data?.storyIds.length.toString() ?? "0");
                 }
                 return const SizedBox();
               },

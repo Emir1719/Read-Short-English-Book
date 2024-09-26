@@ -16,7 +16,7 @@ class HomeStoriesList extends StatelessWidget {
       itemBuilder: (context, index) {
         var story = state.stories[index];
 
-        return StoryListItem(story: story);
+        return StoryListItem(story: story, showLevel: true);
       },
     );
   }

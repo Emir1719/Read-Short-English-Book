@@ -23,6 +23,11 @@ class AppStyle {
         border: Border(top: BorderSide(color: AppColor.secondary!, width: 6)),
       );
 
+  static BoxDecoration get storyLevel => BoxDecoration(
+        color: Colors.white.withOpacity(0.65),
+        borderRadius: BorderRadius.circular(8),
+      );
+
   static TextStyle get _baseText => TextStyle(
         color: AppColor.text,
         fontWeight: FontWeight.normal,

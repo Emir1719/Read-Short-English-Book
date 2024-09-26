@@ -5,8 +5,9 @@ import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:flutter/material.dart';
 
 class StoryListItem extends StatelessWidget {
-  const StoryListItem({super.key, required this.story});
+  const StoryListItem({super.key, required this.story, this.showLevel = false});
   final Story story;
+  final bool showLevel;
 
   @override
   Widget build(BuildContext context) {
@@ -61,15 +62,32 @@ class StoryListItem extends StatelessWidget {
     );
   }
 
-  ClipRRect _image(Story story) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(10.0),
-      child: Image.network(
-        story.image,
-        width: 140,
-        height: 90,
-        fit: BoxFit.cover,
-      ),
+  Widget _image(Story story) {
+    var level = story.level.split("_")[0].toUpperCase();
+    if (level.isEmpty) {
+      level = "?";
+    }
+
+    return Stack(
+      children: [
+        ClipRRect(
+          borderRadius: BorderRadius.circular(10.0),
+          child: Image.network(
+            story.image,
+            width: 140,
+            height: 90,
+            fit: BoxFit.cover,
+          ),
+        ),
+        showLevel
+            ? Container(
+                decoration: AppStyle.storyLevel,
+                margin: const EdgeInsets.all(10),
+                padding: const EdgeInsets.symmetric(horizontal: 8),
+                child: Text(level, style: const TextStyle(fontSize: 14)),
+              )
+            : const SizedBox.shrink(),
+      ],
     );
   }
 }
