@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:english_will_fly/features/auth/data/models/user.dart';
 import 'package:english_will_fly/features/auth/data/repositories/i_firestore_repository.dart';
+import 'package:english_will_fly/features/reading/data/models/story_readed.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FirestoreRepository implements IFirestoreRepository {
@@ -71,6 +72,17 @@ class FirestoreRepository implements IFirestoreRepository {
       return true;
     } catch (e) {
       return false;
+    }
+  }
+
+  @override
+  Future<StoryReaded> getReading() async {
+    try {
+      final snapshot = await _firestore.collection(_readingCollection).doc(_auth.currentUser!.uid).get();
+      final data = snapshot.data() as Map<String, dynamic>;
+      return StoryReaded.fromMap(data);
+    } catch (e) {
+      rethrow;
     }
   }
 }

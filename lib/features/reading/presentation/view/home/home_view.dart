@@ -13,7 +13,6 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text("Home")),
       body: BlocBuilder<ReadingBloc, ReadingState>(
-        bloc: ReadingBloc()..add(LoadAllStories()),
         builder: (context, state) {
           if (state is ReadingLoading) {
             return const AppLoading();

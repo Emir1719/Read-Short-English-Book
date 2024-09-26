@@ -27,7 +27,7 @@ class StoryApi {
     List<dynamic> jsonData = [];
 
     // Paralel olarak bütün dosyaları yüklemek için Future kullanıyoruz.
-    var futures = getLevelsNotEmptyFile().map((level) async {
+    var futures = getLevels().map((level) async {
       String path = 'assets/data/${level.trim().toLowerCase()}.json';
       final jsonString = await rootBundle.loadString(path);
       return jsonDecode(jsonString) as List;
@@ -46,10 +46,6 @@ class StoryApi {
 
   List<String> getLevels() {
     return ["A1", "A2", "B1", "B2", "C1", "C2"];
-  }
-
-  List<String> getLevelsNotEmptyFile() {
-    return ["A1", "A2", "B1"];
   }
 
   Future<List<Dictionary>> loadDictionary() async {

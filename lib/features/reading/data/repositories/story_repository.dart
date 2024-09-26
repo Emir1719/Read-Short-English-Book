@@ -21,7 +21,7 @@ final class StoryRepository extends IStory {
     List<Story> allStories = [];
 
     // Get levels with non-empty files
-    var levels = getLevelsNotEmptyFile();
+    var levels = _api.getLevels();
 
     // Her level için hikayeleri yükle
     for (var levelCode in levels) {
@@ -48,10 +48,6 @@ final class StoryRepository extends IStory {
     }
 
     return allStories;
-  }
-
-  List<String> getLevelsNotEmptyFile() {
-    return ["A1", "A2", "B1"];
   }
 
   @override

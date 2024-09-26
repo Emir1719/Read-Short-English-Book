@@ -15,8 +15,9 @@ class ReadingSaveSuccess extends ReadingState {}
 
 class ReadingLoaded extends ReadingState {
   final List<Story> stories;
+  final List<Story> filteredStories;
 
-  const ReadingLoaded({required this.stories});
+  const ReadingLoaded({required this.stories, required this.filteredStories});
 
   @override
   List<Object> get props => [stories];

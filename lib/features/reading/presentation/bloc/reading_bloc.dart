@@ -15,7 +15,6 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
   final _repository = StoryRepository();
   final _firestore = FirestoreRepository(FirebaseFirestore.instance, FirebaseAuth.instance);
   List<Story>? stories;
-  List<Story>? storiesCopy;
 
   ReadingBloc() : super(ReadingInitial()) {
     on<FetchStories>(fetchStories);
@@ -34,7 +33,7 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
 
       var storyFiltered =
           stories!.where((story) => story.level.toLowerCase() == event.levelCode.toLowerCase()).toList();
-      emit(ReadingLoaded(stories: storyFiltered));
+      emit(ReadingLoaded(stories: stories!, filteredStories: storyFiltered));
     } catch (e) {
       emit(ReadingError(message: e.toString()));
     }
@@ -44,12 +43,18 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     try {
       emit(ReadingLoading());
       stories = await _repository.getStoriesWithCategoriesForAllLevels();
+      var reading = await _firestore.getReading();
 
-      // Orijinal listeyi değiştirmemek için kopyasını oluşturuyoruz
-      /*var storiesCopy = List<Story>.from(stories ?? []);
-      storiesCopy.shuffle(); // Sadece kopyayı karıştırıyoruz*/
+      stories = stories?.map((story) {
+        if (reading.storyIds.contains(story.id)) {
+          return story.copyWith(isCompleted: true);
+        }
+        return story;
+      }).toList();
 
-      emit(ReadingLoaded(stories: stories!));
+      stories?.shuffle();
+
+      emit(ReadingLoaded(stories: stories!, filteredStories: const []));
     } catch (e) {
       emit(ReadingError(message: e.toString()));
     }
@@ -68,7 +73,7 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
         return story;
       }).toList();
 
-      emit(ReadingLoaded(stories: stories!)); // Emit updated stories list
+      emit(ReadingLoaded(stories: stories!, filteredStories: const [])); // Emit updated stories list
     } catch (e) {
       emit(ReadingError(message: e.toString()));
     }

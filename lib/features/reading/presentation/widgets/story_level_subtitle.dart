@@ -8,18 +8,9 @@ class StoryLevelSubtitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ReadingBloc, ReadingState>(
-      builder: (context, state) {
-        if (state is ReadingLoading) {
-          return const CircularProgressIndicator(); // Hikayeler yüklenirken gösterilecek
-        } else if (state is ReadingLoaded) {
-          var list = state.stories.where((element) => element.level.toLowerCase() == level.toLowerCase()).toList();
-          return list.isNotEmpty ? Text("${list.length} stories") : const Text("No any story");
-        } else if (state is ReadingError) {
-          return Text("Error: ${state.message}"); // Hata durumu için
-        }
-        return const Text("No stories loaded");
-      },
-    );
+    var stories = context.read<ReadingBloc>().stories;
+
+    var list = stories?.where((element) => element.level.toLowerCase() == level.toLowerCase()).toList() ?? [];
+    return list.isNotEmpty ? Text("${list.length} stories") : const Text("No any story");
   }
 }

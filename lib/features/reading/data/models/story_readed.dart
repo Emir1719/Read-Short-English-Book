@@ -17,7 +17,7 @@ class StoryReaded {
   factory StoryReaded.fromMap(Map<String, dynamic> map) {
     return StoryReaded(
       id: map['id'] as String,
-      storyIds: List<String>.from((map['storyIds'] as List<String>)),
+      storyIds: List<String>.from((map['storyIds'] as List<dynamic>)),
     );
   }
 
