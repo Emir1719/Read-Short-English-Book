@@ -47,20 +47,20 @@ class AppTheme {
     return InputDecorationTheme(
       border: OutlineInputBorder(
         borderRadius: radius,
-        borderSide: const BorderSide(color: Colors.black),
+        borderSide: BorderSide(color: AppColor.black!),
       ),
       labelStyle: TextStyle(fontSize: 16, color: AppColor.black),
       focusedBorder: OutlineInputBorder(
         borderRadius: radius,
-        borderSide: const BorderSide(color: Colors.black, width: 2),
+        borderSide: BorderSide(color: AppColor.black!, width: 2),
       ),
     );
   }
 
   static ListTileThemeData _listTileTheme() {
-    return const ListTileThemeData(
-      titleTextStyle: TextStyle(fontSize: 16, color: Colors.black, fontWeight: FontWeight.bold),
-      subtitleTextStyle: TextStyle(fontSize: 15, color: Colors.black),
+    return ListTileThemeData(
+      titleTextStyle: TextStyle(fontSize: 16, color: AppColor.black!, fontWeight: FontWeight.bold),
+      subtitleTextStyle: TextStyle(fontSize: 15, color: AppColor.black!),
     );
   }
 

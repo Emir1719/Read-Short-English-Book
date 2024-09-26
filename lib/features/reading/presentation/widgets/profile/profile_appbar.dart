@@ -1,4 +1,4 @@
-import 'package:english_will_fly/features/reading/presentation/widgets/profile_exit_button.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/profile/profile_exit_button.dart';
 import 'package:flutter/material.dart';
 
 class ProfileAppBar extends StatelessWidget implements PreferredSizeWidget {

@@ -22,4 +22,9 @@ class AppColor {
 
   // for widgets
   static Color? get text => black;
+  static Color? get profileInfoBack => Colors.blue.shade400;
+  static Color? get profileInfoFront => primary;
+  static Color? get completeTask => Colors.green;
+  static Color? get storyCategoryTitle => Colors.blue.shade900;
+  static Color? get profileInfoTitle => Colors.grey.shade600;
 }

@@ -49,8 +49,15 @@ class AppStyle {
 
   static TextStyle get storyCategoryTitle => _baseText.copyWith(
         fontSize: 15,
-        color: Colors.blue.shade900,
+        color: AppColor.storyCategoryTitle,
       );
+
+  static TextStyle get profileInfoTitle => TextStyle(
+        fontSize: 16,
+        color: AppColor.profileInfoTitle,
+      );
+
+  static TextStyle get profileInfoValue => TextStyle(fontSize: 18);
 
   static Color? levelColor(String level) {
     switch (level) {
@@ -72,6 +79,6 @@ class AppStyle {
   }
 
   static Color? compliteColor(bool isCompleted) {
-    return isCompleted ? Colors.green : Colors.black;
+    return isCompleted ? AppColor.completeTask : AppColor.black;
   }
 }
