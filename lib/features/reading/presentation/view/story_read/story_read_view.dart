@@ -1,5 +1,6 @@
 import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_image.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_detail.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read_btn.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/text_parse.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
@@ -12,10 +13,11 @@ class StoryReadView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(story.title)),
+      appBar: AppBar(title: Tooltip(message: story.title, child: Text(story.title))),
       body: ListView(
         children: [
           StoryImage(story: story),
+          StoryDetail(story: story),
           ...story.paragraphs.map((item) {
             return Padding(
               padding: AppPadding.defaults.copyWith(bottom: 5),

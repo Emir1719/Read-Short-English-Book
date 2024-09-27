@@ -22,16 +22,12 @@ class StoryReadButton extends StatelessWidget {
             onPressed: state is ReadingLoading
                 ? null // Disable the button while loading
                 : () {
-                    context.read<ReadingBloc>().add(SaveStoryAsReaded(storyId: story.id.toString()));
+                    context.read<ReadingBloc>().add(SaveStoryAsReaded(
+                          storyId: story.id.toString(),
+                          levelCode: story.level.toLowerCase(),
+                        ));
                   },
-            label: state is ReadingLoading
-                ? const CircularProgressIndicator() // Show loading indicator
-                : Text(
-                    "Okudum",
-                    style: TextStyle(
-                      color: complete ? Colors.green : AppColor.secondary,
-                    ),
-                  ), // Default label
+            label: _label(state, complete), // Default label
             icon: Icon(
               Icons.check_circle_outline_rounded,
               color: complete ? Colors.green : AppColor.secondary,
@@ -40,5 +36,16 @@ class StoryReadButton extends StatelessWidget {
         );
       },
     );
+  }
+
+  Widget _label(ReadingState state, bool complete) {
+    return state is ReadingLoading
+        ? const CircularProgressIndicator() // Show loading indicator
+        : Text(
+            "Okudum",
+            style: TextStyle(
+              color: complete ? Colors.green : AppColor.secondary,
+            ),
+          );
   }
 }

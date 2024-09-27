@@ -2,8 +2,8 @@ import 'package:english_will_fly/features/reading/presentation/widgets/profile/i
 import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:flutter/material.dart';
 
-class ProfileInfo extends StatelessWidget {
-  const ProfileInfo({super.key, this.icon, required this.title, required this.value});
+class InfoBox extends StatelessWidget {
+  const InfoBox({super.key, this.icon, required this.title, required this.value});
   final IconData? icon;
   final String title;
   final String value;

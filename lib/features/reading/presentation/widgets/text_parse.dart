@@ -34,9 +34,10 @@ class TextParse {
         bool isDefined = story.definitions.any((def) => matchedText.toLowerCase().startsWith(def.toLowerCase()));
 
         if (isDefined) {
-          textSpans.add(_linkedWord(matchedText, context));
+          textSpans.add(_linkedWord(matchedText, context, AppColor.secondary));
         } else {
-          textSpans.add(TextSpan(text: matchedText));
+          //textSpans.add(TextSpan(text: matchedText));
+          textSpans.add(_linkedWord(matchedText, context, AppColor.black));
         }
       } else {
         // Add space or non-word characters as is
@@ -56,10 +57,10 @@ class TextParse {
     );
   }
 
-  static TextSpan _linkedWord(String matchedText, BuildContext context) {
+  static TextSpan _linkedWord(String matchedText, BuildContext context, Color? color) {
     return TextSpan(
       text: matchedText,
-      style: TextStyle(color: AppColor.secondary),
+      style: TextStyle(color: color ?? AppColor.secondary),
       recognizer: TapGestureRecognizer()
         ..onTap = () {
           showModalBottomSheet(

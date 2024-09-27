@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/view/story_read/story_read_view.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
@@ -19,7 +20,7 @@ class StoryListItem extends StatelessWidget {
         decoration: AppStyle.level,
         child: Row(
           children: [
-            story.image.isNotEmpty ? _image(story) : const SizedBox(),
+            story.image.isNotEmpty ? _image(story) : const SizedBox(width: 140, height: 90),
             Expanded(
               child: Padding(
                 padding: AppPadding.storyItem,
@@ -58,7 +59,7 @@ class StoryListItem extends StatelessWidget {
       story.title,
       style: AppStyle.storyTitle,
       overflow: TextOverflow.ellipsis,
-      maxLines: 2,
+      maxLines: 1,
     );
   }
 
@@ -72,8 +73,8 @@ class StoryListItem extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10.0),
-          child: Image.network(
-            story.image,
+          child: CachedNetworkImage(
+            imageUrl: story.image,
             width: 140,
             height: 90,
             fit: BoxFit.cover,

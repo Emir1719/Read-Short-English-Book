@@ -1,7 +1,7 @@
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
-import 'package:english_will_fly/features/reading/presentation/widgets/profile/profile_info.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/info_box.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -21,19 +21,19 @@ class UserInfo extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          ProfileInfo(
+          InfoBox(
             title: "Email",
             value: user.email,
             icon: Icons.email,
           ),
           space,
-          ProfileInfo(
+          InfoBox(
             title: "Age",
             value: user.age,
             icon: Icons.align_vertical_bottom_rounded,
           ),
           space,
-          ProfileInfo(
+          InfoBox(
             title: "Total Reading",
             value: count.toString(),
             icon: Icons.add_task_sharp,

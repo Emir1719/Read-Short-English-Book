@@ -21,8 +21,9 @@ class LoadAllStories extends ReadingEvent {}
 
 class SaveStoryAsReaded extends ReadingEvent {
   final String storyId;
+  final String levelCode;
 
-  const SaveStoryAsReaded({required this.storyId});
+  const SaveStoryAsReaded({required this.storyId, required this.levelCode});
 
   @override
   List<Object> get props => [storyId];
