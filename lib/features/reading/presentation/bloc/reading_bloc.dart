@@ -22,6 +22,8 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     on<FetchStories>(fetchStories);
     on<LoadAllStories>(loadAllStories);
     on<SaveStoryAsReaded>(saveStoryAsReaded);
+    on<SearchStories>(_searchStories);
+    on<ToggleSearchBar>(_toggleSearchBar);
   }
 
   /// Seviyeye göre ingilizce hikayeleri getirir
@@ -83,6 +85,38 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
       emit(ReadingLoaded(stories: stories ?? [], filteredStories: filteredStories ?? [])); // Emit updated stories list
     } catch (e) {
       emit(ReadingError(message: e.toString()));
+    }
+  }
+
+  Future<void> _searchStories(SearchStories event, Emitter<ReadingState> emit) async {
+    if (event.query.isEmpty) {
+      emit(ReadingLoaded(stories: stories ?? [], filteredStories: stories ?? []));
+    } else {
+      final filtered =
+          stories?.where((story) => story.title.toLowerCase().contains(event.query.toLowerCase())).toList();
+
+      emit(
+        ReadingLoaded(
+          stories: filtered ?? [],
+          filteredStories: filteredStories ?? [],
+          isSearchActive: true,
+        ),
+      );
+    }
+  }
+
+  Future<void> _toggleSearchBar(ToggleSearchBar event, Emitter<ReadingState> emit) async {
+    if (state is ReadingLoaded) {
+      final currentState = state as ReadingLoaded;
+      var isSearchActive = !currentState.isSearchActive;
+
+      emit(
+        ReadingLoaded(
+          stories: isSearchActive ? currentState.stories : stories ?? [],
+          filteredStories: currentState.filteredStories,
+          isSearchActive: isSearchActive,
+        ),
+      ); // Arama barını aç/kapa
     }
   }
 }

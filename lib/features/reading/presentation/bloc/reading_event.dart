@@ -28,3 +28,11 @@ class SaveStoryAsReaded extends ReadingEvent {
   @override
   List<Object> get props => [storyId];
 }
+
+class SearchStories extends ReadingEvent {
+  final String query;
+
+  const SearchStories(this.query);
+}
+
+class ToggleSearchBar extends ReadingEvent {} // Arama barını aç/kapa

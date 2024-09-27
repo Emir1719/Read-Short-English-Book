@@ -18,15 +18,22 @@ class StoryReadView extends StatelessWidget {
         children: [
           StoryImage(story: story),
           StoryDetail(story: story),
-          ...story.paragraphs.map((item) {
-            return Padding(
-              padding: AppPadding.defaults.copyWith(bottom: 5),
-              child: RichText(text: TextParse.build(item, context, story)),
-            );
-          }),
+          ..._paragraphs(context),
           StoryReadButton(story: story),
         ],
       ),
     );
+  }
+
+  Iterable<Widget> _paragraphs(BuildContext context) {
+    return story.paragraphs.map((item) {
+      return Padding(
+        padding: AppPadding.defaults.copyWith(bottom: 5),
+        child: RichText(
+          text: TextParse.build(item, context, story),
+          textAlign: TextAlign.justify,
+        ),
+      );
+    });
   }
 }

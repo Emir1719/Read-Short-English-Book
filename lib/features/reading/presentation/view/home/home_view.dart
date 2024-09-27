@@ -1,4 +1,5 @@
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/home/home_appbar.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/home/stories_list.dart';
 import 'package:english_will_fly/features/reading/util/init_state/error.dart';
 import 'package:english_will_fly/features/reading/util/init_state/loading.dart';
@@ -11,7 +12,7 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Home")),
+      appBar: HomeSearchAppBar(),
       body: BlocBuilder<ReadingBloc, ReadingState>(
         builder: (context, state) {
           if (state is ReadingLoading) {
