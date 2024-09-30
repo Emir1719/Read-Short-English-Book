@@ -8,7 +8,6 @@ class AppLoading extends StatelessWidget {
     return const Center(
       child: CircularProgressIndicator(
         color: Colors.blue,
-        strokeWidth: 6,
       ),
     );
   }

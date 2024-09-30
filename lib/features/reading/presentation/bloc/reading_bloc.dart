@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:english_will_fly/features/auth/data/repositories/firestore.dart';
+import 'package:english_will_fly/features/reading/data/models/category.dart';
 import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/data/models/story_readed.dart';
 import 'package:english_will_fly/features/reading/data/repositories/story_repository.dart';
@@ -17,13 +18,15 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
   final _firestore = FirestoreRepository(FirebaseFirestore.instance, FirebaseAuth.instance);
   List<Story>? stories;
   List<Story>? filteredStories;
+  List<Category>? categories;
 
   ReadingBloc() : super(ReadingInitial()) {
     on<FetchStories>(fetchStories);
     on<LoadAllStories>(loadAllStories);
     on<SaveStoryAsReaded>(saveStoryAsReaded);
-    on<SearchStories>(_searchStories);
-    on<ToggleSearchBar>(_toggleSearchBar);
+    on<SearchStories>(searchStories);
+    on<ToggleSearchBar>(toggleSearchBar);
+    on<FilterStoriesByCategory>(onFilterStoriesByCategory);
   }
 
   /// Seviyeye göre ingilizce hikayeleri getirir
@@ -36,7 +39,13 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
       }
 
       filteredStories = stories?.where((story) => story.level.toLowerCase() == event.levelCode.toLowerCase()).toList();
-      emit(ReadingLoaded(stories: stories ?? [], filteredStories: filteredStories ?? []));
+      emit(
+        ReadingLoaded(
+          stories: stories ?? [],
+          filteredStories: filteredStories ?? [],
+          categories: categories ?? [],
+        ),
+      );
     } catch (e) {
       emit(ReadingError(message: e.toString()));
     }
@@ -47,12 +56,19 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
       emit(ReadingLoading());
       stories = await _repository.getStoriesWithCategoriesForAllLevels();
       var reading = await _firestore.getReading();
+      categories = await _repository.getCategories();
 
       _complete(reading);
 
       stories?.shuffle();
 
-      emit(ReadingLoaded(stories: stories ?? [], filteredStories: const []));
+      emit(
+        ReadingLoaded(
+          stories: stories ?? [],
+          filteredStories: [],
+          categories: categories ?? [],
+        ),
+      );
     } catch (e) {
       emit(ReadingError(message: e.toString()));
     }
@@ -82,30 +98,32 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
 
       filteredStories = stories?.where((story) => story.level == event.levelCode).toList();
 
-      emit(ReadingLoaded(stories: stories ?? [], filteredStories: filteredStories ?? [])); // Emit updated stories list
+      emit(
+        ReadingLoaded(
+          stories: stories ?? [],
+          filteredStories: filteredStories ?? [],
+          categories: categories ?? [],
+        ),
+      ); // Emit updated stories list
     } catch (e) {
       emit(ReadingError(message: e.toString()));
     }
   }
 
-  Future<void> _searchStories(SearchStories event, Emitter<ReadingState> emit) async {
-    if (event.query.isEmpty) {
-      emit(ReadingLoaded(stories: stories ?? [], filteredStories: stories ?? []));
-    } else {
-      final filtered =
-          stories?.where((story) => story.title.toLowerCase().contains(event.query.toLowerCase())).toList();
+  Future<void> searchStories(SearchStories event, Emitter<ReadingState> emit) async {
+    final filtered = stories?.where((story) => story.title.toLowerCase().contains(event.query.toLowerCase())).toList();
 
-      emit(
-        ReadingLoaded(
-          stories: filtered ?? [],
-          filteredStories: filteredStories ?? [],
-          isSearchActive: true,
-        ),
-      );
-    }
+    emit(
+      ReadingLoaded(
+        stories: filtered ?? [],
+        filteredStories: filteredStories ?? [],
+        isSearchActive: true,
+        categories: categories ?? [],
+      ),
+    );
   }
 
-  Future<void> _toggleSearchBar(ToggleSearchBar event, Emitter<ReadingState> emit) async {
+  Future<void> toggleSearchBar(ToggleSearchBar event, Emitter<ReadingState> emit) async {
     if (state is ReadingLoaded) {
       final currentState = state as ReadingLoaded;
       var isSearchActive = !currentState.isSearchActive;
@@ -115,8 +133,23 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
           stories: isSearchActive ? currentState.stories : stories ?? [],
           filteredStories: currentState.filteredStories,
           isSearchActive: isSearchActive,
+          categories: categories ?? [],
         ),
       ); // Arama barını aç/kapa
     }
+  }
+
+  FutureOr<void> onFilterStoriesByCategory(FilterStoriesByCategory event, Emitter<ReadingState> emit) {
+    final filtered = stories?.where((story) => story.category.id == event.categoryId).toList();
+    bool isDifferentCategory = (state as ReadingLoaded).selectedCategoryId != event.categoryId;
+
+    emit(
+      ReadingLoaded(
+        stories: isDifferentCategory ? (filtered ?? []) : (stories ?? []),
+        filteredStories: filteredStories ?? [],
+        categories: categories ?? [],
+        selectedCategoryId: isDifferentCategory ? event.categoryId : null,
+      ),
+    );
   }
 }

@@ -13,8 +13,12 @@ class UserInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticationAuthenticated).user;
     final stories = context.read<ReadingBloc>().stories;
-    var count = stories?.where((element) => element.isCompleted).length ?? 0;
+    var completedStories = stories?.where((element) => element.isCompleted);
     const space = SizedBox(height: 20);
+    var count = 0;
+    completedStories?.forEach((element) {
+      count += element.definitions.length;
+    });
 
     return Padding(
       padding: AppPadding.defaults,
@@ -35,8 +39,14 @@ class UserInfo extends StatelessWidget {
           space,
           InfoBox(
             title: "Total Reading",
-            value: count.toString(),
+            value: (completedStories?.length ?? 0).toString(),
             icon: Icons.add_task_sharp,
+          ),
+          space,
+          InfoBox(
+            title: "Total Words",
+            value: count.toString(),
+            icon: Icons.add_home_rounded,
           ),
         ],
       ),

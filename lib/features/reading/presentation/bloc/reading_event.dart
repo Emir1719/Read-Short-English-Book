@@ -36,3 +36,12 @@ class SearchStories extends ReadingEvent {
 }
 
 class ToggleSearchBar extends ReadingEvent {} // Arama barını aç/kapa
+
+class FilterStoriesByCategory extends ReadingEvent {
+  final int categoryId;
+
+  const FilterStoriesByCategory(this.categoryId);
+
+  @override
+  List<Object> get props => [categoryId];
+}
