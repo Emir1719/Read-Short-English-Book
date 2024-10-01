@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:english_will_fly/features/reading/data/datasources/story_api.dart';
 import 'package:english_will_fly/features/reading/data/models/dictionary.dart';
+import 'package:english_will_fly/features/reading/util/string.dart';
 import 'package:equatable/equatable.dart';
 
 part 'dictionary_event.dart';
@@ -56,7 +57,7 @@ class DictionaryBloc extends Bloc<DictionaryEvent, DictionaryState> {
       }
     } catch (e) {
       // Hata durumunda uygun bir hata mesajı emiti yap
-      emit(DictionaryError(message: "Bir hata oluştu: ${e.toString()}"));
+      emit(DictionaryError(message: AppString.error(e.toString())));
     }
   }
 }

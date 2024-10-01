@@ -1,10 +1,11 @@
+// ignore_for_file: depend_on_referenced_packages
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/auth/data/dependency/auth_dependency.dart';
 import 'package:english_will_fly/features/auth/data/repositories/i_auth_repository.dart';
 import 'package:english_will_fly/features/auth/data/repositories/i_firestore_repository.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_event.dart';
-import 'package:english_will_fly/features/localization/presentation/bloc/easy_localization_bloc.dart';
 import 'package:english_will_fly/features/navigation/bloc/nav_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/dictionary/dictionary_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
@@ -36,7 +37,6 @@ final class AppInit {
       BlocProvider(create: (context) => ReadingBloc()..add(LoadAllStories())),
       BlocProvider(create: (context) => NavBloc()),
       BlocProvider(create: (context) => DictionaryBloc()),
-      BlocProvider(create: (context) => EasyLocalizationBloc()),
       BlocProvider(
         create: (context) => AuthenticationBloc(
           getIt<IAuthenticationRepository>(),

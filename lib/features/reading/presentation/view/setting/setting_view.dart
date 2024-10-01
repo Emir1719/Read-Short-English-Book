@@ -1,7 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
-import 'package:english_will_fly/features/localization/presentation/bloc/easy_localization_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SettingView extends StatelessWidget {
   const SettingView({super.key});
@@ -14,7 +12,6 @@ class SettingView extends StatelessWidget {
         actions: [
           PopupMenuButton<Locale>(
             onSelected: (Locale locale) {
-              context.read<EasyLocalizationBloc>().add(ChangeLocaleEvent(locale));
               EasyLocalization.of(context)?.setLocale(locale); // Burada context kullanarak locale ayarlanıyor
             },
             itemBuilder: (context) {
@@ -31,9 +28,6 @@ class SettingView extends StatelessWidget {
             },
           ),
         ],
-      ),
-      body: Center(
-        child: Text('Yakında'),
       ),
     );
   }

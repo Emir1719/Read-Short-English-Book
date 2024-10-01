@@ -62,6 +62,9 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
 
       stories?.shuffle();
 
+      // Tamamlanmayan hikayeleri öne çıkarır
+      stories?.sort((a, b) => a.isCompleted == b.isCompleted ? 0 : (a.isCompleted ? 1 : -1));
+
       emit(
         ReadingLoaded(
           stories: stories ?? [],
