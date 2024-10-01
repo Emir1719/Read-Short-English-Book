@@ -1,0 +1,27 @@
+{
+    "profile": {
+        "title": "Profile",
+        "email": "Email",
+        "age": "Age",
+        "reading": "Total Reading",
+        "words": "Total Words"
+    },
+    "settings": {
+        "title": "Settings"
+    },
+    "storyLevel": {
+        "title": "Stories",
+        "subtitle": "{count} stories",
+        "subtitleError": "No any story"
+    },
+    "home": {
+        "title": "Home",
+        "search": "Search Stories...",
+        "level": "Level",
+        "newWords": "New Words",
+        "readStatus": "I Readed"
+    },
+    "stories": {
+        "title": "{level} Stories"
+    }
+}

@@ -1,25 +1,21 @@
-import 'package:english_will_fly/features/auth/data/dependency/auth_dependency.dart';
-import 'package:english_will_fly/features/auth/data/repositories/i_auth_repository.dart';
-import 'package:english_will_fly/features/auth/data/repositories/i_firestore_repository.dart';
-import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
-import 'package:english_will_fly/features/auth/presentation/bloc/auth_event.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/auth/presentation/view/splash/splash_view.dart';
-import 'package:english_will_fly/features/navigation/bloc/nav_bloc.dart';
-import 'package:english_will_fly/features/reading/presentation/bloc/dictionary/dictionary_bloc.dart';
-import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
+import 'package:english_will_fly/features/reading/util/app_init.dart';
 import 'package:english_will_fly/features/reading/util/theme.dart';
-import 'package:english_will_fly/firebase_options.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+  await AppInit.setup();
+
+  runApp(
+    EasyLocalization(
+      supportedLocales: [Locale('en', ''), Locale('tr', '')],
+      path: 'assets/translations',
+      fallbackLocale: Locale('en', ''),
+      child: MainApp(),
+    ),
   );
-  setupDependencies();
-  runApp(const MainApp());
 }
 
 class MainApp extends StatelessWidget {
@@ -28,21 +24,14 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers: [
-        BlocProvider(create: (context) => ReadingBloc()..add(LoadAllStories())),
-        BlocProvider(create: (context) => NavBloc()),
-        BlocProvider(create: (context) => DictionaryBloc()),
-        BlocProvider(
-          create: (context) => AuthenticationBloc(
-            getIt<IAuthenticationRepository>(),
-            getIt<IFirestoreRepository>(),
-          )..add(AppStarted()),
-        )
-      ],
+      providers: AppInit.getBlocProviders(),
       child: MaterialApp(
         title: "English Will Fly",
         debugShowCheckedModeBanner: false,
         theme: AppTheme.light,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
         home: const SplashView(),
       ),
     );

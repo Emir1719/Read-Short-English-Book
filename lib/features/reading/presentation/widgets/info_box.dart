@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/profile/info_icon.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:flutter/material.dart';
@@ -17,9 +18,9 @@ class InfoBox extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(title, style: AppStyle.profileInfoTitle),
+            Text(title, style: AppStyle.profileInfoTitle).tr(),
             SizedBox(height: 5),
-            Text(value, style: AppStyle.profileInfoValue),
+            Text(value, style: AppStyle.profileInfoValue).tr(),
           ],
         ),
       ],

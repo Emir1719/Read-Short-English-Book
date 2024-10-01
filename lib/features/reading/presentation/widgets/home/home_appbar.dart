@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,8 +13,8 @@ class HomeSearchAppBar extends StatelessWidget implements PreferredSizeWidget {
         builder: (context, state) {
           if (state is ReadingLoaded && state.isSearchActive) {
             return TextField(
-              decoration: const InputDecoration(
-                hintText: "Search stories...",
+              decoration: InputDecoration(
+                hintText: "home.search".tr(),
                 border: InputBorder.none,
                 focusedBorder: InputBorder.none,
               ),
@@ -23,7 +24,7 @@ class HomeSearchAppBar extends StatelessWidget implements PreferredSizeWidget {
               },
             );
           }
-          return const Text("Home");
+          return const Text("home.title").tr();
         },
       ),
       actions: [

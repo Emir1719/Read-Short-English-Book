@@ -15,8 +15,8 @@ class StoryDetail extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          InfoBox(title: "Level", value: story.level.toUpperCase(), icon: Icons.analytics),
-          InfoBox(title: "New Words", value: story.definitions.length.toString(), icon: Icons.add_home_rounded),
+          InfoBox(title: "home.level", value: story.level.toUpperCase(), icon: Icons.analytics),
+          InfoBox(title: "home.newWords", value: story.definitions.length.toString(), icon: Icons.add_home_rounded),
         ],
       ),
     );

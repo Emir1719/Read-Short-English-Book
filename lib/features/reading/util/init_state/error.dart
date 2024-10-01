@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class AppError extends StatelessWidget {
@@ -9,6 +10,6 @@ class AppError extends StatelessWidget {
     return Text(
       message.trim(),
       style: const TextStyle(fontSize: 16, color: Colors.red, fontWeight: FontWeight.w500),
-    );
+    ).tr();
   }
 }

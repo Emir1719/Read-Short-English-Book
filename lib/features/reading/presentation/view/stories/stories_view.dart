@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_list.dart';
 import 'package:english_will_fly/features/reading/util/init_state/loading.dart';
@@ -11,7 +12,7 @@ class StoriesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("${level.toUpperCase()} Stories")),
+      appBar: AppBar(title: Text("stories.title".tr(namedArgs: {"level": level.toUpperCase()}))),
       body: BlocBuilder<ReadingBloc, ReadingState>(
         builder: (context, state) {
           if (state is ReadingLoading) {

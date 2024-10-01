@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/navigation/bloc/nav_bloc.dart';
 import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:flutter/material.dart';
@@ -15,18 +16,23 @@ class AppBottomNavBar extends StatelessWidget {
           selectedItemColor: AppColor.black,
           currentIndex: state.navbarItem.pageIndex,
           showUnselectedLabels: false,
-          items: const [
+          type: BottomNavigationBarType.fixed,
+          items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: 'Home',
+              label: 'home.title'.tr(),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.chrome_reader_mode_rounded),
-              label: 'Stories',
+              label: 'storyLevel.title'.tr(),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              label: 'Profile',
+              label: 'profile.title'.tr(),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'settings.title'.tr(),
             ),
           ],
           onTap: (index) {

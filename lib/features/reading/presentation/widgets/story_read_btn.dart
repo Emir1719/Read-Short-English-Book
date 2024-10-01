@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
 import 'package:english_will_fly/features/reading/util/color.dart';
@@ -42,10 +43,10 @@ class StoryReadButton extends StatelessWidget {
     return state is ReadingLoading
         ? const CircularProgressIndicator() // Show loading indicator
         : Text(
-            "Okudum",
+            "home.readStatus",
             style: TextStyle(
               color: complete ? Colors.green : AppColor.secondary,
             ),
-          );
+          ).tr();
   }
 }

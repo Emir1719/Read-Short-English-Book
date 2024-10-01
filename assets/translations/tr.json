@@ -1,0 +1,30 @@
+{
+    "profile": {
+        "title": "Profil",
+        "email": "Email",
+        "age": "Yaş",
+        "reading": "Toplam Okuma",
+        "words": "Toplam Kelime"
+    },
+    "settings": {
+        "title": "Ayarlar"
+    },
+    "storyLevel": {
+        "title": "Hikayeler",
+        "subtitle": "{count} Hikaye",
+        "subtitleError": "Henüz bir hikaye yok"
+    },
+    "home": {
+        "title": "Ana Sayfa",
+        "search": "Hikaye Ara...",
+        "level": "Level",
+        "newWords": "Yeni Kelimeler",
+        "readStatus": "Okudum"
+    },
+    "stories": {
+        "title": "{level} Hikayeler"
+    },
+    "error": {
+        "e": "Bir hata oluştu: {message}"
+    }
+}
