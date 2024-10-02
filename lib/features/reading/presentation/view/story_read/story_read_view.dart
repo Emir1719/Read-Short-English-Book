@@ -2,7 +2,7 @@ import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_image.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_detail.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read_btn.dart';
-import 'package:english_will_fly/features/reading/presentation/widgets/text_parse.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/word_mean/text_parse.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:flutter/material.dart';
 

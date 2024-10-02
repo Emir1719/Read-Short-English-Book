@@ -11,13 +11,16 @@ class StoryImage extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     final percent = 0.25;
 
-    return CachedNetworkImage(
-      imageUrl: story.image,
-      placeholder: (context, url) => SizedBox.shrink(),
-      errorWidget: (context, url, error) => Icon(Icons.error, color: Colors.red),
-      height: size.height * percent,
-      width: size.width,
-      fit: BoxFit.cover,
+    return Hero(
+      tag: story.id,
+      child: CachedNetworkImage(
+        imageUrl: story.image,
+        placeholder: (context, url) => SizedBox.shrink(),
+        errorWidget: (context, url, error) => Icon(Icons.error, color: Colors.red),
+        height: size.height * percent,
+        width: size.width,
+        fit: BoxFit.cover,
+      ),
     );
   }
 }

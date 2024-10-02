@@ -73,11 +73,14 @@ class StoryListItem extends StatelessWidget {
       children: [
         ClipRRect(
           borderRadius: BorderRadius.circular(10.0),
-          child: CachedNetworkImage(
-            imageUrl: story.image,
-            width: 140,
-            height: 90,
-            fit: BoxFit.cover,
+          child: Hero(
+            tag: story.id,
+            child: CachedNetworkImage(
+              imageUrl: story.image,
+              width: 140,
+              height: 90,
+              fit: BoxFit.cover,
+            ),
           ),
         ),
         showLevel

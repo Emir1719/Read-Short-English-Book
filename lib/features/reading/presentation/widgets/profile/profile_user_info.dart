@@ -20,36 +20,33 @@ class UserInfo extends StatelessWidget {
       count += element.definitions.length;
     });
 
-    return Padding(
+    return ListView(
       padding: AppPadding.defaults,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          InfoBox(
-            title: "profile.email",
-            value: user.email,
-            icon: Icons.email,
-          ),
-          space,
-          InfoBox(
-            title: "profile.age",
-            value: user.age,
-            icon: Icons.align_vertical_bottom_rounded,
-          ),
-          space,
-          InfoBox(
-            title: "profile.reading",
-            value: (completedStories?.length ?? 0).toString(),
-            icon: Icons.add_task_sharp,
-          ),
-          space,
-          InfoBox(
-            title: "profile.words",
-            value: "+${count.toString()}",
-            icon: Icons.add_home_rounded,
-          ),
-        ],
-      ),
+      children: [
+        InfoBox(
+          title: "profile.email",
+          value: user.email,
+          icon: Icons.email,
+        ),
+        space,
+        InfoBox(
+          title: "profile.age",
+          value: user.age,
+          icon: Icons.align_vertical_bottom_rounded,
+        ),
+        space,
+        InfoBox(
+          title: "profile.reading",
+          value: (completedStories?.length ?? 0).toString(),
+          icon: Icons.add_task_sharp,
+        ),
+        space,
+        InfoBox(
+          title: "profile.words",
+          value: "+${count.toString()}",
+          icon: Icons.add_home_rounded,
+        ),
+      ],
     );
   }
 }
