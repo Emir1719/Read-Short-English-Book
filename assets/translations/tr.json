@@ -19,7 +19,8 @@
         "search": "Hikaye Ara...",
         "level": "Level",
         "newWords": "Yeni Kelimeler",
-        "readStatus": "Okudum"
+        "readStatus": "Okudum",
+        "detail": "Detay"
     },
     "stories": {
         "title": "{level} Hikayeler"

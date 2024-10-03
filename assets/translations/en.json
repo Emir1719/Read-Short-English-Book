@@ -19,7 +19,8 @@
         "search": "Search Stories...",
         "level": "Level",
         "newWords": "New Words",
-        "readStatus": "I Readed"
+        "readStatus": "I Readed",
+        "detail": "Detail"
     },
     "stories": {
         "title": "{level} Stories"
