@@ -1,5 +1,5 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/dictionary/data/models/definition.dart';
+import 'package:english_will_fly/features/dictionary/data/models/dictionary.dart';
 import 'package:english_will_fly/features/dictionary/data/models/meaning.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/word_detail/part_of_speech.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/word_detail/word_definition.dart';
@@ -8,13 +8,16 @@ import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:flutter/material.dart';
 
 class WordDetailView extends StatelessWidget {
-  const WordDetailView({super.key, required this.meaning});
-  final List<Meaning> meaning;
+  const WordDetailView({super.key, required this.dictionary});
+  final Dictionary dictionary;
 
   @override
   Widget build(BuildContext context) {
+    List<Meaning> meaning = dictionary.meanings ?? [];
+    String? word = dictionary.word ?? "";
+
     return Scaffold(
-      appBar: AppBar(title: Text("home.detail").tr()),
+      appBar: AppBar(title: Text(word)),
       body: ListView.builder(
         shrinkWrap: true,
         padding: AppPadding.defaults,
@@ -32,7 +35,7 @@ class WordDetailView extends StatelessWidget {
                   children: [
                     WordDefinition(value: definitions.definition),
                     const SizedBox(height: 6),
-                    WrodExample(value: definitions.example),
+                    WordExample(value: definitions.example),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 60, vertical: 5),
                       child: Divider(),

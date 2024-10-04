@@ -24,11 +24,10 @@ class BottomSheetBottomSection extends StatelessWidget {
           alignment: Alignment.centerRight,
           child: TextButton.icon(
             onPressed: () {
-              final meaning = state.dictionaryList.first.meanings ?? [];
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => WordDetailView(meaning: meaning),
+                  builder: (context) => WordDetailView(dictionary: state.dictionaryList.first),
                 ),
               );
             },

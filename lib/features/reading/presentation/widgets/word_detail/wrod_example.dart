@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class WrodExample extends StatelessWidget {
-  const WrodExample({super.key, this.value});
+class WordExample extends StatelessWidget {
+  const WordExample({super.key, this.value});
   final String? value;
 
   @override
