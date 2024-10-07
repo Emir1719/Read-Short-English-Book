@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:english_will_fly/features/auth/data/models/user.dart';
 import 'package:english_will_fly/features/auth/data/repositories/i_firestore_repository.dart';
 import 'package:english_will_fly/features/reading/data/models/story_readed.dart';
+import 'package:english_will_fly/features/reading/data/models/word_list.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class FirestoreRepository implements IFirestoreRepository {
@@ -9,6 +10,7 @@ class FirestoreRepository implements IFirestoreRepository {
   final FirebaseAuth _auth;
   final String _usersCollection = "users";
   final String _readingCollection = "reading";
+  final String _wordListCollection = "word_list";
 
   FirestoreRepository(this._firestore, this._auth);
 
@@ -76,13 +78,49 @@ class FirestoreRepository implements IFirestoreRepository {
   }
 
   @override
-  Future<StoryReaded> getReading() async {
+  Future<StoryReaded> getAllReading() async {
     try {
-      final snapshot = await _firestore.collection(_readingCollection).doc(_auth.currentUser!.uid).get();
+      final snapshot =
+          await _firestore.collection(_readingCollection).doc(_auth.currentUser!.uid).get();
       final data = snapshot.data() as Map<String, dynamic>;
       return StoryReaded.fromMap(data);
     } catch (e) {
       rethrow;
+    }
+  }
+
+  @override
+  Future<WordList> getAllWordFromList() async {
+    try {
+      final userId = _auth.currentUser!.uid;
+      final snapshot = await _firestore.collection(_wordListCollection).doc(userId).get();
+      final data = snapshot.data()!;
+
+      return WordList.fromMap(data);
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
+  Future<bool> saveWordToList(String word) async {
+    try {
+      final userId = _auth.currentUser!.uid;
+      final docRef = _firestore.collection(_wordListCollection).doc(userId);
+      final snapshot = await docRef.get();
+
+      WordList wordList = WordList(id: userId, words: [word]);
+
+      if (snapshot.exists) {
+        await docRef.update({
+          "words": FieldValue.arrayUnion([word])
+        });
+      } else {
+        await docRef.set(wordList.toMap());
+      }
+      return true;
+    } catch (e) {
+      return false;
     }
   }
 }

@@ -10,6 +10,7 @@ import 'package:english_will_fly/features/dictionary/data/repositories/i_diction
 import 'package:english_will_fly/features/dictionary/presentation/bloc/dictionary_bloc.dart';
 import 'package:english_will_fly/features/navigation/bloc/nav_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
+import 'package:english_will_fly/features/reading/presentation/bloc/word_list/word_list_bloc.dart';
 import 'package:english_will_fly/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,7 @@ final class AppInit {
     return [
       BlocProvider(create: (context) => ReadingBloc()..add(LoadAllStories())),
       BlocProvider(create: (context) => NavBloc()),
+      BlocProvider(create: (context) => WordListBloc()),
       BlocProvider(create: (context) => DictionaryBloc(getIt<IDictionaryRepository>())),
       BlocProvider(
         create: (context) => AuthenticationBloc(

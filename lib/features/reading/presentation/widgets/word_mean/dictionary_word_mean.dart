@@ -21,7 +21,7 @@ class DictionaryWordMean extends StatelessWidget {
         } else if (state is DictionaryError) {
           return AppError(message: state.message);
         } else if (state is DictionaryLoaded) {
-          return BottomSheetBottomSection(state: state);
+          return BottomSheetBottomSection(state: state, word: word);
         } else if (state is DictionaryInitial) {
           return const SizedBox.shrink();
         }

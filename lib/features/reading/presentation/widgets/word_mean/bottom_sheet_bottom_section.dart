@@ -1,12 +1,13 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/dictionary/presentation/bloc/dictionary_bloc.dart';
-import 'package:english_will_fly/features/reading/presentation/view/word_detail/word_detail_view.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/word_mean/btn_add_word_list.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/word_mean/btn_word_detail.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:flutter/material.dart';
 
 class BottomSheetBottomSection extends StatelessWidget {
-  const BottomSheetBottomSection({super.key, required this.state});
+  const BottomSheetBottomSection({super.key, required this.state, required this.word});
   final DictionaryLoaded state;
+  final String word;
 
   @override
   Widget build(BuildContext context) {
@@ -20,20 +21,13 @@ class BottomSheetBottomSection extends StatelessWidget {
           textAlign: TextAlign.justify,
         ),
         SizedBox(height: 10),
-        Align(
-          alignment: Alignment.centerRight,
-          child: TextButton.icon(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => WordDetailView(dictionary: state.dictionaryList.first),
-                ),
-              );
-            },
-            label: Text("home.detail").tr(),
-            icon: Icon(Icons.info_rounded),
-          ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            BtnAddWordList(word: word),
+            SizedBox(width: 10),
+            BtnWordDetail(dictionary: state.dictionaryList.first)
+          ],
         )
       ],
     );

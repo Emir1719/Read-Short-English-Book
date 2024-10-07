@@ -1,6 +1,7 @@
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
+import 'package:english_will_fly/features/reading/presentation/view/word_list/word_list_view.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/info_box.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:flutter/material.dart';
@@ -11,14 +12,12 @@ class UserInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final user = (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticationAuthenticated).user;
+    final user =
+        (BlocProvider.of<AuthenticationBloc>(context).state as AuthenticationAuthenticated).user;
     final stories = context.read<ReadingBloc>().stories;
     var completedStories = stories?.where((element) => element.isCompleted);
+    var definitions = completedStories?.expand((element) => element.definitions).toList();
     const space = SizedBox(height: 20);
-    var count = 0;
-    completedStories?.forEach((element) {
-      count += element.definitions.length;
-    });
 
     return ListView(
       padding: AppPadding.defaults,
@@ -41,10 +40,18 @@ class UserInfo extends StatelessWidget {
           icon: Icons.add_task_sharp,
         ),
         space,
-        InfoBox(
-          title: "profile.words",
-          value: "+${count.toString()}",
-          icon: Icons.add_home_rounded,
+        GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => WordListView(words: definitions ?? [])),
+            );
+          },
+          child: InfoBox(
+            title: "profile.words",
+            value: "+${definitions?.length ?? 0}",
+            icon: Icons.add_home_rounded,
+          ),
         ),
       ],
     );

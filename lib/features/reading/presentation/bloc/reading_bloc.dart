@@ -38,7 +38,13 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
         return;
       }
 
-      filteredStories = stories?.where((story) => story.level.toLowerCase() == event.levelCode.toLowerCase()).toList();
+      filteredStories = stories
+          ?.where((story) => story.level.toLowerCase() == event.levelCode.toLowerCase())
+          .toList();
+      /*filteredStories?.sort((a, b) {
+        print(a.id.split("_"));
+        return a.id.split("_")[1].compareTo(b.id.split("_")[1]);
+      });*/
       emit(
         ReadingLoaded(
           stories: stories ?? [],
@@ -55,7 +61,7 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     try {
       emit(ReadingLoading());
       stories = await _repository.getStoriesWithCategoriesForAllLevels();
-      var reading = await _firestore.getReading();
+      var reading = await _firestore.getAllReading();
       categories = await _repository.getCategories();
 
       _complete(reading);
@@ -114,7 +120,9 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
   }
 
   Future<void> searchStories(SearchStories event, Emitter<ReadingState> emit) async {
-    final filtered = stories?.where((story) => story.title.toLowerCase().contains(event.query.toLowerCase())).toList();
+    final filtered = stories
+        ?.where((story) => story.title.toLowerCase().contains(event.query.toLowerCase()))
+        .toList();
 
     emit(
       ReadingLoaded(
@@ -142,7 +150,8 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     }
   }
 
-  FutureOr<void> onFilterStoriesByCategory(FilterStoriesByCategory event, Emitter<ReadingState> emit) {
+  FutureOr<void> onFilterStoriesByCategory(
+      FilterStoriesByCategory event, Emitter<ReadingState> emit) {
     final filtered = stories?.where((story) => story.category.id == event.categoryId).toList();
     bool isDifferentCategory = (state as ReadingLoaded).selectedCategoryId != event.categoryId;
 

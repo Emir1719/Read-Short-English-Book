@@ -59,7 +59,7 @@ class AppTheme {
 
   static ListTileThemeData _listTileTheme() {
     return ListTileThemeData(
-      titleTextStyle: TextStyle(fontSize: 16, color: AppColor.black!, fontWeight: FontWeight.bold),
+      titleTextStyle: TextStyle(fontSize: 16, color: AppColor.black!),
       subtitleTextStyle: TextStyle(fontSize: 15, color: AppColor.black!),
     );
   }

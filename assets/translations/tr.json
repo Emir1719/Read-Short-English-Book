@@ -27,5 +27,9 @@
     },
     "error": {
         "e": "Bir hata oluştu: {message}"
+    },
+    "word_list": {
+        "title": "Kelime Listesi",
+        "add": "Listeye Ekle"
     }
 }

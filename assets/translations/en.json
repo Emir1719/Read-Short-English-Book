@@ -24,5 +24,9 @@
     },
     "stories": {
         "title": "{level} Stories"
+    },
+    "word_list": {
+        "title": "Word List",
+        "add": "Add Word List"
     }
 }

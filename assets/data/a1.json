@@ -26,19 +26,20 @@
         "category": 1,
         "image": "https://images.pexels.com/photos/1298684/pexels-photo-1298684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "paragraphs": [
-            "Once upon a time, there was a big ocean. The ocean was very wide and blue. Many fish lived in the ocean. They were happy and swam all day.",
-            "One day, a small fish named Timmy was swimming near the surface. Timmy saw a big boat. He was curious and swam closer. Timmy saw people on the boat. They were fishing and having fun.",
-            "Timmy wanted to talk to the people, but he knew he could not. He just watched them from the water. The people threw some food into the ocean. Timmy and his friends were excited. They swam to the food and ate it.",
-            "After a while, the boat left, and the ocean was quiet again. Timmy and his friends continued to swim and play. They were happy in their big, beautiful ocean.",
-            "And so, Timmy lived happily in the ocean, always enjoying the beautiful blue water and his fish friends."
+            "Once, there was a big ocean. The ocean was wide and blue. Many fish lived in the ocean. They swam happily all day.",
+            "One day, a small fish named Timmy swam near the top. Timmy saw a big boat. He was curious and swam closer. He saw people on the boat. They were fishing.",
+            "Timmy wanted to talk to the people, but he could not. He just watched from the water. The people threw food into the ocean. Timmy and his friends swam to the food and ate it.",
+            "After a while, the boat left, and the ocean was quiet. Timmy and his friends swam and played. They were happy in their big ocean.",
+            "So, Timmy lived happily in the ocean, enjoying the blue water and his fish friends."
         ],
         "definitions": [
             "once",
-            "upon",
             "wide",
-            "surface",
+            "top",
             "quiet",
-            "enjoy"
+            "enjoy",
+            "boat",
+            "left"
         ]
     },
     {
@@ -119,6 +120,86 @@
             "couch",
             "funny",
             "snacks"
+        ]
+    },
+    {
+        "id": "a1_7",
+        "title": "My New Phone",
+        "category": 5,
+        "image": "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Alex got a new phone for his birthday. It is very shiny and fast.",
+            "He loves taking pictures with his phone. The camera is great.",
+            "Alex's friends are impressed. They say it is the best phone.",
+            "He plays games and watches videos on it. It is so much fun.",
+            "Alex is happy with his new phone. He uses it every day."
+        ],
+        "definitions": [
+            "phone",
+            "camera",
+            "games",
+            "videos",
+            "friends"
+        ]
+    },
+    {
+        "id": "a1_8",
+        "title": "The Smart Watch",
+        "category": 5,
+        "image": "https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Alice received a smart watch for vacation. It can do many things.",
+            "She checks her steps and heart rate. It helps her stay active.",
+            "Alice can also receive messages on her watch. It is very useful.",
+            "She loves wearing it every day. It matches her style.",
+            "The smart watch makes Alice feel good and healthy."
+        ],
+        "definitions": [
+            "watch",
+            "steps",
+            "heart rate",
+            "messages",
+            "active"
+        ]
+    },
+    {
+        "id": "a1_9",
+        "title": "Healthy Breakfast",
+        "category": 6,
+        "image": "https://images.pexels.com/photos/1343537/pexels-photo-1343537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Jenny loves breakfast. She eats it every morning.",
+            "Today, she has eggs and toast. They are very tasty.",
+            "Jenny drinks orange juice. It is fresh and healthy.",
+            "She feels happy and full of energy after breakfast.",
+            "A good breakfast helps Jenny start her day right."
+        ],
+        "definitions": [
+            "breakfast",
+            "eggs",
+            "toast",
+            "orange juice",
+            "energy"
+        ]
+    },
+    {
+        "id": "a1_10",
+        "title": "Going for a Walk",
+        "category": 6,
+        "image": "https://images.pexels.com/photos/235721/pexels-photo-235721.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Jack likes to go for a walk in the park. It is relaxing.",
+            "He enjoys the fresh air and sunshine.",
+            "Jack walks with his dog, Max. They have fun together.",
+            "Walking helps Jack stay fit and healthy.",
+            "After the walk, Jack feels happy and strong."
+        ],
+        "definitions": [
+            "walk",
+            "park",
+            "air",
+            "dog",
+            "fit"
         ]
     }
 ]

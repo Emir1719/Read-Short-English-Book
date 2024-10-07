@@ -16,7 +16,8 @@ class HomeStoryLevelList extends StatelessWidget {
     return GestureDetector(
       onTap: () async {
         context.read<ReadingBloc>().add(FetchStories(levelCode: level));
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => StoriesView(level: level)));
+        Navigator.of(context)
+            .push(MaterialPageRoute(builder: (context) => StoriesView(level: level)));
       },
       child: Container(
         decoration: AppStyle.level,
@@ -28,6 +29,14 @@ class HomeStoryLevelList extends StatelessWidget {
             backgroundColor: AppStyle.levelColor(level.toLowerCase()),
           ),
           subtitle: StoryLevelSubtitle(level: level),
+          leading: Container(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.circular(10),
+            ),
+            padding: EdgeInsets.all(10),
+            child: Icon(Icons.book, color: Colors.white),
+          ),
         ),
       ),
     );

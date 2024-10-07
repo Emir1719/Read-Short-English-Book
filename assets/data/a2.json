@@ -63,7 +63,7 @@
         "id": "a2_4",
         "title": "Helping a Stranger",
         "category": 4,
-        "image": "https://images.pexels.com/photos/3993214/pexels-photo-3993214.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image": "https://images.pexels.com/photos/12537600/pexels-photo-12537600.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "paragraphs": [
             "One afternoon, while walking home from school, James saw an elderly man struggling to carry his groceries.",
             "The bags were heavy, and the man looked tired. James decided to help him.",
@@ -83,7 +83,7 @@
         "id": "a2_5",
         "title": "The Friday Prayer",
         "category": 8,
-        "image": "https://images.pexels.com/photos/461918/pexels-photo-461918.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "image": "https://images.pexels.com/photos/337904/pexels-photo-337904.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "paragraphs": [
             "Omar woke up early on Friday morning. He knew it was a special day because it was time for the Friday prayer.",
             "He took a shower, wore his best clothes, and walked to the mosque with his father.",
@@ -157,6 +157,46 @@
             "help",
             "important",
             "Islam"
+        ]
+    },
+    {
+        "id": "a2_9",
+        "title": "Staying Healthy",
+        "category": 6,
+        "image": "https://images.pexels.com/photos/348689/pexels-photo-348689.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Daphne wants to stay healthy. She knows that eating well is important.",
+            "Every morning, Daphne eats a healthy breakfast. She has eggs, toast, and fruit.",
+            "After breakfast, she goes for a walk in the park. Walking is good for her heart.",
+            "Daphne drinks water all day to stay hydrated. She also likes to play sports with her friends.",
+            "By taking care of her health, Daphne feels happy and energetic every day."
+        ],
+        "definitions": [
+            "healthy",
+            "breakfast",
+            "walk",
+            "hydrated",
+            "energetic"
+        ]
+    },
+    {
+        "id": "a2_10",
+        "title": "Learning at School",
+        "category": 7,
+        "image": "https://images.pexels.com/photos/159213/hall-congress-architecture-building-159213.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "paragraphs": [
+            "Michel goes to school every day. He enjoys learning new things.",
+            "In math class, he likes to solve problems with his friends. They help each other.",
+            "Michel also loves science. He learns about plants and animals.",
+            "At recess, Michel plays soccer with his classmates. They have fun together.",
+            "Every day at school, Michel learns and plays. He is excited to see his friends."
+        ],
+        "definitions": [
+            "school",
+            "learning",
+            "math",
+            "science",
+            "recess"
         ]
     }
 ]
