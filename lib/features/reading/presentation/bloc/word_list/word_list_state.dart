@@ -12,7 +12,7 @@ final class WordListInitial extends WordListState {}
 final class WordListLoading extends WordListState {}
 
 final class WordListLoaded extends WordListState {
-  final WordList wordList;
+  final WordList? wordList;
 
   const WordListLoaded({required this.wordList});
 }

@@ -15,6 +15,7 @@ class WordListBloc extends Bloc<WordListEvent, WordListState> {
   WordListBloc() : super(WordListInitial()) {
     on<GetAllWords>(getAllWords);
     on<SaveWord>(saveWord);
+    on<RemoveWord>(removeWord);
   }
 
   Future<void> getAllWords(GetAllWords event, Emitter<WordListState> emit) async {
@@ -42,12 +43,19 @@ class WordListBloc extends Bloc<WordListEvent, WordListState> {
     try {
       wordList = await _repository.getAllWords();
 
-      if (wordList == null || wordList!.words.isEmpty) {
-        emit(WordListError(message: "Kelime Listesi Boş"));
-        return;
-      }
+      emit(WordListLoaded(wordList: wordList));
+    } catch (e) {
+      print("hata1");
+      emit(WordListError(message: e.toString()));
+    }
+  }
 
-      emit(WordListLoaded(wordList: wordList!));
+  Future<void> removeWord(RemoveWord event, Emitter<WordListState> emit) async {
+    emit(WordListLoading());
+
+    try {
+      await _repository.removeWord(event.word);
+      await _fetchAndEmitWordList(emit);
     } catch (e) {
       emit(WordListError(message: e.toString()));
     }

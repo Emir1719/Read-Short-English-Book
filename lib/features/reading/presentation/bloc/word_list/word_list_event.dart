@@ -17,3 +17,12 @@ class SaveWord extends WordListEvent {
   @override
   List<Object> get props => [word];
 }
+
+class RemoveWord extends WordListEvent {
+  final String word;
+
+  const RemoveWord({required this.word});
+
+  @override
+  List<Object> get props => [word];
+}

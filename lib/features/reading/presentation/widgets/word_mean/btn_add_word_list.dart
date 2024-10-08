@@ -15,12 +15,18 @@ class BtnAddWordList extends StatelessWidget {
         builder: (context, state) {
           return TextButton.icon(
             onPressed: _action(context, state),
-            label: _label(state),
-            icon: Icon(Icons.add),
+            label: _label(context, state),
+            icon: _icon(context),
           );
         },
       ),
     );
+  }
+
+  Icon _icon(BuildContext context) {
+    return !_isAdded(context)
+        ? Icon(Icons.add_circle_outline, color: Colors.blue)
+        : Icon(Icons.remove_circle_outline, color: Colors.red);
   }
 
   void _listener(context, state) {
@@ -31,15 +37,35 @@ class BtnAddWordList extends StatelessWidget {
     }
   }
 
-  Widget _label(WordListState state) =>
-      state is WordListLoading ? CircularProgressIndicator() : Text("word_list.add").tr();
+  Widget _label(BuildContext context, WordListState state) {
+    if (state is WordListLoading) {
+      return CircularProgressIndicator();
+    } else if (state is WordListLoaded) {
+      return !_isAdded(context)
+          ? Text("word_list.add").tr()
+          : Text(
+              "word_list.remove",
+              style: TextStyle(color: Colors.red),
+            ).tr();
+    }
+    return SizedBox();
+  }
+
+  bool _isAdded(BuildContext context) {
+    var list = context.read<WordListBloc>().wordList?.words ?? [];
+    print(list);
+    return list.contains(word);
+  }
 
   /// Butonun `onPressed` metodunu belirler.
   VoidCallback? _action(BuildContext context, WordListState state) {
-    if (state is WordListLoading) {
-      return null; // Butonu devre dışı bırak
-    } else {
-      return () => context.read<WordListBloc>().add(SaveWord(word: word));
+    if (state is WordListLoaded) {
+      final bloc = context.read<WordListBloc>();
+
+      return _isAdded(context)
+          ? () => bloc.add(RemoveWord(word: word))
+          : () => bloc.add(SaveWord(word: word));
     }
+    return null;
   }
 }

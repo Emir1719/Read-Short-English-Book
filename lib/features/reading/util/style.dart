@@ -28,6 +28,13 @@ class AppStyle {
         borderRadius: BorderRadius.circular(8),
       );
 
+  static BoxDecoration get profileContainer => BoxDecoration(
+        color: Colors.grey.shade100,
+        border: Border(
+          right: BorderSide(width: 5, color: Colors.blue),
+        ),
+      );
+
   static TextStyle get _baseText => TextStyle(
         color: AppColor.text,
         fontWeight: FontWeight.normal,

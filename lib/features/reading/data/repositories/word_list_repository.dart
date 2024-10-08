@@ -8,12 +8,17 @@ class WordListRepository implements IWordList {
   final _firestore = FirestoreRepository(FirebaseFirestore.instance, FirebaseAuth.instance);
 
   @override
-  Future<WordList> getAllWords() async {
-    return _firestore.getAllWordFromList();
+  Future<WordList?> getAllWords() async {
+    return await _firestore.getAllWordFromList();
   }
 
   @override
-  Future<bool> saveWord(String word) {
-    return _firestore.saveWordToList(word);
+  Future<bool> saveWord(String word) async {
+    return await _firestore.saveWordToList(word);
+  }
+
+  @override
+  Future<bool> removeWord(String word) async {
+    return await _firestore.removeWordFromList(word);
   }
 }

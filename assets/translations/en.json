@@ -26,9 +26,13 @@
     "stories": {
         "title": "{level} Stories"
     },
+    "error": {
+        "e": "An Error: {message}"
+    },
     "word_list": {
         "title": "Word List",
         "add": "Add Word List",
-        "message": "Word Was Added"
+        "message": "Word Was Added",
+        "remove": "Remove From List"
     }
 }

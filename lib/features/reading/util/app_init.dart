@@ -41,6 +41,7 @@ final class AppInit {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+    EasyLocalization.logger.enableBuildModes = [];
 
     setupDependencies();
   }
@@ -49,14 +50,14 @@ final class AppInit {
     return [
       BlocProvider(create: (context) => ReadingBloc()..add(LoadAllStories())),
       BlocProvider(create: (context) => NavBloc()),
-      BlocProvider(create: (context) => WordListBloc()..add(GetAllWords())),
       BlocProvider(create: (context) => DictionaryBloc(getIt<IDictionaryRepository>())),
       BlocProvider(
         create: (context) => AuthenticationBloc(
           getIt<IAuthenticationRepository>(),
           getIt<IFirestoreRepository>(),
         )..add(AppStarted()),
-      )
+      ),
+      BlocProvider(create: (context) => WordListBloc()..add(GetAllWords())),
     ];
   }
 

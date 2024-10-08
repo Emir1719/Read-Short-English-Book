@@ -2,7 +2,7 @@ import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart'
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/word_list/word_list_bloc.dart';
-import 'package:english_will_fly/features/reading/presentation/widgets/info_box.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/profile_info_box.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,19 +25,19 @@ class UserInfo extends StatelessWidget {
     return ListView(
       padding: AppPadding.defaults,
       children: [
-        InfoBox(
+        ProfileInfoBox(
           title: "profile.email",
           value: user.email,
           icon: Icons.email,
         ),
         space,
-        InfoBox(
+        ProfileInfoBox(
           title: "profile.age",
           value: user.age,
           icon: Icons.align_vertical_bottom_rounded,
         ),
         space,
-        InfoBox(
+        ProfileInfoBox(
           title: "profile.reading",
           value: (completedStories?.length ?? 0).toString(),
           icon: Icons.add_task_sharp,
@@ -45,7 +45,7 @@ class UserInfo extends StatelessWidget {
         space,
         GestureDetector(
           onTap: () => context.push("/wordList", extra: definitions ?? []),
-          child: InfoBox(
+          child: ProfileInfoBox(
             title: "profile.words",
             value: "+${definitions?.length ?? 0}",
             icon: Icons.add_home_rounded,
@@ -54,10 +54,10 @@ class UserInfo extends StatelessWidget {
         space,
         GestureDetector(
           onTap: () => context.push("/wordList", extra: wordList?.words ?? []),
-          child: InfoBox(
+          child: ProfileInfoBox(
             title: "profile.word_list",
             value: "${wordList?.words.length ?? 0}",
-            icon: Icons.add_home_rounded,
+            icon: Icons.workspaces_filled,
           ),
         ),
       ],

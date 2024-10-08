@@ -11,5 +11,6 @@ abstract class IFirestoreRepository {
   Future<StoryReaded> getAllReading();
 
   Future<bool> saveWordToList(String word);
-  Future<WordList> getAllWordFromList();
+  Future<bool> removeWordFromList(String word);
+  Future<WordList?> getAllWordFromList();
 }
