@@ -10,13 +10,7 @@ class BtnAddWordList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocListener<WordListBloc, WordListState>(
-      listener: (context, state) {
-        if (state is WordListLoaded) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Kelime Eklendi')),
-          );
-        }
-      },
+      listener: _listener,
       child: BlocBuilder<WordListBloc, WordListState>(
         builder: (context, state) {
           return TextButton.icon(
@@ -29,6 +23,14 @@ class BtnAddWordList extends StatelessWidget {
     );
   }
 
+  void _listener(context, state) {
+    if (state is WordListLoaded) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('word_list.message').tr()),
+      );
+    }
+  }
+
   Widget _label(WordListState state) =>
       state is WordListLoading ? CircularProgressIndicator() : Text("word_list.add").tr();
 
@@ -37,9 +39,7 @@ class BtnAddWordList extends StatelessWidget {
     if (state is WordListLoading) {
       return null; // Butonu devre dışı bırak
     } else {
-      return () {
-        context.read<WordListBloc>().add(SaveWord(word: word));
-      };
+      return () => context.read<WordListBloc>().add(SaveWord(word: word));
     }
   }
 }

@@ -1,5 +1,6 @@
 import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class BottomSheetTopSection extends StatelessWidget {
   const BottomSheetTopSection({super.key, required this.word});
@@ -14,7 +15,7 @@ class BottomSheetTopSection extends StatelessWidget {
         IconButton(
           color: Colors.blue,
           padding: EdgeInsets.zero,
-          onPressed: () => Navigator.pop(context),
+          onPressed: () => context.pop(),
           icon: Icon(Icons.close),
         )
       ],

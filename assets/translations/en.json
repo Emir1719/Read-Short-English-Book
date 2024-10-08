@@ -4,7 +4,8 @@
         "email": "Email",
         "age": "Age",
         "reading": "Total Reading",
-        "words": "Total Words"
+        "words": "Total Words",
+        "word_list": "Word List"
     },
     "settings": {
         "title": "Settings"
@@ -27,6 +28,7 @@
     },
     "word_list": {
         "title": "Word List",
-        "add": "Add Word List"
+        "add": "Add Word List",
+        "message": "Word Was Added"
     }
 }

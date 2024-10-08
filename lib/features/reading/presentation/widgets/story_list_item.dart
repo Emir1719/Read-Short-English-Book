@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:english_will_fly/features/reading/data/models/story.dart';
-import 'package:english_will_fly/features/reading/presentation/view/story_read/story_read_view.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class StoryListItem extends StatelessWidget {
   const StoryListItem({super.key, required this.story, this.showLevel = false});
@@ -13,9 +13,7 @@ class StoryListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => StoryReadView(story: story)));
-      },
+      onTap: () => context.push("/read", extra: story),
       child: Container(
         decoration: AppStyle.level,
         child: Row(

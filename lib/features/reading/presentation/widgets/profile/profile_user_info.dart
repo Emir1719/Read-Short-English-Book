@@ -1,11 +1,12 @@
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
-import 'package:english_will_fly/features/reading/presentation/view/word_list/word_list_view.dart';
+import 'package:english_will_fly/features/reading/presentation/bloc/word_list/word_list_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/info_box.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class UserInfo extends StatelessWidget {
   const UserInfo({super.key});
@@ -18,6 +19,8 @@ class UserInfo extends StatelessWidget {
     var completedStories = stories?.where((element) => element.isCompleted);
     var definitions = completedStories?.expand((element) => element.definitions).toList();
     const space = SizedBox(height: 20);
+
+    var wordList = context.read<WordListBloc>().wordList;
 
     return ListView(
       padding: AppPadding.defaults,
@@ -41,15 +44,19 @@ class UserInfo extends StatelessWidget {
         ),
         space,
         GestureDetector(
-          onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => WordListView(words: definitions ?? [])),
-            );
-          },
+          onTap: () => context.push("/wordList", extra: definitions ?? []),
           child: InfoBox(
             title: "profile.words",
             value: "+${definitions?.length ?? 0}",
+            icon: Icons.add_home_rounded,
+          ),
+        ),
+        space,
+        GestureDetector(
+          onTap: () => context.push("/wordList", extra: wordList?.words ?? []),
+          child: InfoBox(
+            title: "profile.word_list",
+            value: "${wordList?.words.length ?? 0}",
             icon: Icons.add_home_rounded,
           ),
         ),

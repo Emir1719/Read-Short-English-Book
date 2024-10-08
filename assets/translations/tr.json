@@ -4,7 +4,8 @@
         "email": "Email",
         "age": "Yaş",
         "reading": "Toplam Okuma",
-        "words": "Toplam Kelime"
+        "words": "Toplam Kelime",
+        "word_list": "Kelime Listesi"
     },
     "settings": {
         "title": "Ayarlar"
@@ -30,6 +31,7 @@
     },
     "word_list": {
         "title": "Kelime Listesi",
-        "add": "Listeye Ekle"
+        "add": "Listeye Ekle",
+        "message": "Kelime Eklendi"
     }
 }
