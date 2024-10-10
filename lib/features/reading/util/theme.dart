@@ -12,6 +12,7 @@ class AppTheme {
   static ThemeData get light => ThemeData(
         primaryColor: AppColor.primary,
         appBarTheme: _appBarTheme(),
+        bottomNavigationBarTheme: _bottomNavigationBarTheme(),
         scaffoldBackgroundColor: AppColor.primary,
         textButtonTheme: _textButtonTheme(),
         textTheme: _textTheme(),
@@ -20,14 +21,56 @@ class AppTheme {
         elevatedButtonTheme: _elevatedButtonTheme(),
       );
 
-  static ElevatedButtonThemeData _elevatedButtonTheme() {
+  static ThemeData get dark => ThemeData(
+        primaryColor: AppColor.primaryDark,
+        appBarTheme: _appBarTheme(
+          primary: AppColor.primaryDark,
+          secondary: AppColor.primaryDark, // surface tint efekti olmasın
+          fontColor: AppColor.white,
+        ),
+        bottomNavigationBarTheme: _bottomNavigationBarTheme(
+          primary: AppColor.primaryDark,
+          selectedItemColor: AppColor.white,
+          unSelectedItemColor: AppColor.grey,
+        ),
+        bottomAppBarTheme: BottomAppBarTheme(color: AppColor.primaryDark),
+        scaffoldBackgroundColor: AppColor.scaffoldBackgroundDark,
+        textButtonTheme: _textButtonTheme(
+          fontColor: AppColor.white,
+          secondary: AppColor.secondaryDark,
+        ),
+        textTheme: _textTheme(fontColor: AppColor.white),
+        listTileTheme: _listTileTheme(fontColor: AppColor.white),
+        inputDecorationTheme: _inputDecorationTheme(),
+        elevatedButtonTheme: _elevatedButtonTheme(
+          primary: AppColor.primaryDark,
+          secondary: AppColor.secondaryDark,
+        ),
+        bottomSheetTheme: BottomSheetThemeData(
+          backgroundColor: AppColor.secondaryDark,
+        ),
+      );
+
+  static BottomNavigationBarThemeData _bottomNavigationBarTheme({
+    Color? primary,
+    Color? selectedItemColor,
+    Color? unSelectedItemColor,
+  }) {
+    return BottomNavigationBarThemeData(
+      backgroundColor: primary ?? AppColor.primary,
+      selectedItemColor: selectedItemColor ?? AppColor.black,
+      unselectedItemColor: unSelectedItemColor ?? AppColor.black,
+    );
+  }
+
+  static ElevatedButtonThemeData _elevatedButtonTheme({Color? primary, Color? secondary}) {
     return ElevatedButtonThemeData(
       style: ButtonStyle(
         fixedSize: const WidgetStatePropertyAll(Size.fromHeight(55)),
         textStyle: const WidgetStatePropertyAll(TextStyle(fontSize: 16)),
-        backgroundColor: WidgetStatePropertyAll(AppColor.primary),
-        foregroundColor: WidgetStatePropertyAll(AppColor.secondary),
-        surfaceTintColor: WidgetStatePropertyAll(AppColor.secondary),
+        backgroundColor: WidgetStatePropertyAll(primary ?? AppColor.primary),
+        foregroundColor: WidgetStatePropertyAll(secondary ?? AppColor.secondary),
+        surfaceTintColor: WidgetStatePropertyAll(secondary ?? AppColor.secondary),
         shape: _buttonShape(),
       ),
     );
@@ -57,56 +100,63 @@ class AppTheme {
     );
   }
 
-  static ListTileThemeData _listTileTheme() {
+  static ListTileThemeData _listTileTheme({Color? fontColor}) {
     return ListTileThemeData(
-      titleTextStyle: TextStyle(fontSize: 16, color: AppColor.black!),
-      subtitleTextStyle: TextStyle(fontSize: 15, color: AppColor.black!),
+      titleTextStyle: TextStyle(fontSize: 16, color: fontColor ?? AppColor.black!),
+      subtitleTextStyle: TextStyle(fontSize: 15, color: fontColor ?? AppColor.black!),
     );
   }
 
-  static TextTheme _textTheme() {
-    return const TextTheme(
+  static TextTheme _textTheme({Color? fontColor}) {
+    final base = TextStyle(
+      overflow: TextOverflow.ellipsis,
+      color: fontColor ?? AppColor.black,
+    );
+
+    return TextTheme(
       // body style
-      bodyLarge: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
-      bodyMedium: TextStyle(fontSize: 16),
-      bodySmall: TextStyle(fontSize: 14),
+      bodyLarge: base.copyWith(fontSize: 18),
+      bodyMedium: base.copyWith(fontSize: 16),
+      bodySmall: base.copyWith(fontSize: 14),
 
       // title
-      titleLarge: TextStyle(fontSize: 24),
+      titleLarge: base.copyWith(fontSize: 18, fontWeight: FontWeight.w500),
 
       // label
       labelMedium: TextStyle(fontSize: 16),
     );
   }
 
-  static TextButtonThemeData _textButtonTheme() {
+  static TextButtonThemeData _textButtonTheme({Color? secondary, Color? fontColor}) {
     return TextButtonThemeData(
       style: ButtonStyle(
         fixedSize: const WidgetStatePropertyAll(Size.fromHeight(55)),
-        textStyle: const WidgetStatePropertyAll(TextStyle(fontSize: 16)),
-        foregroundColor: WidgetStatePropertyAll(AppColor.secondary),
-        surfaceTintColor: WidgetStatePropertyAll(AppColor.secondary),
+        textStyle: WidgetStatePropertyAll(
+          TextStyle(fontSize: 16, color: fontColor ?? AppColor.white),
+        ),
+        foregroundColor: WidgetStatePropertyAll(secondary ?? AppColor.secondary),
+        surfaceTintColor: WidgetStatePropertyAll(secondary ?? AppColor.secondary),
         shape: _buttonShape(),
       ),
     );
   }
 
-  static AppBarTheme _appBarTheme() {
+  static AppBarTheme _appBarTheme({Color? primary, Color? secondary, Color? fontColor}) {
     return AppBarTheme(
-      backgroundColor: AppColor.primary,
-      foregroundColor: AppColor.black,
+      backgroundColor: primary ?? AppColor.primary,
+      foregroundColor: fontColor ?? AppColor.black,
       centerTitle: true,
       titleTextStyle: TextStyle(
         fontSize: 20,
-        color: AppColor.black,
+        color: fontColor ?? AppColor.black,
         overflow: TextOverflow.ellipsis,
       ),
-      surfaceTintColor: AppColor.secondary,
+      surfaceTintColor: secondary ?? AppColor.secondary,
       systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: AppColor.primary,
-        systemNavigationBarColor: AppColor.primary,
-        systemNavigationBarIconBrightness: Brightness.dark,
-        statusBarIconBrightness: Brightness.dark,
+        statusBarColor: primary ?? AppColor.primary,
+        systemNavigationBarColor: primary ?? AppColor.primary,
+        systemNavigationBarIconBrightness: primary == null ? Brightness.dark : Brightness.light,
+        statusBarIconBrightness: primary == null ? Brightness.dark : Brightness.light,
       ),
     );
   }

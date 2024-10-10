@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/navigation/bloc/nav_bloc.dart';
-import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,8 +11,6 @@ class AppBottomNavBar extends StatelessWidget {
     return BlocBuilder<NavBloc, NavState>(
       builder: (context, state) {
         return BottomNavigationBar(
-          backgroundColor: AppColor.primary,
-          selectedItemColor: AppColor.black,
           currentIndex: state.navbarItem.pageIndex,
           showUnselectedLabels: false,
           type: BottomNavigationBarType.fixed,

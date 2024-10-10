@@ -21,6 +21,7 @@ import 'package:english_will_fly/features/reading/presentation/view/stories/stor
 import 'package:english_will_fly/features/reading/presentation/view/story_read/story_read_view.dart';
 import 'package:english_will_fly/features/reading/presentation/view/word_detail/word_detail_view.dart';
 import 'package:english_will_fly/features/reading/presentation/view/word_list/word_list_view.dart';
+import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
 import 'package:english_will_fly/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -48,6 +49,7 @@ final class AppInit {
 
   static List<SingleChildWidget> getBlocProviders() {
     return [
+      BlocProvider(create: (_) => ThemeBloc()),
       BlocProvider(create: (context) => ReadingBloc()..add(LoadAllStories())),
       BlocProvider(create: (context) => NavBloc()),
       BlocProvider(create: (context) => DictionaryBloc(getIt<IDictionaryRepository>())),

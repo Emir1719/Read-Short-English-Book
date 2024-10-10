@@ -31,9 +31,9 @@ class BtnAddWordList extends StatelessWidget {
 
   void _listener(context, state) {
     if (state is WordListLoaded) {
-      ScaffoldMessenger.of(context).showSnackBar(
+      /*ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('word_list.message').tr()),
-      );
+      );*/
     }
   }
 

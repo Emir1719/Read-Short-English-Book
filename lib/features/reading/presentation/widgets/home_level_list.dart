@@ -14,6 +14,8 @@ class HomeStoryLevelList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return GestureDetector(
       onTap: () async {
         context.read<ReadingBloc>().add(FetchStories(levelCode: level));
@@ -23,7 +25,7 @@ class HomeStoryLevelList extends StatelessWidget {
         decoration: AppStyle.level,
         child: ListTile(
           contentPadding: AppPadding.storyLevel,
-          title: Text(level, style: AppStyle.levelTitle),
+          title: Text(level, style: textTheme.bodyMedium?.copyWith(fontSize: 15)),
           trailing: CircleAvatar(
             radius: 8,
             backgroundColor: AppStyle.levelColor(level.toLowerCase()),

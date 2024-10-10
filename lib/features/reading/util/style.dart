@@ -14,8 +14,8 @@ class AppStyle {
         borderRadius: BorderRadius.circular(10),
       );
 
-  static BoxDecoration get dictionary => BoxDecoration(
-        color: AppColor.primary,
+  static BoxDecoration dictionary(bool isDark) => BoxDecoration(
+        color: isDark ? AppColor.scaffoldBackgroundDark : AppColor.primary,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(10),
           topRight: Radius.circular(10),
@@ -23,8 +23,8 @@ class AppStyle {
         border: Border(top: BorderSide(color: AppColor.secondary!, width: 6)),
       );
 
-  static BoxDecoration get storyLevel => BoxDecoration(
-        color: Colors.white.withOpacity(0.65),
+  static BoxDecoration storyLevel(isDark) => BoxDecoration(
+        color: isDark ? Colors.black.withOpacity(0.65) : Colors.white.withOpacity(0.65),
         borderRadius: BorderRadius.circular(8),
       );
 
@@ -33,6 +33,25 @@ class AppStyle {
         border: Border(
           right: BorderSide(width: 5, color: Colors.blue),
         ),
+      );
+
+  static BoxDecoration get wordListContainer => BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        border: Border(
+          left: BorderSide(
+            color: Colors.blue,
+            width: 5,
+          ),
+        ),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(2, 2),
+            blurRadius: 2,
+            spreadRadius: 1,
+            color: Colors.grey.shade300,
+          ),
+        ],
       );
 
   static TextStyle get _baseText => TextStyle(
@@ -66,6 +85,11 @@ class AppStyle {
         color: AppColor.profileInfoTitle,
       );
 
+  static TextStyle get profileInfoTitleDark => TextStyle(
+        fontSize: 16,
+        color: AppColor.profileInfoTitleDark,
+      );
+
   static TextStyle get profileInfoValue => TextStyle(fontSize: 18);
 
   static Color? levelColor(String level) {
@@ -87,7 +111,23 @@ class AppStyle {
     }
   }
 
-  static Color? compliteColor(bool isCompleted) {
-    return isCompleted ? AppColor.completeTask : AppColor.black;
+  static Color? compliteColor(bool isDark, bool isCompleted) {
+    final unCompleteColor = isDark ? AppColor.white : AppColor.black;
+    return isCompleted ? AppColor.lightGreen : unCompleteColor;
   }
+
+  static BoxDecoration categoryBox(bool isDark, bool isSelected) {
+    return !isDark
+        ? BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: isSelected ? Colors.blue.shade900 : Colors.grey.shade200,
+          )
+        : BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            color: isSelected ? Colors.grey.shade200 : AppColor.primaryDark,
+          );
+  }
+
+  static Color? lightMode(bool isSelected) => isSelected ? AppColor.white : AppColor.black;
+  static Color? darkMode(bool isSelected) => isSelected ? AppColor.black : AppColor.white;
 }

@@ -11,7 +11,7 @@ class HomeContainerLeading extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
       ),
       padding: EdgeInsets.all(10),
-      child: Icon(Icons.book, color: Colors.white),
+      child: Icon(Icons.book, color: Colors.white, size: 20),
     );
   }
 }
