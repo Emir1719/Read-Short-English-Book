@@ -20,7 +20,7 @@ class Categories extends StatelessWidget {
 
         if (state is ReadingLoaded) {
           return SizedBox(
-            height: 50,
+            height: 55,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: state.categories.length,

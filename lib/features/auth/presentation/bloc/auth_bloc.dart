@@ -5,74 +5,74 @@ import 'package:english_will_fly/features/auth/presentation/bloc/auth_event.dart
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AuthenticationBloc extends Bloc<AuthenticationEvent, AuthenticationState> {
+class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthenticationRepository _authRepository;
   final IFirestoreRepository _firestoreRepository;
 
-  AuthenticationBloc(this._authRepository, this._firestoreRepository) : super(AuthenticationInitial()) {
+  AuthBloc(this._authRepository, this._firestoreRepository) : super(AuthInitial()) {
     on<AppStarted>(_onAppStarted);
     on<SignUpRequested>(_onSignUpRequested);
     on<SignInRequested>(_onSignInRequested);
     on<SignOutRequested>(_onSignOutRequested);
   }
 
-  Future<void> _onAppStarted(AppStarted event, Emitter<AuthenticationState> emit) async {
-    emit(AuthenticationLoading());
+  Future<void> _onAppStarted(AppStarted event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
     try {
       final user = await _authRepository.getCurrentUser();
       if (user == null) {
-        emit(AuthenticationUnauthenticated());
+        emit(Unauthenticated());
         return;
       }
       final appUser = await _firestoreRepository.getCurrentUser(user.uid);
 
       if (appUser == null) {
-        emit(const AuthenticationFailure("Kullanıcı yok"));
+        emit(const AuthFailure("Kullanıcı yok"));
         return;
       }
-      emit(AuthenticationAuthenticated(appUser));
+      emit(Authenticated(appUser));
     } catch (_) {
-      emit(AuthenticationUnauthenticated());
+      emit(Unauthenticated());
     }
   }
 
-  Future<void> _onSignUpRequested(SignUpRequested event, Emitter<AuthenticationState> emit) async {
-    emit(AuthenticationLoading());
+  Future<void> _onSignUpRequested(SignUpRequested event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
     try {
       final user = await _authRepository.signUp(event.email, event.password);
       final appUser = AppUser.fromFirebaseUser(user!);
       await _firestoreRepository.saveUser(user, event.age);
       appUser.age = event.age;
-      emit(AuthenticationAuthenticated(appUser));
+      emit(Authenticated(appUser));
     } catch (e) {
-      emit(AuthenticationFailure(e.toString()));
+      emit(AuthFailure(e.toString()));
     }
   }
 
-  Future<void> _onSignInRequested(SignInRequested event, Emitter<AuthenticationState> emit) async {
-    emit(AuthenticationLoading());
+  Future<void> _onSignInRequested(SignInRequested event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
     try {
       final user = await _authRepository.signIn(event.email, event.password);
       if (user == null) {
-        emit(const AuthenticationFailure("Kullanıcı yok"));
+        emit(const AuthFailure("Kullanıcı yok"));
         return;
       }
       final appUser = await _firestoreRepository.getCurrentUser(user.uid);
 
       if (appUser == null) {
-        emit(const AuthenticationFailure("Kullanıcı yok"));
+        emit(const AuthFailure("Kullanıcı yok"));
         return;
       }
 
-      emit(AuthenticationAuthenticated(appUser));
+      emit(Authenticated(appUser));
     } catch (e) {
-      emit(AuthenticationFailure(e.toString()));
+      emit(AuthFailure(e.toString()));
     }
   }
 
-  Future<void> _onSignOutRequested(SignOutRequested event, Emitter<AuthenticationState> emit) async {
-    emit(AuthenticationLoading());
+  Future<void> _onSignOutRequested(SignOutRequested event, Emitter<AuthState> emit) async {
+    emit(AuthLoading());
     await _authRepository.signOut();
-    emit(AuthenticationUnauthenticated());
+    emit(Unauthenticated());
   }
 }

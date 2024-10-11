@@ -17,5 +17,5 @@ class AppPadding {
 
   static EdgeInsets get categoryInMargin => EdgeInsets.symmetric(horizontal: 5);
 
-  static EdgeInsets get categoryOut => EdgeInsets.symmetric(horizontal: 15, vertical: 5);
+  static EdgeInsets get categoryOut => EdgeInsets.symmetric(horizontal: 15, vertical: 8);
 }

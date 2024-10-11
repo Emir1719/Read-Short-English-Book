@@ -1,32 +1,32 @@
 import 'package:english_will_fly/features/auth/data/models/user.dart';
 import 'package:equatable/equatable.dart';
 
-abstract class AuthenticationState extends Equatable {
-  const AuthenticationState();
+abstract class AuthState extends Equatable {
+  const AuthState();
 
   @override
   List<Object?> get props => [];
 }
 
-class AuthenticationInitial extends AuthenticationState {}
+class AuthInitial extends AuthState {}
 
-class AuthenticationLoading extends AuthenticationState {}
+class AuthLoading extends AuthState {}
 
-class AuthenticationAuthenticated extends AuthenticationState {
+class Authenticated extends AuthState {
   final AppUser user;
 
-  const AuthenticationAuthenticated(this.user);
+  const Authenticated(this.user);
 
   @override
   List<Object?> get props => [user];
 }
 
-class AuthenticationUnauthenticated extends AuthenticationState {}
+class Unauthenticated extends AuthState {}
 
-class AuthenticationFailure extends AuthenticationState {
+class AuthFailure extends AuthState {
   final String error;
 
-  const AuthenticationFailure(this.error);
+  const AuthFailure(this.error);
 
   @override
   List<Object?> get props => [error];

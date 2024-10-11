@@ -8,7 +8,8 @@
         "word_list": "Word List"
     },
     "settings": {
-        "title": "Settings"
+        "title": "Settings",
+        "theme": "Should the dark theme be active?"
     },
     "storyLevel": {
         "title": "Stories",

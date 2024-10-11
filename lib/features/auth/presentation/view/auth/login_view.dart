@@ -14,13 +14,13 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text("Login")),
-      body: BlocListener<AuthenticationBloc, AuthenticationState>(
+      body: BlocListener<AuthBloc, AuthState>(
         listener: _listener,
-        child: BlocBuilder<AuthenticationBloc, AuthenticationState>(
+        child: BlocBuilder<AuthBloc, AuthState>(
           builder: (context, state) {
-            if (state is AuthenticationUnauthenticated) {
+            if (state is Unauthenticated) {
               return const LoginContent();
-            } else if (state is AuthenticationLoading) {
+            } else if (state is AuthLoading) {
               return const AppLoading();
             } else {
               return const AppError(message: "No user information available");
@@ -32,10 +32,10 @@ class LoginView extends StatelessWidget {
   }
 
   void _listener(BuildContext context, state) {
-    if (state is AuthenticationAuthenticated) {
+    if (state is Authenticated) {
       // Kayıt ya da giriş başarılıysa ana sayfaya yönlendir
       context.pushReplacement("/nav");
-    } else if (state is AuthenticationFailure) {
+    } else if (state is AuthFailure) {
       // Hata mesajı göster
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Authentication Failure: ${state.error}')),

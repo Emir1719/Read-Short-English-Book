@@ -11,7 +11,7 @@ class ProfileView extends StatelessWidget {
     return const Scaffold(
       appBar: ProfileAppBar(),
       body: AuthenticationBlocListener(
-        child: UserInfo(),
+        child: ProfileUserInfo(),
       ),
     );
   }

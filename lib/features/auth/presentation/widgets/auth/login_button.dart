@@ -12,7 +12,10 @@ class LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        context.read<AuthenticationBloc>().add(
+        if (email.text.trim().isEmpty || password.text.trim().isEmpty) {
+          return;
+        }
+        context.read<AuthBloc>().add(
               SignInRequested(email.text, password.text),
             );
       },

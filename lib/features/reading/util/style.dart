@@ -28,8 +28,8 @@ class AppStyle {
         borderRadius: BorderRadius.circular(8),
       );
 
-  static BoxDecoration get profileContainer => BoxDecoration(
-        color: Colors.grey.shade100,
+  static BoxDecoration profileContainer(bool isDark) => BoxDecoration(
+        color: isDark ? Colors.grey.shade900 : Colors.grey.shade100,
         border: Border(
           right: BorderSide(width: 5, color: Colors.blue),
         ),
@@ -80,6 +80,16 @@ class AppStyle {
         color: AppColor.storyCategoryTitle,
       );
 
+  static TextStyle get infoTitle => TextStyle(
+        fontSize: 16,
+        color: AppColor.profileInfoTitle,
+      );
+
+  static TextStyle get infoTitleDark => TextStyle(
+        fontSize: 16,
+        color: AppColor.infoTitleDark,
+      );
+
   static TextStyle get profileInfoTitle => TextStyle(
         fontSize: 16,
         color: AppColor.profileInfoTitle,
@@ -113,7 +123,9 @@ class AppStyle {
 
   static Color? compliteColor(bool isDark, bool isCompleted) {
     final unCompleteColor = isDark ? AppColor.white : AppColor.black;
-    return isCompleted ? AppColor.lightGreen : unCompleteColor;
+    final primary = isDark ? AppColor.lightGreen : AppColor.completeTask;
+
+    return isCompleted ? primary : unCompleteColor;
   }
 
   static BoxDecoration categoryBox(bool isDark, bool isSelected) {

@@ -8,7 +8,8 @@
         "word_list": "Kelime Listesi"
     },
     "settings": {
-        "title": "Ayarlar"
+        "title": "Ayarlar",
+        "theme": "Dark tema aktif olsun mu?"
     },
     "storyLevel": {
         "title": "Hikayeler",

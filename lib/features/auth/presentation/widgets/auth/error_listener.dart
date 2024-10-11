@@ -8,9 +8,9 @@ class AuthErrorListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthenticationBloc, AuthenticationState>(
+    return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
-        if (state is AuthenticationFailure) {
+        if (state is AuthFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text('Authentication Failure: ${state.error}')),
           );

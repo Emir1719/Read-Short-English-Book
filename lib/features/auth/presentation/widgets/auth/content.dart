@@ -17,12 +17,15 @@ class LoginContent extends StatelessWidget {
     return ListView(
       padding: AppPadding.defaults,
       children: [
-        Image.asset(AppImage.auth, fit: BoxFit.cover),
+        space,
+        Image.asset(AppImage.account, height: 150),
+        space,
         space,
         TextField(
           controller: email,
           decoration: const InputDecoration(labelText: "Email"),
           keyboardType: TextInputType.emailAddress,
+          textInputAction: TextInputAction.next,
         ),
         space,
         TextField(

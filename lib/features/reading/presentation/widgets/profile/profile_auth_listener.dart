@@ -11,11 +11,11 @@ class AuthenticationBlocListener extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthenticationBloc, AuthenticationState>(
+    return BlocListener<AuthBloc, AuthState>(
       listener: (context, state) {
-        if (state is AuthenticationUnauthenticated) {
+        if (state is Unauthenticated) {
           context.pushReplacement("/login");
-        } else if (state is AuthenticationFailure) {
+        } else if (state is AuthFailure) {
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text(state.error)),
           );

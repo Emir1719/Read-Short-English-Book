@@ -9,6 +9,8 @@ class WordListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context).textTheme;
+
     return GestureDetector(
       onTap: () {
         showModalBottomSheet(
@@ -20,17 +22,14 @@ class WordListItem extends StatelessWidget {
         );
       },
       child: Container(
-        padding: EdgeInsets.all(15),
-        decoration: AppStyle.wordListContainer,
-        child: Row(
-          children: [
-            Text(
-              (index + 1).toString(),
-              style: TextStyle(fontSize: 18, color: Colors.grey),
-            ),
-            SizedBox(width: 20),
-            Text(word),
-          ],
+        padding: EdgeInsets.symmetric(horizontal: 5),
+        decoration: AppStyle.level,
+        child: ListTile(
+          title: Text(word, style: textTheme.bodyMedium),
+          leading: Text(
+            "${index + 1}",
+            style: textTheme.bodyLarge?.copyWith(color: Colors.grey),
+          ),
         ),
       ),
     );

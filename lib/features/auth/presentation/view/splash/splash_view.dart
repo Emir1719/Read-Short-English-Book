@@ -10,16 +10,16 @@ class SplashView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<AuthenticationBloc, AuthenticationState>(
+    return BlocListener<AuthBloc, AuthState>(
       listener: _listener,
       child: const Scaffold(body: AppLoading()),
     );
   }
 
   void _listener(BuildContext context, state) {
-    if (state is AuthenticationAuthenticated) {
+    if (state is Authenticated) {
       context.pushReplacement("/nav");
-    } else if (state is AuthenticationUnauthenticated) {
+    } else if (state is Unauthenticated) {
       context.pushReplacement("/login");
     }
   }

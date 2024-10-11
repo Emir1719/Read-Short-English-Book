@@ -70,7 +70,7 @@ class StoryListItem extends StatelessWidget {
 
     return Text(
       story.title,
-      style: textTheme.titleLarge,
+      style: textTheme.titleMedium,
       maxLines: 1,
     );
   }

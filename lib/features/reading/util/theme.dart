@@ -19,6 +19,7 @@ class AppTheme {
         listTileTheme: _listTileTheme(),
         inputDecorationTheme: _inputDecorationTheme(),
         elevatedButtonTheme: _elevatedButtonTheme(),
+        switchTheme: _switchTheme(),
       );
 
   static ThemeData get dark => ThemeData(
@@ -33,7 +34,6 @@ class AppTheme {
           selectedItemColor: AppColor.white,
           unSelectedItemColor: AppColor.grey,
         ),
-        bottomAppBarTheme: BottomAppBarTheme(color: AppColor.primaryDark),
         scaffoldBackgroundColor: AppColor.scaffoldBackgroundDark,
         textButtonTheme: _textButtonTheme(
           fontColor: AppColor.white,
@@ -41,15 +41,30 @@ class AppTheme {
         ),
         textTheme: _textTheme(fontColor: AppColor.white),
         listTileTheme: _listTileTheme(fontColor: AppColor.white),
-        inputDecorationTheme: _inputDecorationTheme(),
+        inputDecorationTheme: _inputDecorationTheme(
+          borderColor: AppColor.grey,
+          fontColor: AppColor.white,
+        ),
         elevatedButtonTheme: _elevatedButtonTheme(
           primary: AppColor.primaryDark,
           secondary: AppColor.secondaryDark,
+          surfaceTintColor: Colors.transparent,
         ),
         bottomSheetTheme: BottomSheetThemeData(
           backgroundColor: AppColor.secondaryDark,
         ),
+        switchTheme: _switchTheme(
+          trackColor: AppColor.primaryDark,
+          thumbColor: AppColor.white,
+        ),
       );
+
+  static SwitchThemeData _switchTheme({Color? trackColor, Color? thumbColor}) {
+    return SwitchThemeData(
+      trackColor: WidgetStatePropertyAll(trackColor ?? AppColor.primary),
+      thumbColor: WidgetStatePropertyAll(thumbColor ?? AppColor.black),
+    );
+  }
 
   static BottomNavigationBarThemeData _bottomNavigationBarTheme({
     Color? primary,
@@ -59,18 +74,19 @@ class AppTheme {
     return BottomNavigationBarThemeData(
       backgroundColor: primary ?? AppColor.primary,
       selectedItemColor: selectedItemColor ?? AppColor.black,
-      unselectedItemColor: unSelectedItemColor ?? AppColor.black,
+      unselectedItemColor: unSelectedItemColor ?? AppColor.bottomUnselected,
     );
   }
 
-  static ElevatedButtonThemeData _elevatedButtonTheme({Color? primary, Color? secondary}) {
+  static ElevatedButtonThemeData _elevatedButtonTheme(
+      {Color? primary, Color? secondary, Color? surfaceTintColor}) {
     return ElevatedButtonThemeData(
       style: ButtonStyle(
         fixedSize: const WidgetStatePropertyAll(Size.fromHeight(55)),
-        textStyle: const WidgetStatePropertyAll(TextStyle(fontSize: 16)),
+        textStyle: WidgetStatePropertyAll(_textTheme().bodyMedium),
         backgroundColor: WidgetStatePropertyAll(primary ?? AppColor.primary),
         foregroundColor: WidgetStatePropertyAll(secondary ?? AppColor.secondary),
-        surfaceTintColor: WidgetStatePropertyAll(secondary ?? AppColor.secondary),
+        surfaceTintColor: WidgetStatePropertyAll(surfaceTintColor ?? AppColor.secondary),
         shape: _buttonShape(),
       ),
     );
@@ -84,26 +100,27 @@ class AppTheme {
     );
   }
 
-  static InputDecorationTheme _inputDecorationTheme() {
+  static InputDecorationTheme _inputDecorationTheme({Color? borderColor, Color? fontColor}) {
     var radius = const BorderRadius.all(Radius.circular(8));
+    var border = borderColor ?? AppColor.black!;
 
     return InputDecorationTheme(
       border: OutlineInputBorder(
         borderRadius: radius,
-        borderSide: BorderSide(color: AppColor.black!),
+        borderSide: BorderSide(color: border),
       ),
-      labelStyle: TextStyle(fontSize: 16, color: AppColor.black),
+      labelStyle: _textTheme(fontColor: fontColor).bodyMedium,
       focusedBorder: OutlineInputBorder(
         borderRadius: radius,
-        borderSide: BorderSide(color: AppColor.black!, width: 2),
+        borderSide: BorderSide(color: border, width: 2),
       ),
     );
   }
 
   static ListTileThemeData _listTileTheme({Color? fontColor}) {
     return ListTileThemeData(
-      titleTextStyle: TextStyle(fontSize: 16, color: fontColor ?? AppColor.black!),
-      subtitleTextStyle: TextStyle(fontSize: 15, color: fontColor ?? AppColor.black!),
+      titleTextStyle: _textTheme(fontColor: fontColor).bodyMedium,
+      subtitleTextStyle: _textTheme(fontColor: fontColor).bodySmall,
     );
   }
 
@@ -120,10 +137,11 @@ class AppTheme {
       bodySmall: base.copyWith(fontSize: 14),
 
       // title
-      titleLarge: base.copyWith(fontSize: 18, fontWeight: FontWeight.w500),
+      titleLarge: base.copyWith(fontSize: 20, fontWeight: FontWeight.w500),
+      titleMedium: base.copyWith(fontSize: 18, fontWeight: FontWeight.w500),
 
       // label
-      labelMedium: TextStyle(fontSize: 16),
+      labelMedium: base.copyWith(fontSize: 16),
     );
   }
 
@@ -132,7 +150,7 @@ class AppTheme {
       style: ButtonStyle(
         fixedSize: const WidgetStatePropertyAll(Size.fromHeight(55)),
         textStyle: WidgetStatePropertyAll(
-          TextStyle(fontSize: 16, color: fontColor ?? AppColor.white),
+          _textTheme(fontColor: fontColor ?? AppColor.white).bodyMedium,
         ),
         foregroundColor: WidgetStatePropertyAll(secondary ?? AppColor.secondary),
         surfaceTintColor: WidgetStatePropertyAll(secondary ?? AppColor.secondary),
@@ -146,11 +164,7 @@ class AppTheme {
       backgroundColor: primary ?? AppColor.primary,
       foregroundColor: fontColor ?? AppColor.black,
       centerTitle: true,
-      titleTextStyle: TextStyle(
-        fontSize: 20,
-        color: fontColor ?? AppColor.black,
-        overflow: TextOverflow.ellipsis,
-      ),
+      titleTextStyle: _textTheme(fontColor: fontColor ?? AppColor.black).titleLarge,
       surfaceTintColor: secondary ?? AppColor.secondary,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: primary ?? AppColor.primary,

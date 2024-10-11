@@ -24,7 +24,7 @@ class InfoBox extends StatelessWidget {
           children: [
             Text(
               title,
-              style: isDark ? AppStyle.profileInfoTitleDark : AppStyle.profileInfoTitle,
+              style: isDark ? AppStyle.infoTitleDark : AppStyle.infoTitle,
             ).tr(),
             SizedBox(height: 5),
             Text(value, style: AppStyle.profileInfoValue).tr(),

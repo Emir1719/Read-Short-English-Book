@@ -21,6 +21,7 @@ import 'package:english_will_fly/features/reading/presentation/view/stories/stor
 import 'package:english_will_fly/features/reading/presentation/view/story_read/story_read_view.dart';
 import 'package:english_will_fly/features/reading/presentation/view/word_detail/word_detail_view.dart';
 import 'package:english_will_fly/features/reading/presentation/view/word_list/word_list_view.dart';
+import 'package:english_will_fly/features/theme/data/theme_storage.dart';
 import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
 import 'package:english_will_fly/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -42,8 +43,8 @@ final class AppInit {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+    await ThemeStorage().init();
     EasyLocalization.logger.enableBuildModes = [];
-
     setupDependencies();
   }
 
@@ -54,7 +55,7 @@ final class AppInit {
       BlocProvider(create: (context) => NavBloc()),
       BlocProvider(create: (context) => DictionaryBloc(getIt<IDictionaryRepository>())),
       BlocProvider(
-        create: (context) => AuthenticationBloc(
+        create: (context) => AuthBloc(
           getIt<IAuthenticationRepository>(),
           getIt<IFirestoreRepository>(),
         )..add(AppStarted()),

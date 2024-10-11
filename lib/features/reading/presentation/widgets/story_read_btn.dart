@@ -21,23 +21,33 @@ class StoryReadButton extends StatelessWidget {
         return Padding(
           padding: AppPadding.defaults,
           child: TextButton.icon(
-            onPressed: state is ReadingLoading
-                ? null // Disable the button while loading
-                : () {
-                    context.read<ReadingBloc>().add(SaveStoryAsReaded(
-                          storyId: story.id.toString(),
-                          levelCode: story.level.toLowerCase(),
-                        ));
-                  },
+            onPressed: _onTab(state, complete, context),
             label: _label(state, complete, context), // Default label
-            icon: Icon(
-              Icons.check_circle_outline_rounded,
-              color: readBtnTextColor(complete, context),
-            ),
+            icon: complete
+                ? Icon(
+                    Icons.check_circle_outline_rounded,
+                    color: readBtnTextColor(complete, context),
+                  )
+                : null,
           ),
         );
       },
     );
+  }
+
+  void Function()? _onTab(ReadingState state, bool complete, BuildContext context) {
+    if (complete) {
+      return null;
+    }
+
+    return state is ReadingLoading
+        ? null // Disable the button while loading
+        : () {
+            context.read<ReadingBloc>().add(SaveStoryAsReaded(
+                  storyId: story.id.toString(),
+                  levelCode: story.level.toLowerCase(),
+                ));
+          };
   }
 
   Widget _label(ReadingState state, bool complete, BuildContext context) {
@@ -54,7 +64,8 @@ class StoryReadButton extends StatelessWidget {
   Color? readBtnTextColor(bool complete, BuildContext context) {
     bool isDark = context.read<ThemeBloc>().state.isDarkMode;
     final secondary = isDark ? AppColor.lightBlue : AppColor.secondary;
+    final primary = isDark ? AppColor.lightGreen : AppColor.completeTask;
 
-    return complete ? AppColor.lightGreen : secondary;
+    return complete ? primary : secondary;
   }
 }

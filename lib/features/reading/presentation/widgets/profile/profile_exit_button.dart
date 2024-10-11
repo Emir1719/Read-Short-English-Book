@@ -10,15 +10,15 @@ class ProfileExitButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthenticationBloc, AuthenticationState>(
+    return BlocBuilder<AuthBloc, AuthState>(
       builder: (context, state) {
-        if (state is AuthenticationLoading) {
+        if (state is AuthLoading) {
           return const AppLoading();
         } else {
           return IconButton(
             icon: const Icon(Icons.logout),
             onPressed: () {
-              context.read<AuthenticationBloc>().add(SignOutRequested());
+              context.read<AuthBloc>().add(SignOutRequested());
             },
           );
         }

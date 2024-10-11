@@ -13,7 +13,7 @@ class SignUpButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: () {
-        context.read<AuthenticationBloc>().add(
+        context.read<AuthBloc>().add(
               SignUpRequested(email.text, password.text, age.text),
             );
       },
