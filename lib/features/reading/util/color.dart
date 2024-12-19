@@ -39,6 +39,7 @@ class AppColor {
   static Color? get storyCategoryTitle => Colors.blue.shade900;
   static Color? get profileInfoTitle => Colors.grey.shade600;
   static Color? get infoTitleDark => Colors.grey.shade300;
+  static Color? get settings => Colors.grey.shade200;
   static Color? get profileInfoTitleDark => Colors.grey.shade300;
   static Color? get storyDetail => Colors.blue.shade50;
   static Color? get storyDetailDark => primaryDark;

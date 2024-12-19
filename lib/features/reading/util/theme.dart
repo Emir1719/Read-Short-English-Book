@@ -54,7 +54,7 @@ class AppTheme {
           backgroundColor: AppColor.secondaryDark,
         ),
         switchTheme: _switchTheme(
-          trackColor: AppColor.primaryDark,
+          trackColor: AppColor.scaffoldBackgroundDark,
           thumbColor: AppColor.white,
         ),
       );

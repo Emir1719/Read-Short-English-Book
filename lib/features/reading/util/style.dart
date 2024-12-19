@@ -121,6 +121,13 @@ class AppStyle {
     }
   }
 
+  static BoxDecoration settings(bool isDark) {
+    return BoxDecoration(
+      color: isDark ? AppColor.primaryDark : AppColor.settings,
+      borderRadius: BorderRadius.circular(10),
+    );
+  }
+
   static Color? compliteColor(bool isDark, bool isCompleted) {
     final unCompleteColor = isDark ? AppColor.white : AppColor.black;
     final primary = isDark ? AppColor.lightGreen : AppColor.completeTask;

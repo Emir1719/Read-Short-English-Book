@@ -15,6 +15,7 @@ class SettingView extends StatelessWidget {
         padding: AppPadding.defaults,
         children: [
           LanguageDropdown(),
+          SizedBox(height: 20),
           ThemeSwitchRow(),
         ],
       ),
