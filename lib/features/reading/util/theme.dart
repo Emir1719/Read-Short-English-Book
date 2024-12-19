@@ -165,7 +165,7 @@ class AppTheme {
       foregroundColor: fontColor ?? AppColor.black,
       centerTitle: true,
       titleTextStyle: _textTheme(fontColor: fontColor ?? AppColor.black).titleLarge,
-      surfaceTintColor: secondary ?? AppColor.secondary,
+      surfaceTintColor: primary ?? AppColor.primary,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: primary ?? AppColor.primary,
         systemNavigationBarColor: primary ?? AppColor.primary,

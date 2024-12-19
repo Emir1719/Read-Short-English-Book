@@ -19,39 +19,39 @@ class Categories extends StatelessWidget {
         }
 
         if (state is ReadingLoaded) {
-          return SizedBox(
-            height: 55,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: state.categories.length,
-              padding: AppPadding.categoryOut,
-              itemBuilder: (context, index) {
-                final category = state.categories[index];
-                bool isSelected = state.selectedCategoryId == category.id;
-                bool isDark = context.read<ThemeBloc>().state.isDarkMode;
+          return GridView.builder(
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              mainAxisSpacing: 20,
+              crossAxisSpacing: 20,
+              childAspectRatio: 16 / 5,
+            ),
+            itemCount: state.categories.length,
+            padding: AppPadding.categoryOut,
+            itemBuilder: (context, index) {
+              final category = state.categories[index];
+              bool isSelected = state.selectedCategoryId == category.id;
+              bool isDark = context.read<ThemeBloc>().state.isDarkMode;
 
-                return GestureDetector(
-                  onTap: () {
-                    context.read<ReadingBloc>().add(FilterStoriesByCategory(category.id));
-                  },
-                  child: Container(
-                    padding: AppPadding.categoryIn,
-                    margin: AppPadding.categoryInMargin,
-                    decoration: AppStyle.categoryBox(isDark, isSelected),
-                    child: Center(
-                      child: Text(
-                        category.title,
-                        style: textTheme.bodyMedium?.copyWith(
-                          color: isDark
-                              ? AppStyle.darkMode(isSelected)
-                              : AppStyle.lightMode(isSelected),
-                        ),
+              return GestureDetector(
+                onTap: () {
+                  context.read<ReadingBloc>().add(FilterStoriesByCategory(category.id));
+                },
+                child: Container(
+                  padding: AppPadding.categoryIn,
+                  decoration: AppStyle.categoryBox(isDark, isSelected),
+                  child: Center(
+                    child: Text(
+                      category.title,
+                      style: textTheme.bodyMedium?.copyWith(
+                        color:
+                            isDark ? AppStyle.darkMode(isSelected) : AppStyle.lightMode(isSelected),
                       ),
                     ),
                   ),
-                );
-              },
-            ),
+                ),
+              );
+            },
           );
         }
 

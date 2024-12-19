@@ -43,4 +43,6 @@ class AppColor {
   static Color? get storyDetail => Colors.blue.shade50;
   static Color? get storyDetailDark => primaryDark;
   static Color? get bottomUnselected => Colors.grey.shade700;
+  static Color? get example => Colors.red.shade600;
+  static Color? get exampleDark => Colors.deepOrange.shade400;
 }

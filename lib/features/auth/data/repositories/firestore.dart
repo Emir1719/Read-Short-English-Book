@@ -81,9 +81,12 @@ class FirestoreRepository implements IFirestoreRepository {
   }
 
   @override
-  Future<StoryReaded> getAllReading() async {
+  Future<StoryReaded?> getAllReading() async {
     try {
       final snapshot = await _firestore.collection(_readingCol).doc(_userId).get();
+      if (snapshot.data() == null) {
+        return null;
+      }
       final data = snapshot.data() as Map<String, dynamic>;
       return StoryReaded.fromMap(data);
     } catch (e) {

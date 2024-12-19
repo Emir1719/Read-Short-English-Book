@@ -83,7 +83,11 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     }
   }
 
-  void _complete(StoryReaded reading) {
+  void _complete(StoryReaded? reading) {
+    if (reading == null) {
+      return;
+    }
+
     stories = stories?.map((story) {
       if (reading.storyIds.contains(story.id)) {
         return story.copyWith(isCompleted: true);

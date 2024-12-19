@@ -1,4 +1,7 @@
+import 'package:english_will_fly/features/reading/util/color.dart';
+import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class WordDefinition extends StatelessWidget {
   const WordDefinition({super.key, required this.value});
@@ -7,6 +10,8 @@ class WordDefinition extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     const space = SizedBox(height: 8);
+    final textTheme = Theme.of(context).textTheme;
+    bool isDark = context.read<ThemeBloc>().state.isDarkMode;
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 10),
@@ -15,13 +20,16 @@ class WordDefinition extends StatelessWidget {
         children: [
           Text(
             "Definition:",
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 16, color: Colors.blue.shade900),
+            style: textTheme.bodyLarge?.copyWith(
+              color: isDark ? AppColor.lightBlue : AppColor.storyCategoryTitle,
+            ),
           ),
           space,
           Text(
             value?.trim() ?? "",
-            style: const TextStyle(fontSize: 15),
+            style: textTheme.bodyMedium,
             textAlign: TextAlign.left,
+            maxLines: 10,
           ),
         ],
       ),

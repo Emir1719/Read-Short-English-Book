@@ -8,7 +8,7 @@ abstract class IFirestoreRepository {
   Future<AppUser?> getCurrentUser(String userId);
 
   Future<bool> saveReading(String storyId);
-  Future<StoryReaded> getAllReading();
+  Future<StoryReaded?> getAllReading();
 
   Future<bool> saveWordToList(String word);
   Future<bool> removeWordFromList(String word);

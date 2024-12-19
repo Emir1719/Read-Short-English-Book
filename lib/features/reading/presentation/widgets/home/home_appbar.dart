@@ -1,5 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/home/home_filter_category_button.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/home/home_search_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -28,16 +30,8 @@ class HomeSearchAppBar extends StatelessWidget implements PreferredSizeWidget {
         },
       ),
       actions: [
-        BlocBuilder<ReadingBloc, ReadingState>(
-          builder: (context, state) {
-            return IconButton(
-              icon: Icon(state is ReadingLoaded && state.isSearchActive ? Icons.close : Icons.search),
-              onPressed: () {
-                context.read<ReadingBloc>().add(ToggleSearchBar()); // Arama barını aç/kapa
-              },
-            );
-          },
-        ),
+        HomeSearchButton(),
+        HomeFilterCategoryButton(),
       ],
     );
   }
