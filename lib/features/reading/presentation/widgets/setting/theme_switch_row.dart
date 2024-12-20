@@ -15,7 +15,7 @@ class ThemeSwitchRow extends StatelessWidget {
 
     return Container(
       decoration: AppStyle.settings(isDark),
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

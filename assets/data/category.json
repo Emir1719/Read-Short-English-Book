@@ -1,42 +1,42 @@
 [
     {
         "id": 1,
-        "title": "Environment",
+        "title": "category.enviroment",
         "description": "Topics related to nature, climate change, and sustainability."
     },
     {
         "id": 2,
-        "title": "Sport",
+        "title": "category.sports",
         "description": "All about physical activities, games, and fitness."
     },
     {
         "id": 3,
-        "title": "Film",
+        "title": "category.film",
         "description": "Cinema, movies, and the film industry."
     },
     {
         "id": 4,
-        "title": "People",
+        "title": "category.people",
         "description": "Stories and profiles about individuals and communities."
     },
     {
         "id": 5,
-        "title": "Technology",
+        "title": "category.technology",
         "description": "Latest advancements in tech, gadgets, and software."
     },
     {
         "id": 6,
-        "title": "Health",
+        "title": "category.health",
         "description": "Information and tips on maintaining physical and mental well-being."
     },
     {
         "id": 7,
-        "title": "Education",
+        "title": "category.education",
         "description": "Insights on learning, teaching, and educational systems."
     },
     {
         "id": 8,
-        "title": "Islamic",
+        "title": "category.islamic",
         "description": "Insights on learning, teaching, and Islamic systems."
     }
 ]

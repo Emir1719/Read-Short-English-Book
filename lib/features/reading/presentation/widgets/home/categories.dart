@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
@@ -47,7 +48,7 @@ class Categories extends StatelessWidget {
                         color:
                             isDark ? AppStyle.darkMode(isSelected) : AppStyle.lightMode(isSelected),
                       ),
-                    ),
+                    ).tr(),
                   ),
                 ),
               );

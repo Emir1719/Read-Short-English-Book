@@ -35,5 +35,15 @@
         "add": "Listeye Ekle",
         "message": "Kelime Eklendi",
         "remove": "Listeden Çıkar"
+    },
+    "category": {
+        "enviroment": "Çevre",
+        "sports": "Spor",
+        "film": "Film",
+        "people": "İnsanlar",
+        "technology": "Teknoloji",
+        "health": "Sağlık",
+        "education": "Eğitim",
+        "islamic": "İslam"
     }
 }

@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
@@ -22,7 +23,7 @@ class StoryItemSubtitle extends StatelessWidget {
           style: textTheme.bodyMedium?.copyWith(
             color: isDark ? AppColor.lightBlue : AppColor.storyCategoryTitle,
           ),
-        ),
+        ).tr(),
         Icon(
           Icons.check_circle_outline_outlined,
           size: 20,
