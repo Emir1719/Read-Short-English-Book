@@ -23,6 +23,7 @@ dependencies:
   dio: ^5.7.0
   go_router: ^14.3.0
   shared_preferences: ^2.3.2
+  just_audio: ^0.9.42
 
 dev_dependencies:
   flutter_lints: ^5.0.0
