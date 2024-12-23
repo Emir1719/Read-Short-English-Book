@@ -34,4 +34,5 @@ flutter:
     - assets/
     - assets/data/
     - assets/image/
+    - assets/image/category_icon/
     - assets/translations/

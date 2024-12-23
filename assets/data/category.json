@@ -2,41 +2,49 @@
     {
         "id": 1,
         "title": "category.enviroment",
-        "description": "Topics related to nature, climate change, and sustainability."
+        "description": "Topics related to nature, climate change, and sustainability.",
+        "icon": "enviroment.png"
     },
     {
         "id": 2,
         "title": "category.sports",
-        "description": "All about physical activities, games, and fitness."
+        "description": "All about physical activities, games, and fitness.",
+        "icon": "sports.png"
     },
     {
         "id": 3,
         "title": "category.film",
-        "description": "Cinema, movies, and the film industry."
+        "description": "Cinema, movies, and the film industry.",
+        "icon": "film.png"
     },
     {
         "id": 4,
         "title": "category.people",
-        "description": "Stories and profiles about individuals and communities."
+        "description": "Stories and profiles about individuals and communities.",
+        "icon": "people.png"
     },
     {
         "id": 5,
         "title": "category.technology",
-        "description": "Latest advancements in tech, gadgets, and software."
+        "description": "Latest advancements in tech, gadgets, and software.",
+        "icon": "technology.png"
     },
     {
         "id": 6,
         "title": "category.health",
-        "description": "Information and tips on maintaining physical and mental well-being."
+        "description": "Information and tips on maintaining physical and mental well-being.",
+        "icon": "health.png"
     },
     {
         "id": 7,
         "title": "category.education",
-        "description": "Insights on learning, teaching, and educational systems."
+        "description": "Insights on learning, teaching, and educational systems.",
+        "icon": "education.png"
     },
     {
         "id": 8,
         "title": "category.islamic",
-        "description": "Insights on learning, teaching, and Islamic systems."
+        "description": "Insights on learning, teaching, and Islamic systems.",
+        "icon": "islamic.png"
     }
 ]

@@ -44,7 +44,7 @@ class Story {
       id: map['id'] as String,
       title: map['title'] as String,
       image: map['image'] as String,
-      category: Category(id: map['category'] as int, title: "", description: ""),
+      category: Category.getById(map['category'] as int),
       paragraphs: List<String>.from((map['paragraphs'] as List<dynamic>)),
       definitions: List<String>.from((map['definitions'] as List<dynamic>)),
       isCompleted: false,
@@ -54,7 +54,8 @@ class Story {
 
   String toJson() => json.encode(toMap());
 
-  factory Story.fromJson(String source) => Story.fromMap(json.decode(source) as Map<String, dynamic>);
+  factory Story.fromJson(String source) =>
+      Story.fromMap(json.decode(source) as Map<String, dynamic>);
 
   Story copyWith({
     String? id,

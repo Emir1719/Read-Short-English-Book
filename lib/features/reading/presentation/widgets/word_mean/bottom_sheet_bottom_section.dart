@@ -20,7 +20,7 @@ class BottomSheetBottomSection extends StatelessWidget {
       children: [
         Text(
           state.dictionaryList.first.meanings?.first.definitions?.first.definition ?? "",
-          style: textTheme.bodyMedium,
+          style: textTheme.bodyMedium?.copyWith(height: 1.5),
           maxLines: 10,
           textAlign: TextAlign.justify,
         ),

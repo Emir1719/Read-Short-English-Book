@@ -10,24 +10,25 @@ class BtnPlaySound extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (phonetics == null || phonetics!.isEmpty) {
+    bool isEmptyPhonetics = phonetics?.every(
+          (element) => element.audio == null || element.audio!.isEmpty,
+        ) ??
+        true;
+
+    if (isEmptyPhonetics) {
       return const SizedBox();
     }
 
-    final phonetic = phonetics?.firstWhere(
+    Phonetic? phonetic = phonetics?.firstWhere(
       (element) => element.audio != null && element.audio!.isNotEmpty,
     );
-
-    if (phonetic == null) {
-      return const SizedBox();
-    }
 
     return IconButton(
       onPressed: () async {
         try {
           final player = AudioPlayer();
 
-          await player.setUrl(phonetic.audio!);
+          await player.setUrl(phonetic!.audio!);
           await player.setVolume(3.0);
           await player.play();
         } catch (e) {
