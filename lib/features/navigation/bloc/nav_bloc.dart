@@ -1,5 +1,6 @@
 import 'package:english_will_fly/features/navigation/model/navbar_item.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'nav_event.dart';
@@ -15,7 +16,7 @@ class NavBloc extends Bloc<NavEvent, NavState> {
       var item = NavbarItem.values.firstWhere((element) => element.pageIndex == event.index);
       emit(NavState(item));
     } catch (e) {
-      print(e.toString());
+      debugPrint(e.toString());
     }
   }
 }

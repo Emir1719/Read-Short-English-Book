@@ -45,7 +45,6 @@ class WordListBloc extends Bloc<WordListEvent, WordListState> {
 
       emit(WordListLoaded(wordList: wordList));
     } catch (e) {
-      print("hata1");
       emit(WordListError(message: e.toString()));
     }
   }

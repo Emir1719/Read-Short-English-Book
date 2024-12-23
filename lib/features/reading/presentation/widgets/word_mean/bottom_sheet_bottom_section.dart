@@ -15,30 +15,34 @@ class BottomSheetBottomSection extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
     List<Phonetic>? phonetics = state.dictionaryList.first.phonetics;
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          state.dictionaryList.first.meanings?.first.definitions?.first.definition ?? "",
-          style: textTheme.bodyMedium?.copyWith(height: 1.5),
-          maxLines: 10,
-          textAlign: TextAlign.justify,
-        ),
-        SizedBox(height: 10),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            BtnPlaySound(phonetics: phonetics),
-            Row(
-              children: [
-                BtnAddWordList(word: word),
-                SizedBox(width: 10),
-                BtnWordDetail(dictionary: state.dictionaryList.first),
-              ],
-            )
-          ],
-        )
-      ],
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.min,
+        spacing: 15,
+        children: [
+          Text(
+            state.dictionaryList.first.meanings?.first.definitions?.first.definition ?? "",
+            style: textTheme.bodyMedium?.copyWith(height: 1.5),
+            maxLines: 4,
+            textAlign: TextAlign.justify,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              BtnPlaySound(phonetics: phonetics),
+              Row(
+                children: [
+                  BtnAddWordList(word: word),
+                  SizedBox(width: 10),
+                  BtnWordDetail(dictionary: state.dictionaryList.first),
+                ],
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 }

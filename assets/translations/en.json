@@ -9,7 +9,7 @@
     },
     "settings": {
         "title": "Settings",
-        "theme": "Should the dark theme be active?"
+        "theme": "Dark Theme"
     },
     "storyLevel": {
         "title": "Stories",

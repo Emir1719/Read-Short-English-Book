@@ -58,7 +58,6 @@ class BtnAddWordList extends StatelessWidget {
 
   bool _isAdded(BuildContext context) {
     var list = context.read<WordListBloc>().wordList?.words ?? [];
-    print(list);
     return list.contains(word);
   }
 

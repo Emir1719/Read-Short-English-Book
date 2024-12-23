@@ -32,8 +32,13 @@ class BtnPlaySound extends StatelessWidget {
           await player.setVolume(3.0);
           await player.play();
         } catch (e) {
+          if (!context.mounted) return;
+
           ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(content: Text('Error playing audio: ${e.toString()}')),
+            SnackBar(
+              content: Text('Error playing audio: ${e.toString()}', maxLines: 4),
+              behavior: SnackBarBehavior.floating,
+            ),
           );
         }
       },

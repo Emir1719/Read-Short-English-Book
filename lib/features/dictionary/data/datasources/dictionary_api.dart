@@ -16,8 +16,7 @@ class DictionaryApi {
 
       return [];
     } catch (e) {
-      print(e);
-      return [];
+      throw Exception(e);
     }
   }
 }

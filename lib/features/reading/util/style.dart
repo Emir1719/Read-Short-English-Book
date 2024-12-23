@@ -24,7 +24,9 @@ class AppStyle {
       );
 
   static BoxDecoration storyLevel(isDark) => BoxDecoration(
-        color: isDark ? Colors.black.withOpacity(0.65) : Colors.white.withOpacity(0.65),
+        color: isDark
+            ? Colors.black.withAlpha((0.65 * 255).toInt())
+            : Colors.white.withAlpha((0.65 * 255).toInt()),
         borderRadius: BorderRadius.circular(8),
       );
 
