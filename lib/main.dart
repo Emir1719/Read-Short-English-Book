@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:english_will_fly/core/constants/suported_locales.dart';
 import 'package:english_will_fly/features/reading/util/app_init.dart';
 import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,7 @@ Future<void> main() async {
 
   runApp(
     EasyLocalization(
-      supportedLocales: [Locale('en', ''), Locale('tr', '')],
+      supportedLocales: SupportedLocales.locales,
       path: 'assets/translations',
       fallbackLocale: Locale('en', ''),
       child: MainApp(),

@@ -1,0 +1,49 @@
+{
+    "profile": {
+        "title": "Profil",
+        "email": "E-Mail",
+        "age": "Alter",
+        "reading": "Gesamtlesen",
+        "words": "Gesamtwörter",
+        "word_list": "Wortliste"
+    },
+    "settings": {
+        "title": "Einstellungen",
+        "theme": "Dunkles Thema"
+    },
+    "storyLevel": {
+        "title": "Geschichten",
+        "subtitle": "{count} Geschichten",
+        "subtitleError": "Keine Geschichte vorhanden"
+    },
+    "home": {
+        "title": "Startseite",
+        "search": "Geschichten suchen...",
+        "level": "Level",
+        "newWords": "Neue Wörter",
+        "readStatus": "Ich habe gelesen",
+        "detail": "Detail"
+    },
+    "stories": {
+        "title": "{level} Geschichten"
+    },
+    "error": {
+        "e": "Ein Fehler: {message}"
+    },
+    "word_list": {
+        "title": "Wortliste",
+        "add": "Wortliste hinzufügen",
+        "message": "Wort wurde hinzugefügt",
+        "remove": "Aus der Liste entfernen"
+    },
+    "category": {
+        "enviroment": "Umwelt",
+        "sports": "Sport",
+        "film": "Film",
+        "people": "Menschen",
+        "technology": "Technologie",
+        "health": "Gesundheit",
+        "education": "Bildung",
+        "islamic": "Islamisch"
+    }
+}

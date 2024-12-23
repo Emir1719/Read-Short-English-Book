@@ -11,26 +11,26 @@ class ProfileWordList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<WordListBloc, WordListState>(
       builder: (context, state) {
-        if (state is WordListLoaded) {
-          var wordList = state.wordList;
+        String value;
+        List<String> words = [];
 
-          return GestureDetector(
-            onTap: () => context.push("/wordList", extra: wordList?.words ?? []),
-            child: ProfileInfoBox(
-              title: "profile.word_list",
-              value: "${wordList?.words.length ?? 0}",
-              icon: Icons.workspaces_filled,
-            ),
-          );
+        if (state is WordListLoaded) {
+          value = "${state.wordList?.words.length ?? 0}";
+          words = state.wordList?.words ?? [];
         } else if (state is WordListLoading) {
-          return Center(child: CircularProgressIndicator());
+          value = "...";
         } else {
-          return ProfileInfoBox(
-            title: "profile.word_list",
-            value: "0",
-            icon: Icons.workspaces_filled,
-          );
+          value = "0";
         }
+
+        return GestureDetector(
+          onTap: state is WordListLoaded ? () => context.push("/wordList", extra: words) : null,
+          child: ProfileInfoBox(
+            title: "profile.word_list",
+            value: value,
+            icon: Icons.workspaces_filled,
+          ),
+        );
       },
     );
   }

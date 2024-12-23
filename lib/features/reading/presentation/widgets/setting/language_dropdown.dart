@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:english_will_fly/core/constants/suported_locales.dart';
 import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
@@ -24,24 +25,34 @@ class LanguageDropdown extends StatelessWidget {
             EasyLocalization.of(context)?.setLocale(locale); // Yeni locale ayarını güncelle
           }
         },
+        isExpanded: true,
         underline: SizedBox(),
         dropdownColor: isDark ? AppColor.scaffoldBackgroundDark : AppColor.white,
-        isExpanded: true,
-        menuWidth: context.width(0.8),
+        menuWidth: context.width(0.9),
         borderRadius: BorderRadius.circular(10),
         style: textTheme.bodyMedium,
         iconEnabledColor: isDark ? AppColor.white : AppColor.black,
-        items: [
-          DropdownMenuItem(
-            value: Locale('en', ''),
-            child: Text('English'),
-          ),
-          DropdownMenuItem(
-            value: Locale('tr', ''),
-            child: Text('Türkçe'),
-          ),
-        ],
+        items: getDropdownMenuItems(),
       ),
     );
+  }
+
+  List<DropdownMenuItem<Locale>> getDropdownMenuItems() {
+    return SupportedLocales.locales.map((locale) {
+      return DropdownMenuItem(
+        value: locale,
+        child: Row(
+          spacing: 15,
+          children: [
+            Image.asset(
+              'assets/image/language/${locale.languageCode}.png',
+              width: 30,
+              height: 30,
+            ),
+            Text(SupportedLocales.localeNames[locale]!),
+          ],
+        ),
+      );
+    }).toList();
   }
 }
