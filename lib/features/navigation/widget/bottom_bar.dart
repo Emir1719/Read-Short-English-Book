@@ -17,19 +17,19 @@ class AppBottomNavBar extends StatelessWidget {
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              label: 'home.title'.tr(),
+              label: 'home.title'.tr(context: context),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.chrome_reader_mode_rounded),
-              label: 'storyLevel.title'.tr(),
+              label: 'storyLevel.title'.tr(context: context),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              label: 'profile.title'.tr(),
+              label: 'profile.title'.tr(context: context),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.settings),
-              label: 'settings.title'.tr(),
+              label: 'settings.title'.tr(context: context),
             ),
           ],
           onTap: (index) {

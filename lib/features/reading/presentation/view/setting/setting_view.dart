@@ -10,7 +10,7 @@ class SettingView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('settings.title').tr()),
+      appBar: AppBar(title: Text('settings.title').tr(context: context)),
       body: ListView(
         padding: AppPadding.defaults,
         children: [

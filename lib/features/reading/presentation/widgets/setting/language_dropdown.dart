@@ -47,7 +47,7 @@ class LanguageDropdown extends StatelessWidget {
             Image.asset(
               'assets/image/language/${locale.languageCode}.png',
               width: 30,
-              height: 30,
+              fit: BoxFit.fitWidth,
             ),
             Text(SupportedLocales.localeNames[locale]!),
           ],

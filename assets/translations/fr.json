@@ -1,0 +1,49 @@
+{
+    "profile": {
+        "title": "Profil",
+        "email": "E-mail",
+        "age": "Âge",
+        "reading": "Lecture Totale",
+        "words": "Mots Totaux",
+        "word_list": "Liste de Mots"
+    },
+    "settings": {
+        "title": "Paramètres",
+        "theme": "Thème Sombre"
+    },
+    "storyLevel": {
+        "title": "Histoires",
+        "subtitle": "{count} histoires",
+        "subtitleError": "Aucune histoire"
+    },
+    "home": {
+        "title": "Accueil",
+        "search": "Rechercher des Histoires...",
+        "level": "Niveau",
+        "newWords": "Nouveaux Mots",
+        "readStatus": "J'ai Lu",
+        "detail": "Détail"
+    },
+    "stories": {
+        "title": "Histoires {level}"
+    },
+    "error": {
+        "e": "Une Erreur : {message}"
+    },
+    "word_list": {
+        "title": "Liste de Mots",
+        "add": "Ajouter à la Liste de Mots",
+        "message": "Mot Ajouté",
+        "remove": "Retirer de la Liste"
+    },
+    "category": {
+        "enviroment": "Environnement",
+        "sports": "Sport",
+        "film": "Film",
+        "people": "Personnes",
+        "technology": "Technologie",
+        "health": "Santé",
+        "education": "Éducation",
+        "islamic": "Islamique"
+    }
+}

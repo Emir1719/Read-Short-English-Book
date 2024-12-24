@@ -25,17 +25,21 @@ class CategoryItem extends StatelessWidget {
         padding: AppPadding.categoryIn,
         decoration: AppStyle.categoryBox(context.isDark, isSelected),
         child: Row(
+          spacing: 15,
           children: [
             ImageIcon(
               AssetImage("assets/image/category_icon/${category.iconName}"),
               size: 20,
               color: color,
             ),
-            SizedBox(width: 15),
-            Text(
-              category.title,
-              style: context.text.bodyMedium?.copyWith(color: color),
-            ).tr(),
+            Expanded(
+              child: Text(
+                category.title,
+                style: context.text.bodyMedium?.copyWith(color: color),
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
+              ).tr(),
+            ),
           ],
         ),
       ),

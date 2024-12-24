@@ -1,0 +1,49 @@
+{
+    "profile": {
+        "title": "Профиль",
+        "email": "Электронная почта",
+        "age": "Возраст",
+        "reading": "Всего прочитано",
+        "words": "Всего слов",
+        "word_list": "Список слов"
+    },
+    "settings": {
+        "title": "Настройки",
+        "theme": "Тёмная тема"
+    },
+    "storyLevel": {
+        "title": "Истории",
+        "subtitle": "{count} истории",
+        "subtitleError": "Нет ни одной истории"
+    },
+    "home": {
+        "title": "Главная",
+        "search": "Поиск историй...",
+        "level": "Уровень",
+        "newWords": "Новые слова",
+        "readStatus": "Я прочитал",
+        "detail": "Детали"
+    },
+    "stories": {
+        "title": "Истории {level}"
+    },
+    "error": {
+        "e": "Ошибка: {message}"
+    },
+    "word_list": {
+        "title": "Список слов",
+        "add": "Добавить в список слов",
+        "message": "Слово добавлено",
+        "remove": "Удалить из списка"
+    },
+    "category": {
+        "enviroment": "Окружающая среда",
+        "sports": "Спорт",
+        "film": "Фильм",
+        "people": "Люди",
+        "technology": "Технологии",
+        "health": "Здоровье",
+        "education": "Образование",
+        "islamic": "Ислам"
+    }
+}
