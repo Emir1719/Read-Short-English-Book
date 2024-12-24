@@ -132,7 +132,7 @@ class AppTheme {
 
     return TextTheme(
       // body style
-      bodyLarge: base.copyWith(fontSize: 18),
+      bodyLarge: base.copyWith(fontSize: 18, fontWeight: FontWeight.w500),
       bodyMedium: base.copyWith(fontSize: 16),
       bodySmall: base.copyWith(fontSize: 14),
 

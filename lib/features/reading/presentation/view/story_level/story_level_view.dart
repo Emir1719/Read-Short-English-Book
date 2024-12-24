@@ -14,9 +14,13 @@ class StoryLevelView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text("storyLevel.title").tr()),
-      body: ListView.separated(
-        separatorBuilder: (context, index) => const SizedBox(height: 20),
+      body: GridView.builder(
         padding: AppPadding.defaults,
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          crossAxisSpacing: 15,
+          mainAxisSpacing: 15,
+        ),
         itemCount: levels.length,
         itemBuilder: (context, index) {
           var level = levels[index];

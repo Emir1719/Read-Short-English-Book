@@ -1,0 +1,20 @@
+import 'package:flutter/material.dart';
+
+class HomeLevelImage extends StatelessWidget {
+  const HomeLevelImage({super.key, required this.level});
+  final String level;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 10, top: 15),
+      child: Expanded(
+        child: Image.asset(
+          "assets/image/level/${level.toLowerCase()}.png",
+          height: 90,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+}

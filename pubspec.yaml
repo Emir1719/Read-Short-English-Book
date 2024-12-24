@@ -37,4 +37,6 @@ flutter:
     - assets/image/
     - assets/image/category_icon/
     - assets/image/language/
+    - assets/image/level/
+    - assets/image/icon/
     - assets/translations/
