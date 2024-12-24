@@ -1,9 +1,9 @@
 import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/info_box.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/story_read/text_to_speech_button.dart';
 import 'package:english_will_fly/features/reading/util/color.dart';
-import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
+import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class StoryDetail extends StatelessWidget {
@@ -12,10 +12,8 @@ class StoryDetail extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isDark = context.read<ThemeBloc>().state.isDarkMode;
-
     return Container(
-      color: isDark ? AppColor.storyDetailDark : AppColor.storyDetail,
+      color: context.isDark ? AppColor.storyDetailDark : AppColor.storyDetail,
       padding: EdgeInsets.symmetric(vertical: 10),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -30,6 +28,7 @@ class StoryDetail extends StatelessWidget {
               icon: Icons.add_home_rounded,
             ),
           ),
+          TextToSpeechButton(text: story.paragraphs.join(". ")),
         ],
       ),
     );

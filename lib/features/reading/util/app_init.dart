@@ -1,7 +1,7 @@
 // ignore_for_file: depend_on_referenced_packages
 
 import 'package:easy_localization/easy_localization.dart';
-import 'package:english_will_fly/features/auth/data/dependency/auth_dependency.dart';
+import 'package:english_will_fly/core/auth_dependency.dart';
 import 'package:english_will_fly/features/auth/data/repositories/i_auth_repository.dart';
 import 'package:english_will_fly/features/auth/data/repositories/i_firestore_repository.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
@@ -45,7 +45,7 @@ final class AppInit {
     );
     await ThemeStorage().init();
     EasyLocalization.logger.enableBuildModes = [];
-    setupDependencies();
+    await setupDependencies();
   }
 
   static List<SingleChildWidget> getBlocProviders() {
