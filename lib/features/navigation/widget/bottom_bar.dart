@@ -16,19 +16,19 @@ class AppBottomNavBar extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.home),
+              icon: _icon("home"),
               label: 'home.title'.tr(context: context),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.chrome_reader_mode_rounded),
+              icon: _icon("stories"),
               label: 'storyLevel.title'.tr(context: context),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.person),
+              icon: _icon("user"),
               label: 'profile.title'.tr(context: context),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
+              icon: _icon("settings"),
               label: 'settings.title'.tr(context: context),
             ),
           ],
@@ -39,4 +39,6 @@ class AppBottomNavBar extends StatelessWidget {
       },
     );
   }
+
+  ImageIcon _icon(String fileName) => ImageIcon(AssetImage('assets/image/icon/$fileName.png'));
 }

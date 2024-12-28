@@ -30,6 +30,11 @@ class AppStyle {
         borderRadius: BorderRadius.circular(8),
       );
 
+  static BoxDecoration settingsItem(bool isDark) => BoxDecoration(
+        color: isDark ? Colors.grey.shade900 : Colors.grey.shade100,
+        borderRadius: BorderRadius.circular(15),
+      );
+
   static BoxDecoration profileContainer(bool isDark) => BoxDecoration(
         color: isDark ? Colors.grey.shade900 : Colors.grey.shade100,
         border: Border(
