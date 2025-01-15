@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/auth/presentation/widgets/auth/error_listener.dart';
 import 'package:english_will_fly/features/auth/presentation/widgets/auth/signup_button.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
@@ -14,7 +15,7 @@ class SignUpView extends StatelessWidget {
     const space = SizedBox(height: 20);
 
     return Scaffold(
-      appBar: AppBar(title: const Text("Sign Up")),
+      appBar: AppBar(title: const Text("auth.register").tr()),
       body: ListView(
         padding: AppPadding.defaults,
         children: [

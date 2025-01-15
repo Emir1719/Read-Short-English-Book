@@ -45,5 +45,9 @@
         "health": "Sağlık",
         "education": "Eğitim",
         "islamic": "İslami"
+    },
+    "auth": {
+        "login": "Giriş Yap",
+        "register": "Kayıt Ol"
     }
 }

@@ -1,5 +1,6 @@
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
+import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -12,10 +13,8 @@ class ProfileUserEmail extends StatelessWidget {
 
     return Text(
       user.email,
-      style: TextStyle(
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
-      ),
+      style: context.text.bodyLarge,
+      maxLines: 1,
     );
   }
 }

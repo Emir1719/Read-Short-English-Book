@@ -55,7 +55,7 @@ class TextParse {
 
     return TextSpan(
       children: textSpans,
-      style: textTheme.bodyLarge?.copyWith(height: 1.7),
+      style: textTheme.bodyLarge?.copyWith(height: 1.7, fontWeight: FontWeight.normal),
     );
   }
 
@@ -64,7 +64,8 @@ class TextParse {
 
     return TextSpan(
       text: matchedText,
-      style: textTheme.bodyLarge?.copyWith(height: 1.7, color: color),
+      style:
+          textTheme.bodyLarge?.copyWith(height: 1.7, color: color, fontWeight: FontWeight.normal),
       recognizer: TapGestureRecognizer()
         ..onTap = () => showModalBottomSheet(
               context: context,

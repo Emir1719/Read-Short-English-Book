@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
 import 'package:english_will_fly/features/auth/presentation/widgets/auth/content.dart';
@@ -13,7 +14,7 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Login")),
+      appBar: AppBar(title: const Text("auth.login").tr()),
       body: BlocListener<AuthBloc, AuthState>(
         listener: _listener,
         child: BlocBuilder<AuthBloc, AuthState>(

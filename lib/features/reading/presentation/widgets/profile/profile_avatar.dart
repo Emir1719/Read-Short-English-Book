@@ -7,10 +7,10 @@ class ProfileAvatar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
-      radius: 60,
+      radius: 45,
       backgroundColor: context.isDark ? Colors.grey.shade800 : Colors.grey.shade100,
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(5.0),
         child: Image.asset(
           'assets/image/avatar/man1.png',
           fit: BoxFit.cover,

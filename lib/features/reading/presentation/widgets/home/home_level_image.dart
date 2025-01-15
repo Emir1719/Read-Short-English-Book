@@ -10,7 +10,7 @@ class HomeLevelImage extends StatelessWidget {
       padding: const EdgeInsets.only(left: 10, top: 15),
       child: Image.asset(
         "assets/image/level/${level.toLowerCase()}.png",
-        height: 90,
+        height: 80,
         fit: BoxFit.cover,
       ),
     );

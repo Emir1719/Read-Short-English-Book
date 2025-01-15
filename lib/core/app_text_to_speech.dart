@@ -11,7 +11,7 @@ class AppTextToSpeech {
     await _flutterTts.setLanguage('en-US');
     await _flutterTts.setPitch(1);
     await _flutterTts.setVolume(1.0);
-    await _flutterTts.setSpeechRate(0.3);
+    await _flutterTts.setSpeechRate(0.5);
 
     // for ios
     await _flutterTts.setSharedInstance(true);

@@ -45,5 +45,9 @@
         "health": "Health",
         "education": "Education",
         "islamic": "Islamic"
+    },
+    "auth": {
+        "login": "Login",
+        "register": "Register"
     }
 }

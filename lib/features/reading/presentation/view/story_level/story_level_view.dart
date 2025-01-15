@@ -14,18 +14,20 @@ class StoryLevelView extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(title: Text("storyLevel.title").tr()),
-      body: GridView.builder(
-        padding: AppPadding.defaults,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 2,
-          crossAxisSpacing: 15,
-          mainAxisSpacing: 15,
-        ),
-        itemCount: levels.length,
-        itemBuilder: (context, index) {
-          var level = levels[index];
-
-          return HomeStoryLevelList(level: level);
+      body: OrientationBuilder(
+        builder: (context, ori) {
+          return GridView.builder(
+            padding: AppPadding.defaults,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: ori == Orientation.portrait ? 2 : 4,
+              crossAxisSpacing: 15,
+              mainAxisSpacing: 15,
+            ),
+            itemCount: levels.length,
+            itemBuilder: (context, index) {
+              return HomeStoryLevelList(level: levels[index]);
+            },
+          );
         },
       ),
     );
