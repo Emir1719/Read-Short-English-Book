@@ -9,7 +9,8 @@
     },
     "settings": {
         "title": "Settings",
-        "theme": "Dark Theme"
+        "theme": "Dark Theme",
+        "exit": "Exit"
     },
     "storyLevel": {
         "title": "Stories",
@@ -37,14 +38,18 @@
         "remove": "Remove From List"
     },
     "category": {
-        "enviroment": "Environment",
-        "sports": "Sport",
+        "environment": "Environment",
+        "sports": "Sports",
         "film": "Film",
         "people": "People",
         "technology": "Technology",
         "health": "Health",
         "education": "Education",
-        "islamic": "Islamic"
+        "morality": "Morality",
+        "horror": "Horror",
+        "science": "Science",
+        "adventure": "Adventure",
+        "news": "News"
     },
     "auth": {
         "login": "Login",

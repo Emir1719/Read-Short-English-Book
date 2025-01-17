@@ -1,5 +1,4 @@
 import 'package:english_will_fly/features/reading/presentation/widgets/profile/profile_appbar.dart';
-import 'package:english_will_fly/features/reading/presentation/widgets/profile/profile_auth_listener.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/profile/profile_background.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:flutter/material.dart';
@@ -11,17 +10,13 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: ProfileAppBar(),
-      body: AuthenticationBlocListener(
-        child: Padding(
-          padding: AppPadding.defaults,
-          child: Column(
-            children: [
-              ProfileBackground(),
-              /*SizedBox(height: 10),
-              ProfileUserStatus(), // Kullanıcı durumu*/
-            ],
-          ),
-        ),
+      body: ListView(
+        padding: AppPadding.defaults,
+        children: [
+          ProfileBackground(),
+          /*SizedBox(height: 10),
+            ProfileUserStatus(), // Kullanıcı durumu*/
+        ],
       ),
     );
   }

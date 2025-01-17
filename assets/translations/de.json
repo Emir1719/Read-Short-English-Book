@@ -37,13 +37,17 @@
         "remove": "Aus der Liste entfernen"
     },
     "category": {
-        "enviroment": "Umwelt",
+        "environment": "Umwelt",
         "sports": "Sport",
         "film": "Film",
         "people": "Menschen",
         "technology": "Technologie",
         "health": "Gesundheit",
         "education": "Bildung",
-        "islamic": "Islamisch"
+        "morality": "Moral",
+        "horror": "Horror",
+        "science": "Wissenschaft",
+        "adventure": "Abenteuer",
+        "news": "Nachrichten"
     }
 }

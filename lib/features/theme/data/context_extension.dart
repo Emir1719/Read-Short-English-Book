@@ -13,5 +13,5 @@ extension ContextExtension on BuildContext {
   double width([double scale = 1]) => size.width * scale;
 
   // bloc
-  get isDark => read<ThemeBloc>().state.isDarkMode;
+  get isDark => watch<ThemeBloc>().state.isDarkMode;
 }

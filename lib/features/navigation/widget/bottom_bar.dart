@@ -20,7 +20,7 @@ class AppBottomNavBar extends StatelessWidget {
               label: 'home.title'.tr(context: context),
             ),
             BottomNavigationBarItem(
-              icon: _icon("stories"),
+              icon: _icon("stories2"),
               label: 'storyLevel.title'.tr(context: context),
             ),
             BottomNavigationBarItem(

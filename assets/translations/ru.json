@@ -37,13 +37,17 @@
         "remove": "Удалить из списка"
     },
     "category": {
-        "enviroment": "Окружающая среда",
+        "environment": "Окружающая среда",
         "sports": "Спорт",
         "film": "Фильм",
         "people": "Люди",
         "technology": "Технологии",
         "health": "Здоровье",
         "education": "Образование",
-        "islamic": "Ислам"
+        "morality": "Мораль",
+        "horror": "Ужасы",
+        "science": "Наука",
+        "adventure": "Приключения",
+        "news": "Новости"
     }
 }

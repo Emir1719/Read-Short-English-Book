@@ -31,8 +31,8 @@ class AppStyle {
       );
 
   static BoxDecoration settingsItem(bool isDark) => BoxDecoration(
-        color: isDark ? Colors.grey.shade900 : Colors.grey.shade100,
-        borderRadius: BorderRadius.circular(15),
+        color: isDark ? Colors.grey.shade900 : Colors.grey.shade200,
+        borderRadius: BorderRadius.circular(10),
       );
 
   static BoxDecoration profileContainer(bool isDark) => BoxDecoration(
@@ -108,25 +108,6 @@ class AppStyle {
       );
 
   static TextStyle get profileInfoValue => TextStyle(fontSize: 18);
-
-  static Color? levelColor(String level) {
-    switch (level) {
-      case "a1":
-        return AppColor.a1;
-      case "a2":
-        return AppColor.a2;
-      case "b1":
-        return AppColor.b1;
-      case "b2":
-        return AppColor.b2;
-      case "c1":
-        return AppColor.c1;
-      case "c2":
-        return AppColor.c2;
-      default:
-        return AppColor.a1;
-    }
-  }
 
   static BoxDecoration settings(bool isDark) {
     return BoxDecoration(

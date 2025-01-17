@@ -1,9 +1,9 @@
 [
     {
         "id": 1,
-        "title": "category.enviroment",
+        "title": "category.environment",
         "description": "Topics related to nature, climate change, and sustainability.",
-        "icon": "enviroment.png"
+        "icon": "environment.png"
     },
     {
         "id": 2,
@@ -43,8 +43,32 @@
     },
     {
         "id": 8,
-        "title": "category.islamic",
-        "description": "Insights on learning, teaching, and Islamic systems.",
-        "icon": "islamic.png"
+        "title": "category.morality",
+        "description": "Insights on learning, teaching, and morality systems.",
+        "icon": "morality.png"
+    },
+    {
+        "id": 9,
+        "title": "category.horror",
+        "description": "",
+        "icon": "horror.png"
+    },
+    {
+        "id": 10,
+        "title": "category.science",
+        "description": "",
+        "icon": "science.png"
+    },
+    {
+        "id": 11,
+        "title": "category.adventure",
+        "description": "",
+        "icon": "adventure.png"
+    },
+    {
+        "id": 12,
+        "title": "category.news",
+        "description": "",
+        "icon": "news.png"
     }
 ]
