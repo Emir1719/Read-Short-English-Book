@@ -1,18 +1,16 @@
 import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/word_mean/bottom_sheet_widget.dart';
-import 'package:english_will_fly/features/reading/util/color.dart';
-import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
+import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class TextParse {
   static TextSpan build(String text, BuildContext context, Story story) {
     List<TextSpan> textSpans = [];
     int start = 0;
 
-    // Split the text into words and spaces
-    RegExp wordRegex = RegExp(r'(\b\w+\b)|(\s+)');
+    // Split the text into words and spaces, including punctuation
+    RegExp wordRegex = RegExp(r'(\b\w+\b|\s+|[.,!?;:])');
     Iterable<RegExpMatch> matches = wordRegex.allMatches(text);
 
     for (var match in matches) {
@@ -28,46 +26,31 @@ class TextParse {
 
       // Check if the matched text is a word and if it is in definitions
       if (RegExp(r'\b\w+\b').hasMatch(matchedText)) {
-        bool isDefined =
-            story.definitions.any((def) => matchedText.toLowerCase().startsWith(def.toLowerCase()));
-
-        if (isDefined) {
-          bool isDark = context.read<ThemeBloc>().state.isDarkMode;
-
-          textSpans.add(_linkedWord(
-            matchedText,
-            context,
-            isDark ? AppColor.lightBlue : AppColor.secondary,
-          ));
-        } else {
-          //textSpans.add(TextSpan(text: matchedText));
-          textSpans.add(_linkedWord(matchedText, context, null));
-        }
+        textSpans.add(_linkedWord(matchedText, context, null));
       } else {
-        // Add space or non-word characters as is
+        // Add space or non-word characters (e.g., punctuation) as is
         textSpans.add(TextSpan(text: matchedText));
       }
 
       start = endMatch;
     }
 
-    final textTheme = Theme.of(context).textTheme;
-
     return TextSpan(
       children: textSpans,
-      style: textTheme.bodyLarge?.copyWith(height: 1.7, fontWeight: FontWeight.normal),
+      style: context.text.bodyLarge?.copyWith(height: 1.7, fontWeight: FontWeight.normal),
     );
   }
 
   static TextSpan _linkedWord(String matchedText, BuildContext context, Color? color) {
-    final textTheme = Theme.of(context).textTheme;
-
     return TextSpan(
       text: matchedText,
-      style:
-          textTheme.bodyLarge?.copyWith(height: 1.7, color: color, fontWeight: FontWeight.normal),
+      style: context.text.bodyLarge?.copyWith(
+        height: 1.7,
+        color: color,
+        fontWeight: FontWeight.normal,
+      ),
       recognizer: TapGestureRecognizer()
-        ..onTap = () => showModalBottomSheet(
+        ..onTap = () async => await showModalBottomSheet(
               context: context,
               enableDrag: false,
               builder: (BuildContext context) {

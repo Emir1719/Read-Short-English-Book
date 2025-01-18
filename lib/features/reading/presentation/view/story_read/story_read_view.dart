@@ -1,6 +1,7 @@
 import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_image.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_detail.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_read_bottom_sheet.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read_btn.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/word_mean/text_parse.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
@@ -27,11 +28,19 @@ class StoryReadView extends StatelessWidget {
 
   Iterable<Widget> _paragraphs(BuildContext context) {
     return story.paragraphs.map((item) {
-      return Padding(
-        padding: AppPadding.defaults.copyWith(bottom: 5),
-        child: RichText(
-          text: TextParse.build(item, context, story),
-          textAlign: TextAlign.justify,
+      return GestureDetector(
+        onLongPress: () async {
+          await showModalBottomSheet(
+            context: context,
+            builder: (context) => StoryReadBottomSheet(text: item),
+          );
+        },
+        child: Padding(
+          padding: AppPadding.defaults.copyWith(bottom: 5),
+          child: RichText(
+            text: TextParse.build(item, context, story),
+            textAlign: TextAlign.justify,
+          ),
         ),
       );
     });

@@ -15,7 +15,7 @@ class TextToSpeechButton extends StatelessWidget {
       onPressed: () async {
         await tts.speak(text);
       },
-      icon: Icon(Icons.mic),
+      icon: Icon(Icons.mic_none_outlined),
       style: ButtonStyle(
         backgroundColor: WidgetStatePropertyAll(AppColor.profileInfoBack),
         shape: WidgetStatePropertyAll(CircleBorder()),

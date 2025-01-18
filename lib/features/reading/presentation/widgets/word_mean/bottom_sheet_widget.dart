@@ -18,7 +18,7 @@ class BottomSheetWidget extends StatelessWidget {
     return Wrap(
       children: [
         SizedBox(
-          height: context.height(0.3),
+          height: context.height(0.4),
           child: Scaffold(
             backgroundColor: Colors.transparent,
             body: Container(

@@ -21,7 +21,7 @@ class SettingsExitButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('settings.exit').tr(context: context),
-            ProfileExitButton(),
+            ExitButton(),
           ],
         ),
       ),
