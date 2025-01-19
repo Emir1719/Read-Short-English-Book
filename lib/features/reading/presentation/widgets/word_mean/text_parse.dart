@@ -1,5 +1,5 @@
 import 'package:english_will_fly/features/reading/data/models/story.dart';
-import 'package:english_will_fly/features/reading/presentation/widgets/word_mean/bottom_sheet_widget.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_read_snackbar.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -50,13 +50,7 @@ class TextParse {
         fontWeight: FontWeight.normal,
       ),
       recognizer: TapGestureRecognizer()
-        ..onTap = () async => await showModalBottomSheet(
-              context: context,
-              enableDrag: false,
-              builder: (BuildContext context) {
-                return BottomSheetWidget(word: matchedText);
-              },
-            ),
+        ..onTap = () async => StoryReadSnackBar.showWordMean(context: context, word: matchedText),
     );
   }
 }

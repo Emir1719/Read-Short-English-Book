@@ -1,7 +1,6 @@
 import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
 class BottomSheetTopSection extends StatelessWidget {
   const BottomSheetTopSection({super.key, required this.word});
@@ -18,7 +17,10 @@ class BottomSheetTopSection extends StatelessWidget {
         IconButton(
           color: context.isDark ? AppColor.lightBlue : Colors.blue,
           padding: EdgeInsets.zero,
-          onPressed: () => context.pop(),
+          onPressed: () {
+            final scaffoldMessenger = ScaffoldMessenger.of(context);
+            scaffoldMessenger.hideCurrentSnackBar();
+          },
           icon: Icon(Icons.close),
         )
       ],

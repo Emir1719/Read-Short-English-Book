@@ -12,7 +12,11 @@ class BtnWordDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton.icon(
-      onPressed: () => context.push("/wordDetail", extra: dictionary),
+      onPressed: () {
+        final scaffoldMessenger = ScaffoldMessenger.of(context);
+        scaffoldMessenger.hideCurrentSnackBar();
+        context.push("/wordDetail", extra: dictionary);
+      },
       label: Text(
         "home.detail",
         style: TextStyle(color: context.isDark ? AppColor.lightBlue : Colors.blue),
