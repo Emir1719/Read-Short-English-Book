@@ -42,12 +42,6 @@
         "icon": "education.png"
     },
     {
-        "id": 8,
-        "title": "category.morality",
-        "description": "Insights on learning, teaching, and morality systems.",
-        "icon": "morality.png"
-    },
-    {
         "id": 9,
         "title": "category.horror",
         "description": "",

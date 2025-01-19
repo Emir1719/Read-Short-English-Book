@@ -23,6 +23,14 @@ class AppStyle {
         border: Border(top: BorderSide(color: AppColor.secondary!, width: 6)),
       );
 
+  static BoxDecoration snackbar(bool isDark) => BoxDecoration(
+        color: isDark ? AppColor.scaffoldBackgroundDark : AppColor.primary,
+        borderRadius: const BorderRadius.all(
+          Radius.circular(10),
+        ),
+        border: Border(top: BorderSide(color: AppColor.secondary!, width: 6)),
+      );
+
   static BoxDecoration storyLevel(isDark) => BoxDecoration(
         color: isDark
             ? Colors.black.withAlpha((0.65 * 255).toInt())

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:english_will_fly/features/auth/data/repositories/firestore.dart';
+import 'package:english_will_fly/features/auth/data/repositories/firestore_reading.dart';
 import 'package:english_will_fly/features/reading/data/models/category.dart';
 import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/data/models/story_readed.dart';
@@ -15,7 +15,7 @@ part 'reading_state.dart';
 
 class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
   final _repository = StoryRepository();
-  final _firestore = FirestoreRepository(FirebaseFirestore.instance, FirebaseAuth.instance);
+  final _firestoreReading = FirestoreReading(FirebaseFirestore.instance, FirebaseAuth.instance);
   List<Story>? stories;
   List<Story>? filteredStories;
   List<Category>? categories;
@@ -61,7 +61,7 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     try {
       emit(ReadingLoading());
       stories = await _repository.getStoriesWithCategoriesForAllLevels();
-      var reading = await _firestore.getAllReading();
+      var reading = await _firestoreReading.getAllReading();
       categories = await _repository.getCategories();
 
       _complete(reading);
@@ -103,10 +103,12 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
   Future<void> toggleLiked(StoryToggleLiked event, Emitter<ReadingState> emit) async {
     try {
       emit(ReadingLoading());
+      bool isLiked = false;
 
       // Find and update the story with matching id
       stories = stories?.map((story) {
         if (story.id.toString() == event.storyId) {
+          isLiked = !story.isLiked;
           return story.copyWith(isCompleted: !story.isLiked);
         }
         return story;
@@ -122,7 +124,11 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
         ),
       ); // Emit updated stories list
 
-      await _firestore.saveReading(event.storyId);
+      if (isLiked) {
+        await _firestoreReading.saveLiked(event.storyId);
+      } else {
+        await _firestoreReading.unsaveLiked(event.storyId);
+      }
     } catch (e) {
       emit(ReadingError(message: e.toString()));
     }

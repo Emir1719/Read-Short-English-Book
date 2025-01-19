@@ -46,4 +46,5 @@ class AppColor {
   static Color? get bottomUnselected => Colors.grey.shade700;
   static Color? get example => Colors.red.shade600;
   static Color? get exampleDark => Colors.deepOrange.shade400;
+  static Color? get snackbar => Colors.grey.shade100;
 }

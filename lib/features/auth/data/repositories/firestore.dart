@@ -3,7 +3,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:english_will_fly/features/auth/data/models/user.dart';
 import 'package:english_will_fly/features/auth/data/repositories/i_firestore_repository.dart';
-import 'package:english_will_fly/features/reading/data/models/story_readed.dart';
 import 'package:english_will_fly/features/reading/data/models/word_list.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -11,7 +10,6 @@ class FirestoreRepository implements IFirestoreRepository {
   final FirebaseFirestore _firestore;
   final FirebaseAuth _auth;
   final String _usersCol = "users";
-  final String _readingCol = "reading";
   final String _wordListCol = "word_list";
 
   FirestoreRepository(this._firestore, this._auth);
@@ -48,50 +46,6 @@ class FirestoreRepository implements IFirestoreRepository {
       // Log error or handle accordingly
       print("Error: ${e.toString()}");
       return false;
-    }
-  }
-
-  @override
-  Future<bool> saveReading(String storyId) async {
-    try {
-      // Reference to the user's document
-      final docRef = _firestore.collection(_readingCol).doc(_userId);
-
-      // Check if the document exists
-      final docSnapshot = await docRef.get();
-
-      if (docSnapshot.exists) {
-        // If the document exists, update the list
-        await docRef.update({
-          "storyIds": FieldValue.arrayUnion([storyId])
-        });
-      } else {
-        // If the document doesn't exist, create it with the storyId
-        await docRef.set({
-          "id": _userId,
-          "storyIds": [storyId]
-        });
-      }
-
-      return true;
-    } catch (e) {
-      print("Error: ${e.toString()}");
-      return false;
-    }
-  }
-
-  @override
-  Future<StoryReaded?> getAllReading() async {
-    try {
-      final snapshot = await _firestore.collection(_readingCol).doc(_userId).get();
-      if (snapshot.data() == null) {
-        return null;
-      }
-      final data = snapshot.data() as Map<String, dynamic>;
-      return StoryReaded.fromMap(data);
-    } catch (e) {
-      print("Error: ${e.toString()}");
-      rethrow;
     }
   }
 

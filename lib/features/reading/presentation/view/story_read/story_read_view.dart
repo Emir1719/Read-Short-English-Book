@@ -1,7 +1,7 @@
 import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_image.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_detail.dart';
-import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_read_bottom_sheet.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_read_snackbar.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/word_mean/text_parse.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:flutter/material.dart';
@@ -29,10 +29,7 @@ class StoryReadView extends StatelessWidget {
     return story.paragraphs.map((item) {
       return GestureDetector(
         onLongPress: () async {
-          await showModalBottomSheet(
-            context: context,
-            builder: (context) => StoryReadBottomSheet(text: item),
-          );
+          await StoryReadSnackBar.showTranslatedText(context: context, text: item);
         },
         child: Padding(
           padding: AppPadding.storyRead,
