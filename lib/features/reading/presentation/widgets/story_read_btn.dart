@@ -16,7 +16,7 @@ class StoryReadButton extends StatelessWidget {
     return BlocBuilder<ReadingBloc, ReadingState>(
       builder: (context, state) {
         var complete = state is ReadingLoaded &&
-            state.stories.firstWhere((element) => element.id == story.id).isCompleted;
+            state.stories.firstWhere((element) => element.id == story.id).isLiked;
 
         return Padding(
           padding: AppPadding.defaults,
@@ -43,7 +43,7 @@ class StoryReadButton extends StatelessWidget {
     return state is ReadingLoading
         ? null // Disable the button while loading
         : () {
-            context.read<ReadingBloc>().add(SaveStoryAsReaded(
+            context.read<ReadingBloc>().add(StoryToggleLiked(
                   storyId: story.id.toString(),
                   levelCode: story.level.toLowerCase(),
                 ));

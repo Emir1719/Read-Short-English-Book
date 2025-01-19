@@ -1,4 +1,4 @@
-import 'package:english_will_fly/core/auth_dependency.dart';
+import 'package:english_will_fly/core/dependency.dart';
 import 'package:english_will_fly/features/dictionary/data/repositories/i_dictionary_repository.dart';
 import 'package:english_will_fly/features/dictionary/presentation/bloc/dictionary_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/word_mean/bottom_sheet_bottom_section.dart';

@@ -27,7 +27,7 @@ class StoryItemSubtitle extends StatelessWidget {
         Icon(
           Icons.check_circle_outline_outlined,
           size: 20,
-          color: AppStyle.compliteColor(isDark, story.isCompleted),
+          color: AppStyle.compliteColor(isDark, story.isLiked),
         ),
       ],
     );

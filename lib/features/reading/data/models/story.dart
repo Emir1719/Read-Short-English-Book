@@ -11,7 +11,7 @@ class Story {
   final Category category;
   final List<String> paragraphs;
   final List<String> definitions;
-  bool isCompleted;
+  bool isLiked;
 
   Story({
     required this.id,
@@ -21,7 +21,7 @@ class Story {
     required this.image,
     required this.level,
     required this.category,
-    this.isCompleted = false,
+    this.isLiked = false,
   });
 
   Map<String, dynamic> toMap() {
@@ -32,7 +32,7 @@ class Story {
       'category': category.id,
       'paragraphs': paragraphs,
       'definitions': definitions,
-      'isCompleted': isCompleted,
+      'isLiked': isLiked,
       'level': level,
     };
   }
@@ -47,7 +47,7 @@ class Story {
       category: Category.getById(map['category'] as int),
       paragraphs: List<String>.from((map['paragraphs'] as List<dynamic>)),
       definitions: List<String>.from((map['definitions'] as List<dynamic>)),
-      isCompleted: false,
+      isLiked: false,
       level: "a1",
     );
   }
@@ -75,7 +75,7 @@ class Story {
       category: category ?? this.category,
       paragraphs: paragraphs ?? this.paragraphs,
       definitions: definitions ?? this.definitions,
-      isCompleted: isCompleted ?? this.isCompleted,
+      isLiked: isCompleted ?? isLiked,
     );
   }
 }

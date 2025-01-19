@@ -9,7 +9,7 @@ class ProfileCompletedStories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final stories = context.read<ReadingBloc>().stories;
-    var completedStories = stories?.where((element) => element.isCompleted);
+    var completedStories = stories?.where((element) => element.isLiked);
 
     return ProfileInfoBox(
       title: "profile.reading",

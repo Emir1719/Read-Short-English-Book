@@ -1,5 +1,5 @@
 import 'package:english_will_fly/core/app_text_to_speech.dart';
-import 'package:english_will_fly/core/auth_dependency.dart';
+import 'package:english_will_fly/core/dependency.dart';
 import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:flutter/material.dart';
 

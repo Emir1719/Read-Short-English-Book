@@ -2,7 +2,6 @@ import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_image.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_detail.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_read_bottom_sheet.dart';
-import 'package:english_will_fly/features/reading/presentation/widgets/story_read_btn.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/word_mean/text_parse.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +19,7 @@ class StoryReadView extends StatelessWidget {
           StoryImage(story: story),
           StoryDetail(story: story),
           ..._paragraphs(context),
-          StoryReadButton(story: story),
+          SizedBox(height: 20),
         ],
       ),
     );
@@ -36,7 +35,7 @@ class StoryReadView extends StatelessWidget {
           );
         },
         child: Padding(
-          padding: AppPadding.defaults.copyWith(bottom: 5),
+          padding: AppPadding.storyRead,
           child: RichText(
             text: TextParse.build(item, context, story),
             textAlign: TextAlign.justify,

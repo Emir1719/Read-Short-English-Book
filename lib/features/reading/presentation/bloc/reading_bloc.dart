@@ -23,7 +23,7 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
   ReadingBloc() : super(ReadingInitial()) {
     on<FetchStories>(fetchStories);
     on<LoadAllStories>(loadAllStories);
-    on<SaveStoryAsReaded>(saveStoryAsReaded);
+    on<StoryToggleLiked>(toggleLiked);
     on<SearchStories>(searchStories);
     on<ToggleSearchBar>(toggleSearchBar);
     on<FilterStoriesByCategory>(onFilterStoriesByCategory);
@@ -69,7 +69,7 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
       stories?.shuffle();
 
       // Tamamlanmayan hikayeleri öne çıkarır
-      stories?.sort((a, b) => a.isCompleted == b.isCompleted ? 0 : (a.isCompleted ? 1 : -1));
+      stories?.sort((a, b) => a.isLiked == b.isLiked ? 0 : (a.isLiked ? 1 : -1));
 
       emit(
         ReadingLoaded(
@@ -96,15 +96,18 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     }).toList();
   }
 
-  Future<void> saveStoryAsReaded(SaveStoryAsReaded event, Emitter<ReadingState> emit) async {
+  Story getStoryById(String id) {
+    return stories!.firstWhere((element) => element.id == id);
+  }
+
+  Future<void> toggleLiked(StoryToggleLiked event, Emitter<ReadingState> emit) async {
     try {
       emit(ReadingLoading());
-      await _firestore.saveReading(event.storyId);
 
       // Find and update the story with matching id
       stories = stories?.map((story) {
         if (story.id.toString() == event.storyId) {
-          return story.copyWith(isCompleted: true);
+          return story.copyWith(isCompleted: !story.isLiked);
         }
         return story;
       }).toList();
@@ -118,6 +121,8 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
           categories: categories ?? [],
         ),
       ); // Emit updated stories list
+
+      await _firestore.saveReading(event.storyId);
     } catch (e) {
       emit(ReadingError(message: e.toString()));
     }
