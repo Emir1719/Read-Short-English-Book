@@ -31,7 +31,7 @@ class StoryDetail extends StatelessWidget {
             tooltip: "Paylaş",
             onTap: () => print("Paylaş"),
           ),
-          TextToSpeechButton(text: story.paragraphs.join(". ")),
+          TextToSpeechButton(text: story.paragraphs.join(" ")),
         ],
       ),
     );

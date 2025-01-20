@@ -4,6 +4,7 @@ import 'package:english_will_fly/features/reading/presentation/widgets/word_mean
 import 'package:english_will_fly/features/reading/presentation/widgets/word_mean/snackbar_translated_text.dart';
 import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
+import 'package:english_will_fly/features/text_to_speech/presentation/pages/text_to_speech_view.dart';
 import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -98,6 +99,58 @@ class StoryReadSnackBar {
                 DictionaryWordMean(word: word),
               ],
             ),
+          ),
+          duration: const Duration(minutes: 1),
+          behavior: SnackBarBehavior.floating,
+          padding: EdgeInsets.zero,
+        ),
+      );
+    } catch (e) {
+      debugPrint(e.toString());
+      scaffoldMessenger.hideCurrentSnackBar();
+
+      // Show an error message
+      scaffoldMessenger.showSnackBar(
+        SnackBar(
+          showCloseIcon: true,
+          behavior: SnackBarBehavior.floating,
+          content: Text(
+            'Translation failed: ${e.toString()}',
+            maxLines: 10,
+          ),
+          backgroundColor: Colors.red,
+          duration: const Duration(seconds: 5),
+        ),
+      );
+    }
+  }
+
+  static Future<void> showSpeech({
+    required BuildContext context,
+    required String word,
+  }) async {
+    if (!context.mounted) return;
+
+    // Display a loading SnackBar before the translation is complete
+    final scaffoldMessenger = ScaffoldMessenger.of(context);
+    scaffoldMessenger.hideCurrentSnackBar();
+    bool isDark = context.read<ThemeBloc>().state.isDarkMode;
+    Color? backgroundColor = isDark ? AppColor.scaffoldBackgroundDark : AppColor.snackbar;
+    Color? closeIconColor = isDark ? AppColor.lightBlue : AppColor.secondaryDark;
+
+    try {
+      if (!context.mounted) return;
+      scaffoldMessenger.hideCurrentSnackBar();
+
+      // Show the translated text in a new SnackBar
+      scaffoldMessenger.showSnackBar(
+        SnackBar(
+          backgroundColor: backgroundColor,
+          closeIconColor: closeIconColor,
+          content: Container(
+            decoration: AppStyle.snackbar(isDark),
+            padding: EdgeInsets.all(20).copyWith(top: 5),
+            child: TextToSpeechScreen(textToSpeak: word),
           ),
           duration: const Duration(minutes: 1),
           behavior: SnackBarBehavior.floating,
