@@ -2,14 +2,14 @@
   "project_info": {
     "project_number": "668758974932",
     "project_id": "english-story-9b2dd",
-    "storage_bucket": "english-story-9b2dd.appspot.com"
+    "storage_bucket": "english-story-9b2dd.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:668758974932:android:adb557009dd74495b43641",
+        "mobilesdk_app_id": "1:668758974932:android:1e415e31e5d0139eb43641",
         "android_client_info": {
-          "package_name": "com.example.english_will_fly"
+          "package_name": "com.emirbaris.english_will_fly"
         }
       },
       "oauth_client": [],

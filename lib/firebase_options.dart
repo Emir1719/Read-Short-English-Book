@@ -25,15 +25,9 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -52,24 +46,44 @@ class DefaultFirebaseOptions {
     messagingSenderId: '668758974932',
     projectId: 'english-story-9b2dd',
     authDomain: 'english-story-9b2dd.firebaseapp.com',
-    storageBucket: 'english-story-9b2dd.appspot.com',
+    storageBucket: 'english-story-9b2dd.firebasestorage.app',
     measurementId: 'G-SC8H5CL900',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyAFh3dWQyYwHytlsSmi2nRlRhtIQReGtBI',
-    appId: '1:668758974932:android:adb557009dd74495b43641',
+    appId: '1:668758974932:android:1e415e31e5d0139eb43641',
     messagingSenderId: '668758974932',
     projectId: 'english-story-9b2dd',
-    storageBucket: 'english-story-9b2dd.appspot.com',
+    storageBucket: 'english-story-9b2dd.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyACA-RbQn0StocPY04_igEla9RTfiKOafA',
-    appId: '1:668758974932:ios:3f7d83376db3b788b43641',
+    appId: '1:668758974932:ios:5ebdfc03d7b6ad5ab43641',
     messagingSenderId: '668758974932',
     projectId: 'english-story-9b2dd',
-    storageBucket: 'english-story-9b2dd.appspot.com',
-    iosBundleId: 'com.example.englishWillFly',
+    storageBucket: 'english-story-9b2dd.firebasestorage.app',
+    iosBundleId: 'com.emirbaris.englishWillFly',
   );
+
+  static const FirebaseOptions macos = FirebaseOptions(
+    apiKey: 'AIzaSyACA-RbQn0StocPY04_igEla9RTfiKOafA',
+    appId: '1:668758974932:ios:5ebdfc03d7b6ad5ab43641',
+    messagingSenderId: '668758974932',
+    projectId: 'english-story-9b2dd',
+    storageBucket: 'english-story-9b2dd.firebasestorage.app',
+    iosBundleId: 'com.emirbaris.englishWillFly',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyCFH6Ps7lQb-1pczHbvBn_JPMqVCKkXfko',
+    appId: '1:668758974932:web:4fe28a9d577d9bfcb43641',
+    messagingSenderId: '668758974932',
+    projectId: 'english-story-9b2dd',
+    authDomain: 'english-story-9b2dd.firebaseapp.com',
+    storageBucket: 'english-story-9b2dd.firebasestorage.app',
+    measurementId: 'G-Q7TG6D4P6C',
+  );
+
 }

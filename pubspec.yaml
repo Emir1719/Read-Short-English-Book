@@ -1,7 +1,7 @@
 name: english_will_fly
-description: "A new Flutter project."
+description: "English Short Story Reading App"
 publish_to: 'none'
-version: 0.1.0
+version: 1.0.0+0
 
 environment:
   sdk: ^3.6.0
@@ -26,6 +26,8 @@ dependencies:
   just_audio: ^0.9.42
   flutter_tts: ^4.2.0
   translator: ^1.0.3+1
+  firebase_analytics: ^11.4.1
+  firebase_crashlytics: ^4.3.1
 
 dev_dependencies:
   flutter_lints: ^5.0.0

@@ -1,4 +1,4 @@
-package com.example.english_will_fly
+package com.emirbaris.english_will_fly
 
 import io.flutter.embedding.android.FlutterActivity
 
