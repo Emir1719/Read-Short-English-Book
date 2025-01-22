@@ -42,6 +42,12 @@
         "icon": "education.png"
     },
     {
+        "id": 8,
+        "title": "category.alien",
+        "description": "Insights on learning, teaching, and educational systems.",
+        "icon": "alien.png"
+    },
+    {
         "id": 9,
         "title": "category.horror",
         "description": "",
@@ -64,5 +70,11 @@
         "title": "category.news",
         "description": "",
         "icon": "news.png"
+    },
+    {
+        "id": 13,
+        "title": "category.child",
+        "description": "",
+        "icon": "child.png"
     }
 ]

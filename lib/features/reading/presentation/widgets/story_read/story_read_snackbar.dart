@@ -6,6 +6,7 @@ import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:english_will_fly/features/text_to_speech/presentation/pages/text_to_speech_view.dart';
 import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -13,6 +14,7 @@ class StoryReadSnackBar {
   static final _instance = StoryReadSnackBar._();
   StoryReadSnackBar._();
   factory StoryReadSnackBar() => _instance;
+  static final _analytics = FirebaseAnalytics.instance;
 
   static Future<void> showTranslatedText({
     required BuildContext context,
@@ -46,6 +48,8 @@ class StoryReadSnackBar {
           padding: EdgeInsets.zero,
         ),
       );
+
+      await _analytics.logEvent(name: "story_translate");
     } catch (e) {
       debugPrint(e.toString());
       scaffoldMessenger.hideCurrentSnackBar();
@@ -105,6 +109,8 @@ class StoryReadSnackBar {
           padding: EdgeInsets.zero,
         ),
       );
+
+      await _analytics.logEvent(name: "story_word_mean");
     } catch (e) {
       debugPrint(e.toString());
       scaffoldMessenger.hideCurrentSnackBar();
@@ -157,6 +163,8 @@ class StoryReadSnackBar {
           padding: EdgeInsets.zero,
         ),
       );
+
+      await _analytics.logEvent(name: "story_listen");
     } catch (e) {
       debugPrint(e.toString());
       scaffoldMessenger.hideCurrentSnackBar();

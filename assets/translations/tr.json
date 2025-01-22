@@ -45,11 +45,12 @@
         "technology": "Teknoloji",
         "health": "Sağlık",
         "education": "Eğitim",
-        "morality": "Ahlak",
         "horror": "Korku",
         "science": "Bilim",
         "adventure": "Macera",
-        "news": "Haber"
+        "news": "Haber",
+        "alien": "Bilim Kurgu",
+        "child": "Çocuk"
     },
     "auth": {
         "login": "Giriş Yap",

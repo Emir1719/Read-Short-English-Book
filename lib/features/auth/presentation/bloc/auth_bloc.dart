@@ -3,11 +3,13 @@ import 'package:english_will_fly/features/auth/data/repositories/i_auth_reposito
 import 'package:english_will_fly/features/auth/data/repositories/i_firestore_repository.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_event.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final IAuthenticationRepository _authRepository;
   final IFirestoreRepository _firestoreRepository;
+  final _analytics = FirebaseAnalytics.instance;
 
   AuthBloc(this._authRepository, this._firestoreRepository) : super(AuthInitial()) {
     on<AppStarted>(_onAppStarted);
@@ -72,7 +74,14 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
 
   Future<void> _onSignOutRequested(SignOutRequested event, Emitter<AuthState> emit) async {
     emit(AuthLoading());
-    await _authRepository.signOut();
-    emit(Unauthenticated());
+
+    try {
+      await _authRepository.signOut();
+      emit(Unauthenticated());
+    } on Exception catch (e) {
+      emit(AuthFailure(e.toString()));
+    }
+
+    _analytics.logEvent(name: "sign_out");
   }
 }

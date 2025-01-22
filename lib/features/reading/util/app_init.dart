@@ -25,6 +25,7 @@ import 'package:english_will_fly/features/theme/data/theme_storage.dart';
 import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
 import 'package:english_will_fly/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -43,6 +44,8 @@ final class AppInit {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
+    // The following lines are the same as previously explained in "Handling uncaught errors"
+    FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
     await ThemeStorage().init();
     EasyLocalization.logger.enableBuildModes = [];
     await setupDependencies();

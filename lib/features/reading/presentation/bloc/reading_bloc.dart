@@ -8,6 +8,7 @@ import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/data/models/story_readed.dart';
 import 'package:english_will_fly/features/reading/data/repositories/story_repository.dart';
 import 'package:equatable/equatable.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 part 'reading_event.dart';
@@ -15,10 +16,12 @@ part 'reading_state.dart';
 
 class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
   final _repository = StoryRepository();
-  final _firestoreReading = FirestoreReading(FirebaseFirestore.instance, FirebaseAuth.instance);
+  final _firestoreReading =
+      FirestoreReading(FirebaseFirestore.instance, FirebaseAuth.instance);
   List<Story>? stories;
   List<Story>? filteredStories;
   List<Category>? categories;
+  final _analytics = FirebaseAnalytics.instance;
 
   ReadingBloc() : super(ReadingInitial()) {
     on<FetchStories>(fetchStories);
@@ -39,7 +42,8 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
       }
 
       filteredStories = stories
-          ?.where((story) => story.level.toLowerCase() == event.levelCode.toLowerCase())
+          ?.where((story) =>
+              story.level.toLowerCase() == event.levelCode.toLowerCase())
           .toList();
       /*filteredStories?.sort((a, b) {
         print(a.id.split("_"));
@@ -57,7 +61,8 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     }
   }
 
-  Future<void> loadAllStories(LoadAllStories event, Emitter<ReadingState> emit) async {
+  Future<void> loadAllStories(
+      LoadAllStories event, Emitter<ReadingState> emit) async {
     try {
       emit(ReadingLoading());
       stories = await _repository.getStoriesWithCategoriesForAllLevels();
@@ -69,7 +74,8 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
       stories?.shuffle();
 
       // Tamamlanmayan hikayeleri öne çıkarır
-      stories?.sort((a, b) => a.isLiked == b.isLiked ? 0 : (a.isLiked ? 1 : -1));
+      stories
+          ?.sort((a, b) => a.isLiked == b.isLiked ? 0 : (a.isLiked ? 1 : -1));
 
       emit(
         ReadingLoaded(
@@ -100,7 +106,8 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     return stories!.firstWhere((element) => element.id == id);
   }
 
-  Future<void> toggleLiked(StoryToggleLiked event, Emitter<ReadingState> emit) async {
+  Future<void> toggleLiked(
+      StoryToggleLiked event, Emitter<ReadingState> emit) async {
     try {
       emit(ReadingLoading());
       bool isLiked = false;
@@ -114,7 +121,8 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
         return story;
       }).toList();
 
-      filteredStories = stories?.where((story) => story.level == event.levelCode).toList();
+      filteredStories =
+          stories?.where((story) => story.level == event.levelCode).toList();
 
       emit(
         ReadingLoaded(
@@ -126,17 +134,21 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
 
       if (isLiked) {
         await _firestoreReading.saveLiked(event.storyId);
+        await _analytics.logEvent(name: "story_liked");
       } else {
         await _firestoreReading.unsaveLiked(event.storyId);
+        await _analytics.logEvent(name: "story_unliked");
       }
     } catch (e) {
       emit(ReadingError(message: e.toString()));
     }
   }
 
-  Future<void> searchStories(SearchStories event, Emitter<ReadingState> emit) async {
+  Future<void> searchStories(
+      SearchStories event, Emitter<ReadingState> emit) async {
     final filtered = stories
-        ?.where((story) => story.title.toLowerCase().contains(event.query.toLowerCase()))
+        ?.where((story) =>
+            story.title.toLowerCase().contains(event.query.toLowerCase()))
         .toList();
 
     emit(
@@ -149,7 +161,8 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     );
   }
 
-  Future<void> toggleSearchBar(ToggleSearchBar event, Emitter<ReadingState> emit) async {
+  Future<void> toggleSearchBar(
+      ToggleSearchBar event, Emitter<ReadingState> emit) async {
     if (state is ReadingLoaded) {
       final currentState = state as ReadingLoaded;
       var isSearchActive = !currentState.isSearchActive;
@@ -166,9 +179,14 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
   }
 
   FutureOr<void> onFilterStoriesByCategory(
-      FilterStoriesByCategory event, Emitter<ReadingState> emit) {
-    final filtered = stories?.where((story) => story.category.id == event.categoryId).toList();
-    bool isDifferentCategory = (state as ReadingLoaded).selectedCategoryId != event.categoryId;
+    FilterStoriesByCategory event,
+    Emitter<ReadingState> emit,
+  ) async {
+    final filtered = stories
+        ?.where((story) => story.category.id == event.categoryId)
+        .toList();
+    bool isDifferentCategory =
+        (state as ReadingLoaded).selectedCategoryId != event.categoryId;
 
     emit(
       ReadingLoaded(
@@ -178,5 +196,7 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
         selectedCategoryId: isDifferentCategory ? event.categoryId : null,
       ),
     );
+
+    await _analytics.logEvent(name: "category_selected_${event.categoryId}");
   }
 }

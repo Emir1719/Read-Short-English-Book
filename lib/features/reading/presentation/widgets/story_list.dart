@@ -9,7 +9,8 @@ class StoryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var sortedStories = List.from(state.filteredStories); // Orijinal listeyi korumak istersen kopyala
+    var sortedStories =
+        List.from(state.filteredStories); // Orijinal listeyi korumak istersen kopyala
     sortedStories.sort((a, b) => a.id.compareTo(b.id)); // Alfanümerik sıralama
 
     return ListView.separated(
@@ -17,9 +18,7 @@ class StoryList extends StatelessWidget {
       padding: AppPadding.defaults,
       itemCount: sortedStories.length,
       itemBuilder: (context, index) {
-        var story = sortedStories[index];
-
-        return StoryListItem(story: story);
+        return StoryListItem(story: sortedStories[index]);
       },
     );
   }

@@ -4,6 +4,7 @@ import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -14,15 +15,17 @@ class LanguageDropdown extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     bool isDark = context.read<ThemeBloc>().state.isDarkMode;
+    final analytics = FirebaseAnalytics.instance;
 
     return Container(
       decoration: AppStyle.settings(isDark),
       child: DropdownButton<Locale>(
         padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         value: EasyLocalization.of(context)?.locale, // Mevcut locale ayarını seçili olarak göster
-        onChanged: (Locale? locale) {
+        onChanged: (Locale? locale) async {
           if (locale != null) {
             EasyLocalization.of(context)?.setLocale(locale); // Yeni locale ayarını güncelle
+            await analytics.logEvent(name: "language_selected_${locale.languageCode}");
           }
         },
         isExpanded: true,

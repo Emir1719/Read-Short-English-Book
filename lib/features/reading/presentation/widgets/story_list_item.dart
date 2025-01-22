@@ -3,6 +3,7 @@ import 'package:english_will_fly/features/reading/presentation/widgets/story_rea
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_item_subtitle.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,7 +15,14 @@ class StoryListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.push("/read", extra: story),
+      onTap: () async {
+        final analytics = FirebaseAnalytics.instance;
+        await analytics.logEvent(name: "story_read");
+
+        if (!context.mounted) return;
+
+        context.push("/read", extra: story);
+      },
       child: Container(
         decoration: AppStyle.level,
         child: Row(
@@ -25,9 +33,9 @@ class StoryListItem extends StatelessWidget {
                 padding: AppPadding.storyItem,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: 5,
                   children: [
                     _title(context),
-                    const SizedBox(height: 5),
                     StoryItemSubtitle(story: story),
                   ],
                 ),
