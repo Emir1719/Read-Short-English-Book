@@ -1,6 +1,5 @@
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/home/home_level_image.dart';
-import 'package:english_will_fly/features/reading/presentation/widgets/story_level_subtitle.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
@@ -10,13 +9,12 @@ import 'package:go_router/go_router.dart';
 
 class HomeStoryLevelList extends StatelessWidget {
   const HomeStoryLevelList({super.key, required this.level});
-
   final String level;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () async {
+      onTap: () {
         context.read<ReadingBloc>().add(FetchStories(levelCode: level));
         context.push("/stories?level=$level");
       },
@@ -29,8 +27,7 @@ class HomeStoryLevelList extends StatelessWidget {
             HomeLevelImage(level: level),
             ListTile(
               contentPadding: AppPadding.storyLevel,
-              title: Text(level, style: context.text.bodyLarge),
-              subtitle: StoryLevelSubtitle(level: level),
+              title: Text(level, style: context.text.titleLarge),
             ),
           ],
         ),

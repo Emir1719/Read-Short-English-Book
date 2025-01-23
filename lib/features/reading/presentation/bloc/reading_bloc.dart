@@ -16,8 +16,7 @@ part 'reading_state.dart';
 
 class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
   final _repository = StoryRepository();
-  final _firestoreReading =
-      FirestoreReading(FirebaseFirestore.instance, FirebaseAuth.instance);
+  final _firestoreReading = FirestoreReading(FirebaseFirestore.instance, FirebaseAuth.instance);
   List<Story>? stories;
   List<Story>? filteredStories;
   List<Category>? categories;
@@ -42,8 +41,7 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
       }
 
       filteredStories = stories
-          ?.where((story) =>
-              story.level.toLowerCase() == event.levelCode.toLowerCase())
+          ?.where((story) => story.level.toLowerCase() == event.levelCode.toLowerCase())
           .toList();
       /*filteredStories?.sort((a, b) {
         print(a.id.split("_"));
@@ -61,11 +59,10 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     }
   }
 
-  Future<void> loadAllStories(
-      LoadAllStories event, Emitter<ReadingState> emit) async {
+  Future<void> loadAllStories(LoadAllStories event, Emitter<ReadingState> emit) async {
     try {
       emit(ReadingLoading());
-      stories = await _repository.getStoriesWithCategoriesForAllLevels();
+      stories = await _repository.getStoriesWithCategories();
       var reading = await _firestoreReading.getAllReading();
       categories = await _repository.getCategories();
 
@@ -74,8 +71,7 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
       stories?.shuffle();
 
       // Tamamlanmayan hikayeleri öne çıkarır
-      stories
-          ?.sort((a, b) => a.isLiked == b.isLiked ? 0 : (a.isLiked ? 1 : -1));
+      stories?.sort((a, b) => a.isLiked == b.isLiked ? 0 : (a.isLiked ? 1 : -1));
 
       emit(
         ReadingLoaded(
@@ -96,7 +92,7 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
 
     stories = stories?.map((story) {
       if (reading.storyIds.contains(story.id)) {
-        return story.copyWith(isCompleted: true);
+        return story.copyWith(isLiked: true);
       }
       return story;
     }).toList();
@@ -106,8 +102,7 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     return stories!.firstWhere((element) => element.id == id);
   }
 
-  Future<void> toggleLiked(
-      StoryToggleLiked event, Emitter<ReadingState> emit) async {
+  Future<void> toggleLiked(StoryToggleLiked event, Emitter<ReadingState> emit) async {
     try {
       emit(ReadingLoading());
       bool isLiked = false;
@@ -116,13 +111,12 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
       stories = stories?.map((story) {
         if (story.id.toString() == event.storyId) {
           isLiked = !story.isLiked;
-          return story.copyWith(isCompleted: !story.isLiked);
+          return story.copyWith(isLiked: !story.isLiked);
         }
         return story;
       }).toList();
 
-      filteredStories =
-          stories?.where((story) => story.level == event.levelCode).toList();
+      filteredStories = stories?.where((story) => story.level == event.levelCode).toList();
 
       emit(
         ReadingLoaded(
@@ -144,11 +138,9 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     }
   }
 
-  Future<void> searchStories(
-      SearchStories event, Emitter<ReadingState> emit) async {
+  Future<void> searchStories(SearchStories event, Emitter<ReadingState> emit) async {
     final filtered = stories
-        ?.where((story) =>
-            story.title.toLowerCase().contains(event.query.toLowerCase()))
+        ?.where((story) => story.title.toLowerCase().contains(event.query.toLowerCase()))
         .toList();
 
     emit(
@@ -161,8 +153,7 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     );
   }
 
-  Future<void> toggleSearchBar(
-      ToggleSearchBar event, Emitter<ReadingState> emit) async {
+  Future<void> toggleSearchBar(ToggleSearchBar event, Emitter<ReadingState> emit) async {
     if (state is ReadingLoaded) {
       final currentState = state as ReadingLoaded;
       var isSearchActive = !currentState.isSearchActive;
@@ -182,11 +173,8 @@ class ReadingBloc extends Bloc<ReadingEvent, ReadingState> {
     FilterStoriesByCategory event,
     Emitter<ReadingState> emit,
   ) async {
-    final filtered = stories
-        ?.where((story) => story.category.id == event.categoryId)
-        .toList();
-    bool isDifferentCategory =
-        (state as ReadingLoaded).selectedCategoryId != event.categoryId;
+    final filtered = stories?.where((story) => story.category.id == event.categoryId).toList();
+    bool isDifferentCategory = (state as ReadingLoaded).selectedCategoryId != event.categoryId;
 
     emit(
       ReadingLoaded(

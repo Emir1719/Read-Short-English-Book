@@ -1,7 +1,6 @@
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/profile/profile_completed_stories.dart';
-import 'package:english_will_fly/features/reading/presentation/widgets/profile/profile_total_words.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/profile/profile_word_list.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/profile_info_box.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
@@ -32,8 +31,6 @@ class ProfileUserInfo extends StatelessWidget {
         ),
         space,
         ProfileCompletedStories(),
-        space,
-        ProfileTotalWords(),
         space,
         ProfileWordList(),
       ],

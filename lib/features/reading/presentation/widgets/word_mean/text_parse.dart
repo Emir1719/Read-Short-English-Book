@@ -1,11 +1,10 @@
-import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_read_snackbar.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class TextParse {
-  static TextSpan build(String text, BuildContext context, Story story) {
+  static TextSpan build(String text, BuildContext context) {
     List<TextSpan> textSpans = [];
     int start = 0;
 

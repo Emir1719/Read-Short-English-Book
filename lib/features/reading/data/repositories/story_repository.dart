@@ -8,52 +8,18 @@ final class StoryRepository extends IStory {
 
   @override
   Future<List<Category>> getCategories() async {
-    return await _api.loadCategories();
+    return await _api.getAllCategories();
   }
 
   @override
-  Future<List<Story>> getStoriesByLevelCode(String levelCode) async {
-    return await _api.loadStoryData(levelCode.trim().toLowerCase());
+  Future<List<Story>> getAllStories() async {
+    return await _api.getAllStories();
   }
 
   @override
-  Future<List<Story>> getStoriesWithCategoriesForAllLevels() async {
-    List<Story> allStories = [];
-
-    // Get levels with non-empty files
-    var levels = _api.getLevels();
-
-    // Her level için hikayeleri yükle
-    for (var levelCode in levels) {
-      var stories = await _api.loadStoryData(levelCode);
-      var categories = await _api.loadCategories();
-
-      // Hikayeleri kategorilerle eşleştir
-      var storiesWithCategories = stories.map((story) {
-        var category = categories.firstWhere((category) => category.id == story.category.id);
-
-        return Story(
-          id: story.id,
-          title: story.title,
-          category: category, // Eşleştirilmiş kategori
-          image: story.image,
-          level: levelCode.toLowerCase(),
-          paragraphs: story.paragraphs,
-          definitions: story.definitions,
-        );
-      }).toList();
-
-      // Her level'dan gelen hikayeleri genel listeye ekle
-      allStories.addAll(storiesWithCategories);
-    }
-
-    return allStories;
-  }
-
-  @override
-  Future<List<Story>> getStoriesWithCategories(String levelCode) async {
-    var stories = await _api.loadStoryData(levelCode);
-    var categories = await _api.loadCategories();
+  Future<List<Story>> getStoriesWithCategories() async {
+    var stories = await _api.getAllStories();
+    var categories = await _api.getAllCategories();
 
     // Hikayeleri kategorilerle eşleştir
     var storiesWithCategories = stories.map((story) {
@@ -62,11 +28,14 @@ final class StoryRepository extends IStory {
       return Story(
         id: story.id,
         title: story.title,
-        category: category, // Eşleştirilmiş kategori
+        category: category,
         image: story.image,
-        level: levelCode.toLowerCase(),
-        paragraphs: story.paragraphs,
-        definitions: story.definitions,
+        level: story.level,
+        authorId: story.authorId,
+        chapters: story.chapters,
+        createdAt: story.createdAt,
+        updatedAt: story.updatedAt,
+        isLiked: story.isLiked,
       );
     }).toList();
 
