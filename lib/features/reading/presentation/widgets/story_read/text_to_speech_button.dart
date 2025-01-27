@@ -24,10 +24,9 @@ class TextToSpeechButton extends StatelessWidget {
                 )
               : StoryDetailItem(
                   onTap: () {
-                    final bloc2 = context.read<StoryReadBloc>().state as StoryReadLoaded;
-                    PageController? controller = context.read<StoryReadBloc>().controller;
-                    int index = controller?.page?.round() ?? 0;
-                    final text = bloc2.story.chapters[index].paragraphs.join(" ");
+                    final readBloc = context.read<StoryReadBloc>().state as StoryReadLoaded;
+                    final text =
+                        readBloc.story.chapters[readBloc.currentChapterId - 1].paragraphs.join(" ");
 
                     bloc.add(StartSpeaking(text));
                   },

@@ -22,9 +22,10 @@ final class StoryReadError extends StoryReadState {
 
 final class StoryReadLoaded extends StoryReadState {
   final Story story;
+  final int currentChapterId;
 
-  const StoryReadLoaded({required this.story});
+  const StoryReadLoaded({required this.story, required this.currentChapterId});
 
   @override
-  List<Object> get props => [story];
+  List<Object> get props => [story, currentChapterId];
 }

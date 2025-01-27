@@ -1,3 +1,4 @@
+import 'package:english_will_fly/features/reading/presentation/widgets/story_detail/story_detail_chapters.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_detail_item.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_like_button.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/text_to_speech_button.dart';
@@ -24,11 +25,7 @@ class StoryDetail extends StatelessWidget {
             tooltip: "Kitaplığa Ekle",
             onTap: () => print("Kitaplığa"),
           ),
-          StoryDetailItem(
-            icon: Icons.menu_rounded,
-            tooltip: "Bölümler",
-            onTap: () => print("Bölümler"),
-          ),
+          StoryDetailChapters(),
           TextToSpeechButton(),
           StoryDetailItem(
             icon: Icons.more_horiz_outlined,

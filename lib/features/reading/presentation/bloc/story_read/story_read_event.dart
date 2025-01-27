@@ -15,3 +15,12 @@ class LoadStory extends StoryReadEvent {
   @override
   List<Object> get props => [story];
 }
+
+class ChangeChapter extends StoryReadEvent {
+  final int chapterId;
+
+  const ChangeChapter({required this.chapterId});
+
+  @override
+  List<Object> get props => [chapterId];
+}
