@@ -1,9 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
-import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
+import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class StoryItemImage extends StatelessWidget {
   const StoryItemImage({super.key, required this.story, required this.showLevel});
@@ -16,7 +15,6 @@ class StoryItemImage extends StatelessWidget {
     if (level.isEmpty) {
       level = "?";
     }
-    bool isDark = context.read<ThemeBloc>().state.isDarkMode;
 
     return Stack(
       children: [
@@ -34,7 +32,9 @@ class StoryItemImage extends StatelessWidget {
         ),
         showLevel
             ? Container(
-                decoration: AppStyle.storyLevel(isDark),
+                decoration: AppStyle.storyLevel(
+                  context.color.surface.withAlpha((0.65 * 255).toInt()),
+                ),
                 margin: const EdgeInsets.all(10),
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Text(level, style: const TextStyle(fontSize: 14)),

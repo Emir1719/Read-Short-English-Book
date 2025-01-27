@@ -1,7 +1,6 @@
 import 'package:english_will_fly/features/reading/presentation/bloc/story_read/story_read_bloc.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/bottom_sheet_base.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_detail_item.dart';
-import 'package:english_will_fly/features/reading/util/padding.dart';
-import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,17 +16,10 @@ class StoryDetailChapters extends StatelessWidget {
       onTap: () async {
         await showModalBottomSheet(
           context: context,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(15.0)),
-          ),
-          backgroundColor: Colors.white,
           builder: (context) {
             final bloc = context.read<StoryReadBloc>().state as StoryReadLoaded;
 
-            return Container(
-              width: MediaQuery.of(context).size.width,
-              padding: AppPadding.defaults,
-              decoration: AppStyle.dictionary(context.isDark),
+            return BottomSheetBase(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

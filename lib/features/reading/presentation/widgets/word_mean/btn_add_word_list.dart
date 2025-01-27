@@ -1,6 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/word_list/word_list_bloc.dart';
-import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -27,7 +26,7 @@ class BtnAddWordList extends StatelessWidget {
 
   Icon _icon(BuildContext context) {
     return !_isAdded(context)
-        ? Icon(Icons.add_circle_outline, color: context.isDark ? AppColor.lightBlue : Colors.blue)
+        ? Icon(Icons.add_circle_outline, color: context.color.tertiary)
         : Icon(Icons.remove_circle_outline, color: Colors.red);
   }
 
@@ -46,11 +45,11 @@ class BtnAddWordList extends StatelessWidget {
       return !_isAdded(context)
           ? Text(
               "word_list.add",
-              style: TextStyle(color: context.isDark ? AppColor.lightBlue : Colors.blue),
+              style: TextStyle(color: context.color.tertiary),
             ).tr()
           : Text(
               "word_list.remove",
-              style: TextStyle(color: Colors.red),
+              style: TextStyle(color: context.color.error),
             ).tr();
     }
     return SizedBox();

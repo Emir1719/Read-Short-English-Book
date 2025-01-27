@@ -19,7 +19,7 @@ class ExitButton extends StatelessWidget {
           return IconButton(
             icon: ImageIcon(
               AssetImage('assets/image/icon/exit.png'),
-              color: context.isDark ? Colors.white : Colors.grey.shade900,
+              color: context.color.onSurface,
             ),
             onPressed: () {
               context.read<AuthBloc>().add(SignOutRequested());

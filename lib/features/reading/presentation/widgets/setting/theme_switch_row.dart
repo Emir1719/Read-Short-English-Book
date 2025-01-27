@@ -1,9 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/setting/theme_switch.dart';
-import 'package:english_will_fly/features/reading/util/style.dart';
-import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/settings_container_base.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ThemeSwitchRow extends StatelessWidget {
   const ThemeSwitchRow({super.key});
@@ -11,11 +9,8 @@ class ThemeSwitchRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    bool isDark = context.read<ThemeBloc>().state.isDarkMode;
 
-    return Container(
-      decoration: AppStyle.settings(isDark),
-      padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+    return SettingsContainerBase(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

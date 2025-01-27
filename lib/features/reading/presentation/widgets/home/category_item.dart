@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/reading/data/models/category.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
-import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +14,6 @@ class CategoryItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = context.read<ReadingBloc>().state as ReadingLoaded;
     bool isSelected = bloc.selectedCategoryId == category.id;
-    Color? color = context.isDark ? AppStyle.darkMode(isSelected) : AppStyle.lightMode(isSelected);
 
     return GestureDetector(
       onTap: () {
@@ -23,19 +21,19 @@ class CategoryItem extends StatelessWidget {
       },
       child: Container(
         padding: AppPadding.categoryIn,
-        decoration: AppStyle.categoryBox(context.isDark, isSelected),
+        //decoration: AppStyle.categoryBox(context.isDark, isSelected),
         child: Row(
           spacing: 15,
           children: [
             ImageIcon(
               AssetImage("assets/image/category_icon/${category.iconName}"),
               size: 20,
-              color: color,
+              color: isSelected ? context.color.onSurface : context.color.secondary,
             ),
             Expanded(
               child: Text(
                 category.title,
-                style: context.text.bodyMedium?.copyWith(color: color),
+                style: context.text.bodyMedium?.copyWith(color: context.color.onSurface),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
               ).tr(),

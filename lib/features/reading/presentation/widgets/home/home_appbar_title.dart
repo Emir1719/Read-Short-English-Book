@@ -17,11 +17,8 @@ class HomeAppbarTitle extends StatelessWidget {
               hintText: "home.search".tr(),
               border: InputBorder.none,
               focusedBorder: InputBorder.none,
-              hintStyle: TextStyle(
-                color: context.isDark ? Colors.grey.shade400 : Colors.grey.shade600,
-              ),
             ),
-            cursorColor: context.isDark ? Colors.white : Colors.black,
+            cursorColor: context.color.onSurface,
             autofocus: true,
             onChanged: (query) {
               context.read<ReadingBloc>().add(SearchStories(query)); // Arama işlemini tetikleme

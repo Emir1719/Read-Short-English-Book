@@ -1,11 +1,8 @@
+import 'package:english_will_fly/features/reading/presentation/widgets/bottom_sheet_base.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/word_mean/bottom_sheet_top_section.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/word_mean/dictionary_word_mean.dart';
-import 'package:english_will_fly/features/reading/util/padding.dart';
-import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
-import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BottomSheetWidget extends StatelessWidget {
   const BottomSheetWidget({super.key, required this.word});
@@ -13,18 +10,13 @@ class BottomSheetWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isDark = context.read<ThemeBloc>().state.isDarkMode;
-
     return Wrap(
       children: [
         SizedBox(
           height: context.height(0.4),
           child: Scaffold(
             backgroundColor: Colors.transparent,
-            body: Container(
-              width: MediaQuery.of(context).size.width,
-              padding: AppPadding.defaults,
-              decoration: AppStyle.dictionary(isDark),
+            body: BottomSheetBase(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

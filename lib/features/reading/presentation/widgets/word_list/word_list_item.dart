@@ -1,5 +1,4 @@
 import 'package:english_will_fly/features/reading/presentation/widgets/word_mean/bottom_sheet_widget.dart';
-import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:flutter/material.dart';
 
 class WordListItem extends StatelessWidget {
@@ -12,8 +11,8 @@ class WordListItem extends StatelessWidget {
     final textTheme = Theme.of(context).textTheme;
 
     return GestureDetector(
-      onTap: () {
-        showModalBottomSheet(
+      onTap: () async {
+        await showModalBottomSheet(
           context: context,
           enableDrag: false,
           builder: (BuildContext context) {
@@ -23,7 +22,6 @@ class WordListItem extends StatelessWidget {
       },
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 5),
-        decoration: AppStyle.level,
         child: ListTile(
           title: Text(word, style: textTheme.bodyMedium),
           leading: Text(

@@ -1,12 +1,9 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/core/constants/suported_locales.dart';
-import 'package:english_will_fly/features/reading/util/color.dart';
-import 'package:english_will_fly/features/reading/util/style.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/settings_container_base.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
-import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LanguageDropdown extends StatelessWidget {
   const LanguageDropdown({super.key});
@@ -14,13 +11,10 @@ class LanguageDropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    bool isDark = context.read<ThemeBloc>().state.isDarkMode;
     final analytics = FirebaseAnalytics.instance;
 
-    return Container(
-      decoration: AppStyle.settings(isDark),
+    return SettingsContainerBase(
       child: DropdownButton<Locale>(
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
         value: EasyLocalization.of(context)?.locale, // Mevcut locale ayarını seçili olarak göster
         onChanged: (Locale? locale) async {
           if (locale != null) {
@@ -30,11 +24,11 @@ class LanguageDropdown extends StatelessWidget {
         },
         isExpanded: true,
         underline: SizedBox(),
-        dropdownColor: isDark ? AppColor.scaffoldBackgroundDark : AppColor.white,
+        dropdownColor: context.color.surface,
         menuWidth: context.width(0.9),
         borderRadius: BorderRadius.circular(10),
         style: textTheme.bodyMedium,
-        iconEnabledColor: isDark ? AppColor.white : AppColor.black,
+        iconEnabledColor: context.color.onSurface,
         items: getDropdownMenuItems(),
       ),
     );

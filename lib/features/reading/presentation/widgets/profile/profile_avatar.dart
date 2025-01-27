@@ -8,7 +8,7 @@ class ProfileAvatar extends StatelessWidget {
   Widget build(BuildContext context) {
     return CircleAvatar(
       radius: 45,
-      backgroundColor: context.isDark ? Colors.grey.shade800 : Colors.grey.shade100,
+      backgroundColor: context.color.surfaceContainerLowest,
       child: Padding(
         padding: const EdgeInsets.all(5.0),
         child: Image.asset(

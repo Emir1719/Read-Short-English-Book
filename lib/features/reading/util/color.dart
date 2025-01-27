@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColor {
   static final _instance = AppColor._();
-
   AppColor._();
-
   factory AppColor() => _instance;
 
   // Light
@@ -15,14 +13,6 @@ class AppColor {
   static Color? get primaryDark => Colors.grey.shade900;
   static Color? get scaffoldBackgroundDark => Colors.grey.shade800;
   static Color? get secondaryDark => Colors.blue;
-
-  // Levels
-  static Color? get a1 => Colors.green;
-  static Color? get a2 => Colors.green.shade700;
-  static Color? get b1 => Colors.orange;
-  static Color? get b2 => Colors.orange.shade700;
-  static Color? get c1 => Colors.red;
-  static Color? get c2 => Colors.red.shade700;
 
   // Colors
   static Color? get black => Colors.black;

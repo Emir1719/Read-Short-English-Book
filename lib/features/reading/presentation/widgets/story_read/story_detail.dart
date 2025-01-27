@@ -2,7 +2,6 @@ import 'package:english_will_fly/features/reading/presentation/widgets/story_det
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_detail_item.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_like_button.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/text_to_speech_button.dart';
-import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +12,7 @@ class StoryDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: context.isDark ? AppColor.storyDetailDark : AppColor.storyDetail,
+      color: context.color.surfaceContainerLowest,
       padding: AppPadding.storyDetailPanel,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

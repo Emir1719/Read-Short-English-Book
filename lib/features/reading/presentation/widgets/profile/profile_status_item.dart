@@ -1,5 +1,3 @@
-import 'package:english_will_fly/features/reading/util/style.dart';
-import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class ProfileStatusItem extends StatelessWidget {
@@ -10,7 +8,6 @@ class ProfileStatusItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: AppStyle.settingsItem(context.isDark),
       padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
       child: Column(
         children: [

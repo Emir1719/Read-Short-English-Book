@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/core/constants/suported_locales.dart';
 import 'package:english_will_fly/features/reading/util/app_init.dart';
+import 'package:english_will_fly/features/theme/data/app_color_scheme.dart';
+import 'package:english_will_fly/features/theme/data/app_theme.dart';
 import 'package:english_will_fly/features/theme/presentation/bloc/theme_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,7 +32,9 @@ class MainApp extends StatelessWidget {
           return MaterialApp.router(
             title: "English Will Fly",
             debugShowCheckedModeBanner: false,
-            theme: state.themeData,
+            themeMode: state.isDarkMode ? ThemeMode.dark : ThemeMode.light,
+            theme: AppThemeNew(AppColorScheme.light).theme(),
+            darkTheme: AppThemeNew(AppColorScheme.dark).theme(),
             localizationsDelegates: context.localizationDelegates,
             supportedLocales: context.supportedLocales,
             locale: context.locale,

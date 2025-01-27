@@ -1,5 +1,4 @@
 import 'package:english_will_fly/features/dictionary/data/models/phonetic.dart';
-import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
@@ -42,10 +41,7 @@ class BtnPlaySound extends StatelessWidget {
           );
         }
       },
-      icon: Icon(
-        Icons.mic_none_outlined,
-        color: context.isDark ? AppColor.lightBlue : Colors.blue,
-      ),
+      icon: Icon(Icons.mic_none_outlined, color: context.color.tertiary),
     );
   }
 }

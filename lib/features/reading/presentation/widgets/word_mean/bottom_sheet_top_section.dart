@@ -1,4 +1,3 @@
-import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +14,7 @@ class BottomSheetTopSection extends StatelessWidget {
       children: [
         Text(word, style: textTheme.bodyLarge),
         IconButton(
-          color: context.isDark ? AppColor.lightBlue : Colors.blue,
+          color: context.color.tertiary,
           padding: EdgeInsets.zero,
           onPressed: () {
             final scaffoldMessenger = ScaffoldMessenger.of(context);
