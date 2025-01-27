@@ -1,0 +1,30 @@
+part of 'story_read_bloc.dart';
+
+sealed class StoryReadState extends Equatable {
+  const StoryReadState();
+
+  @override
+  List<Object> get props => [];
+}
+
+final class StoryReadInitial extends StoryReadState {}
+
+final class StoryReadLoading extends StoryReadState {}
+
+final class StoryReadError extends StoryReadState {
+  final String message;
+
+  const StoryReadError({required this.message});
+
+  @override
+  List<Object> get props => [message];
+}
+
+final class StoryReadLoaded extends StoryReadState {
+  final Story story;
+
+  const StoryReadLoaded({required this.story});
+
+  @override
+  List<Object> get props => [story];
+}

@@ -1,10 +1,12 @@
 import 'package:english_will_fly/features/reading/data/models/story.dart';
+import 'package:english_will_fly/features/reading/presentation/bloc/story_read/story_read_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_item_image.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_item_subtitle.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class StoryListItem extends StatelessWidget {
@@ -21,7 +23,8 @@ class StoryListItem extends StatelessWidget {
 
         if (!context.mounted) return;
 
-        context.push("/read", extra: story);
+        context.read<StoryReadBloc>().add(LoadStory(story: story));
+        context.push("/read");
       },
       child: Container(
         decoration: AppStyle.level,
