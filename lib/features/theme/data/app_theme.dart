@@ -29,6 +29,14 @@ final class AppThemeNew {
       bottomNavigationBarTheme: _bottomNavigationBarThemeData(),
       switchTheme: _switchThemeData(),
       snackBarTheme: _snackBarTheme(),
+      listTileTheme: _listTileTheme(),
+    );
+  }
+
+  ListTileThemeData _listTileTheme() {
+    return ListTileThemeData(
+      titleTextStyle: _textTheme.bodyMedium,
+      subtitleTextStyle: _textTheme.bodySmall,
     );
   }
 
@@ -144,7 +152,7 @@ final class AppThemeNew {
   AppBarTheme _appBarTheme() {
     return AppBarTheme(
       centerTitle: true,
-      elevation: 5,
+      elevation: 0,
       actionsIconTheme: IconThemeData(color: _colorScheme.onSurface),
       iconTheme: IconThemeData(color: _colorScheme.onSurface, size: 24),
       color: _colorScheme.primary,

@@ -18,6 +18,7 @@ import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc
 import 'package:english_will_fly/features/reading/presentation/bloc/story_read/story_read_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/word_list/word_list_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/view/stories/stories_view.dart';
+import 'package:english_will_fly/features/reading/presentation/view/story_introduction/story_introduction_view.dart';
 import 'package:english_will_fly/features/reading/presentation/view/story_read/story_read_view.dart';
 import 'package:english_will_fly/features/reading/presentation/view/word_detail/word_detail_view.dart';
 import 'package:english_will_fly/features/reading/presentation/view/word_list/word_list_view.dart';
@@ -98,6 +99,10 @@ final class AppInit {
       GoRoute(
         path: '/read',
         builder: (context, state) => StoryReadView(),
+      ),
+      GoRoute(
+        path: '/intro',
+        builder: (context, state) => StoryIntroductionView(),
       ),
       GoRoute(
         path: '/wordList',

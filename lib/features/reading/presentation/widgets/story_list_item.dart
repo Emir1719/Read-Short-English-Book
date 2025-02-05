@@ -1,8 +1,6 @@
 import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/story_read/story_read_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_item_image.dart';
-import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_item_subtitle.dart';
-import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
@@ -24,14 +22,17 @@ class StoryListItem extends StatelessWidget {
         if (!context.mounted) return;
 
         context.read<StoryReadBloc>().add(LoadStory(story: story));
-        context.push("/read");
+        context.push("/intro");
       },
       child: Container(
         decoration: AppStyle.level,
-        child: Row(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          spacing: 10,
           children: [
             StoryItemImage(story: story, showLevel: showLevel),
-            Expanded(
+            _title(context),
+            /*  Expanded(
               child: Padding(
                 padding: AppPadding.storyItem,
                 child: Column(
@@ -43,20 +44,23 @@ class StoryListItem extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
+            ),*/
           ],
         ),
       ),
     );
   }
 
-  Text _title(BuildContext context) {
+  Widget _title(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    return Text(
-      story.title,
-      style: textTheme.titleMedium,
-      maxLines: 1,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Text(
+        story.title,
+        style: textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w500),
+        maxLines: 1,
+      ),
     );
   }
 }

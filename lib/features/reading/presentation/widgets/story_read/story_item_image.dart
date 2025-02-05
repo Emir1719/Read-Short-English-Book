@@ -22,11 +22,12 @@ class StoryItemImage extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
           child: Hero(
             tag: story.id,
-            child: CachedNetworkImage(
-              imageUrl: story.image,
-              width: 140,
-              height: 90,
-              fit: BoxFit.cover,
+            child: AspectRatio(
+              aspectRatio: 3 / 4,
+              child: CachedNetworkImage(
+                imageUrl: story.thumbnail,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),

@@ -29,7 +29,7 @@ final class StoryRepository extends IStory {
         id: story.id,
         title: story.title,
         category: category,
-        image: story.image,
+        thumbnail: story.thumbnail,
         level: story.level,
         authorId: story.authorId,
         chapters: story.chapters,

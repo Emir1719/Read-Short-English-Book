@@ -12,16 +12,13 @@ class StoryImage extends StatelessWidget {
     final percent = 0.25;
     final bloc = context.read<StoryReadBloc>().state as StoryReadLoaded;
 
-    return Hero(
-      tag: bloc.story.id,
-      child: CachedNetworkImage(
-        imageUrl: bloc.story.image,
-        placeholder: (context, url) => SizedBox.shrink(),
-        errorWidget: (context, url, error) => Icon(Icons.error, color: Colors.red),
-        height: size.height * percent,
-        width: size.width,
-        fit: BoxFit.cover,
-      ),
+    return CachedNetworkImage(
+      imageUrl: bloc.story.thumbnail,
+      placeholder: (context, url) => SizedBox.shrink(),
+      errorWidget: (context, url, error) => Icon(Icons.error, color: Colors.red),
+      height: size.height * percent,
+      width: size.width,
+      fit: BoxFit.cover,
     );
   }
 }

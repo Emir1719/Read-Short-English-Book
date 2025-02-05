@@ -13,8 +13,13 @@ class StoryList extends StatelessWidget {
         List.from(state.filteredStories); // Orijinal listeyi korumak istersen kopyala
     sortedStories.sort((a, b) => a.id.compareTo(b.id)); // Alfanümerik sıralama
 
-    return ListView.separated(
-      separatorBuilder: (context, index) => const SizedBox(height: 20),
+    return GridView.builder(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 15,
+        crossAxisSpacing: 15,
+        childAspectRatio: 3 / 5.2,
+      ),
       padding: AppPadding.defaults,
       itemCount: sortedStories.length,
       itemBuilder: (context, index) {

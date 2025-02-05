@@ -1,12 +1,13 @@
 import 'dart:convert';
 
 import 'package:english_will_fly/features/reading/data/models/category.dart';
+
 import 'chapter.dart'; // Chapter modelinin de import edilmesi gerektiğini unutmayın
 
 class Story {
   final String id;
   final String title;
-  final String image;
+  final String thumbnail;
   final String level;
   final String? authorId;
   final DateTime? createdAt;
@@ -18,7 +19,7 @@ class Story {
   Story({
     required this.id,
     required this.title,
-    required this.image,
+    required this.thumbnail,
     required this.level,
     this.authorId,
     this.createdAt,
@@ -32,7 +33,7 @@ class Story {
     return <String, dynamic>{
       'id': id,
       'title': title,
-      'image': image,
+      'thumbnail': thumbnail,
       'level': level,
       'authorId': authorId,
       'createdAt': createdAt?.toIso8601String(),
@@ -47,7 +48,7 @@ class Story {
     return Story(
       id: map['id'] as String,
       title: map['title'] as String,
-      image: map['image'] as String,
+      thumbnail: map['thumbnail'] as String,
       level: map['level'] ?? "a1",
       authorId: map['authorId'] as String?,
       createdAt: map['createdAt'] != null ? DateTime.tryParse(map['createdAt']) : null,
@@ -66,7 +67,7 @@ class Story {
   Story copyWith({
     String? id,
     String? title,
-    String? image,
+    String? thumbnail,
     String? level,
     String? authorId,
     DateTime? createdAt,
@@ -78,7 +79,7 @@ class Story {
     return Story(
       id: id ?? this.id,
       title: title ?? this.title,
-      image: image ?? this.image,
+      thumbnail: thumbnail ?? this.thumbnail,
       level: level ?? this.level,
       authorId: authorId ?? this.authorId,
       createdAt: createdAt ?? this.createdAt,

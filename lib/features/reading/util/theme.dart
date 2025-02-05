@@ -2,6 +2,7 @@ import 'package:english_will_fly/features/reading/util/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+@Deprecated("Eski kod")
 class AppTheme {
   static final _instance = AppTheme._();
 

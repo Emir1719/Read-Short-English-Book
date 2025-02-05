@@ -9,14 +9,17 @@ class HomeStoriesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
+    return GridView.builder(
       itemCount: state.stories.length,
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2,
+        mainAxisSpacing: 15,
+        crossAxisSpacing: 15,
+        childAspectRatio: 3 / 5.2,
+      ),
       padding: AppPadding.defaults,
-      separatorBuilder: (context, index) => const SizedBox(height: 20),
       itemBuilder: (context, index) {
-        var story = state.stories[index];
-
-        return StoryListItem(story: story, showLevel: true);
+        return StoryListItem(story: state.stories[index], showLevel: true);
       },
     );
   }
