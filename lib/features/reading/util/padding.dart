@@ -8,6 +8,7 @@ class AppPadding {
   factory AppPadding() => instance;
 
   static EdgeInsets get defaults => const EdgeInsets.all(20);
+  static EdgeInsets get defaults16 => const EdgeInsets.all(16);
 
   static EdgeInsets get storyRead => const EdgeInsets.all(25).copyWith(bottom: 5);
 

@@ -71,7 +71,7 @@ final class AppColorScheme {
 
         /// Container gibi widget'ların rengi
         primaryContainer: const Color(0xff121212),
-        surfaceContainerLowest: Colors.grey.shade800,
+        surfaceContainerLowest: Colors.grey.shade900,
         surfaceContainerLow: Colors.grey.shade700,
         surfaceContainerHigh: Colors.grey.shade500,
         surfaceContainerHighest: Colors.grey.shade400,

@@ -4,8 +4,8 @@
         "title": "Autumn Days",
         "category": 1,
         "authorId": "english_will_fly_1719_eb",
-        "createdAt": null,
-        "updatedAt": null,
+        "createdAt": "2025-02-08",
+        "updatedAt": "2025-02-08",
         "thumbnail": "https://images.pexels.com/photos/531857/pexels-photo-531857.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "introduction": "",
         "level": "a1",
@@ -34,8 +34,8 @@
         "title": "The Big Ocean",
         "category": 1,
         "authorId": "english_will_fly_1719_eb",
-        "createdAt": null,
-        "updatedAt": null,
+        "createdAt": "2025-02-08",
+        "updatedAt": "2025-02-08",
         "thumbnail": "https://images.pexels.com/photos/1298684/pexels-photo-1298684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "introduction": "",
         "level": "a1",
@@ -65,8 +65,8 @@
         "title": "Sunset",
         "category": 1,
         "authorId": "english_will_fly_1719_eb",
-        "createdAt": null,
-        "updatedAt": null,
+        "createdAt": "2025-02-08",
+        "updatedAt": "2025-02-08",
         "thumbnail": "https://images.pexels.com/photos/267151/pexels-photo-267151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "introduction": "",
         "level": "a1",
@@ -96,8 +96,8 @@
         "title": "Rain",
         "category": 1,
         "authorId": "english_will_fly_1719_eb",
-        "createdAt": null,
-        "updatedAt": null,
+        "createdAt": "2025-02-08",
+        "updatedAt": "2025-02-08",
         "thumbnail": "https://images.pexels.com/photos/9648468/pexels-photo-9648468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         "introduction": "",
         "level": "a1",
@@ -118,6 +118,128 @@
                     "Liam loved the sound of the rain. It was soft and relaxing.",
                     "He decided to go outside with his umbrella. He walked in the rain, feeling happy.",
                     "Liam thought rain was beautiful. It made him feel peaceful."
+                ]
+            }
+        ]
+    },
+    {
+        "id": "a2_1",
+        "title": "Winter Adventures",
+        "category": 2,
+        "authorId": "english_will_fly_1719_eb",
+        "createdAt": "2025-02-08",
+        "updatedAt": "2025-02-08",
+        "thumbnail": "https://images.pexels.com/photos/437037/pexels-photo-437037.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "introduction": "Emma and her brother Jake enjoy winter in their small town. They play in the snow and drink hot chocolate.",
+        "level": "a2",
+        "chapters": [
+            {
+                "id": 1,
+                "title": "The First Snow",
+                "image": "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "paragraphs": [
+                    "One morning, Emma wakes up and looks outside. Everything is white. It is the first snow of the year!",
+                    "She runs to Jake’s room. ‘Wake up! It’s snowing!’ she says. Jake jumps out of bed excitedly.",
+                    "They put on their warm clothes and go outside to play. The snow is soft and fresh."
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Snowball Fight",
+                "paragraphs": [
+                    "Emma and Jake start making snowballs. They have a snowball fight. Emma hides behind a tree and throws a snowball at Jake.",
+                    "Jake laughs and throws one back. They play for a long time until they get tired."
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Hot Chocolate and Stories",
+                "paragraphs": [
+                    "After playing in the snow, they go inside. Their mother makes hot chocolate for them.",
+                    "They sit by the fireplace and drink their hot chocolate. Their father tells them a story about his childhood winters.",
+                    "Emma and Jake love winter. They can't wait for more snowy days."
+                ]
+            }
+        ]
+    },
+    {
+        "id": "a2_2",
+        "title": "A Trip to the Zoo",
+        "category": 3,
+        "authorId": "english_will_fly_1719_eb",
+        "createdAt": "2025-02-08",
+        "updatedAt": "2025-02-08",
+        "thumbnail": "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "introduction": "Liam and his school friends visit the zoo. They see many animals and learn interesting facts.",
+        "level": "a2",
+        "chapters": [
+            {
+                "id": 1,
+                "title": "The Bus Ride",
+                "image": "https://images.pexels.com/photos/404280/pexels-photo-404280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "paragraphs": [
+                    "Liam and his classmates get on the school bus. They are excited to go to the zoo.",
+                    "Their teacher, Ms. Rose, tells them about the animals they will see.",
+                    "Liam sits with his best friend Noah. They talk about their favorite animals."
+                ]
+            },
+            {
+                "id": 2,
+                "title": "Meeting the Animals",
+                "paragraphs": [
+                    "At the zoo, the first animals they see are the lions. The lions are sleeping under a tree.",
+                    "Next, they see the monkeys. The monkeys jump and play. One monkey eats a banana.",
+                    "Liam laughs when a monkey makes a funny face at him."
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Feeding the Giraffes",
+                "paragraphs": [
+                    "The class goes to the giraffe area. They get a chance to feed the giraffes.",
+                    "Liam holds a piece of lettuce. A tall giraffe eats it from his hand. He feels happy and amazed.",
+                    "After a fun day, the children go back to the bus. Liam tells his parents all about the trip when he gets home."
+                ]
+            }
+        ]
+    },
+    {
+        "id": "a2_3",
+        "title": "The Mystery of the Missing Cat",
+        "category": 4,
+        "authorId": "english_will_fly_1719_eb",
+        "createdAt": "2025-02-08",
+        "updatedAt": "2025-02-08",
+        "thumbnail": "https://images.pexels.com/photos/1343537/pexels-photo-1343537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "introduction": "Sophia and her friend Alex try to solve a mystery when Sophia’s cat, Whiskers, goes missing.",
+        "level": "a2",
+        "chapters": [
+            {
+                "id": 1,
+                "title": "Where is Whiskers?",
+                "image": "https://images.pexels.com/photos/1343537/pexels-photo-1343537.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+                "paragraphs": [
+                    "Sophia wakes up and calls for her cat. ‘Whiskers, where are you?’",
+                    "She looks under the bed. She looks in the kitchen. Whiskers is not there.",
+                    "She calls her friend Alex. ‘Can you help me find Whiskers?’ she asks."
+                ]
+            },
+            {
+                "id": 2,
+                "title": "The Clues",
+                "paragraphs": [
+                    "Sophia and Alex search the garden. They see small paw prints in the mud.",
+                    "They follow the prints to the neighbor’s house. Mrs. Green says she saw a cat in her yard.",
+                    "Sophia feels hopeful. ‘Maybe Whiskers is here!’ she says."
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Found!",
+                "paragraphs": [
+                    "Sophia and Alex hear a soft meow. They look under a bush and see Whiskers!",
+                    "Whiskers looks a little dirty but happy. Sophia picks him up and hugs him.",
+                    "She thanks Alex for helping. ‘Whiskers, let’s go home!’ she says with a big smile."
                 ]
             }
         ]

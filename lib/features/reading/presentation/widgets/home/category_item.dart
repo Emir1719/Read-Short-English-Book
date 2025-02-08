@@ -12,7 +12,7 @@ class CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bloc = context.read<ReadingBloc>().state as ReadingLoaded;
+    final bloc = context.watch<ReadingBloc>().state as ReadingLoaded;
     bool isSelected = bloc.selectedCategoryId == category.id;
 
     return GestureDetector(
@@ -21,14 +21,17 @@ class CategoryItem extends StatelessWidget {
       },
       child: Container(
         padding: AppPadding.categoryIn,
-        //decoration: AppStyle.categoryBox(context.isDark, isSelected),
+        decoration: BoxDecoration(
+          border: Border.all(color: context.color.surfaceContainerLow),
+          borderRadius: BorderRadius.circular(8),
+        ),
         child: Row(
           spacing: 15,
           children: [
             ImageIcon(
               AssetImage("assets/image/category_icon/${category.iconName}"),
               size: 20,
-              color: isSelected ? context.color.onSurface : context.color.secondary,
+              color: isSelected ? context.color.secondary : context.color.onSurface,
             ),
             Expanded(
               child: Text(

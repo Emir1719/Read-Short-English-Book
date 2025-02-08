@@ -12,8 +12,17 @@ class StoryDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: context.color.surfaceContainerLowest,
       padding: AppPadding.storyDetailPanel,
+      decoration: BoxDecoration(
+        color: context.color.surface,
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(-1, -1),
+            blurRadius: 1,
+            color: context.color.surfaceContainerLow,
+          ),
+        ],
+      ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,

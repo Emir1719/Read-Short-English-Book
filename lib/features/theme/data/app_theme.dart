@@ -59,7 +59,7 @@ final class AppThemeNew {
     return SwitchThemeData(
       trackColor: WidgetStatePropertyAll(_colorScheme.primary),
       thumbColor: WidgetStatePropertyAll(_colorScheme.onSurface),
-      overlayColor: WidgetStatePropertyAll(_colorScheme.surface),
+      overlayColor: WidgetStatePropertyAll(_colorScheme.secondary),
       trackOutlineColor: WidgetStatePropertyAll(_colorScheme.onSurface),
     );
   }
@@ -150,6 +150,9 @@ final class AppThemeNew {
   }
 
   AppBarTheme _appBarTheme() {
+    bool isLight = _colorScheme.primary == Colors.white;
+    Brightness brightness = isLight ? Brightness.dark : Brightness.light;
+
     return AppBarTheme(
       centerTitle: true,
       elevation: 0,
@@ -162,10 +165,10 @@ final class AppThemeNew {
       ),
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: _colorScheme.onSurface,
-        statusBarIconBrightness: Brightness.dark,
-        statusBarBrightness: Brightness.dark,
+        statusBarIconBrightness: brightness,
+        statusBarBrightness: brightness,
         systemNavigationBarColor: _colorScheme.onSurface,
-        systemNavigationBarIconBrightness: Brightness.dark,
+        systemNavigationBarIconBrightness: brightness,
       ),
     );
   }

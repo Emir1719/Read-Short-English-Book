@@ -1,7 +1,5 @@
 import 'package:english_will_fly/features/reading/presentation/bloc/reading_bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/home/home_level_image.dart';
-import 'package:english_will_fly/features/reading/util/padding.dart';
-import 'package:english_will_fly/features/reading/util/style.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -19,15 +17,27 @@ class HomeStoryLevelList extends StatelessWidget {
         context.push("/stories?level=$level");
       },
       child: Container(
-        decoration: AppStyle.level,
+        decoration: BoxDecoration(
+          color: context.color.surface,
+          border: Border.all(color: context.color.surfaceContainerLow),
+          borderRadius: BorderRadius.circular(8),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             HomeLevelImage(level: level),
-            ListTile(
-              contentPadding: AppPadding.storyLevel,
-              title: Text(level, style: context.text.titleLarge),
+            Container(
+              margin: EdgeInsets.only(bottom: 10, left: 16),
+              padding: EdgeInsets.symmetric(horizontal: 8),
+              decoration: BoxDecoration(
+                color: Color(0xff128c7f),
+                borderRadius: BorderRadius.all(Radius.circular(8)),
+              ),
+              child: Text(
+                level,
+                style: context.text.titleMedium?.copyWith(color: context.color.surface),
+              ),
             ),
           ],
         ),

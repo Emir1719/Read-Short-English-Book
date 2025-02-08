@@ -1,7 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/presentation/bloc/story_read/story_read_bloc.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/story_detail_base.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_item_image.dart';
-import 'package:english_will_fly/features/reading/util/style.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/story_title.dart';
+import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,41 +28,29 @@ class StoryListItem extends StatelessWidget {
         context.push("/intro");
       },
       child: Container(
-        decoration: AppStyle.level,
+        decoration: BoxDecoration(
+          color: Colors.transparent,
+          border: Border.all(color: context.color.surfaceContainerLow),
+          borderRadius: BorderRadius.circular(10),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           spacing: 10,
           children: [
-            StoryItemImage(story: story, showLevel: showLevel),
-            _title(context),
-            /*  Expanded(
-              child: Padding(
-                padding: AppPadding.storyItem,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  spacing: 5,
-                  children: [
-                    _title(context),
-                    StoryItemSubtitle(story: story),
-                  ],
+            StoryItemImage(story: story),
+            StoryTitle(title: story.title),
+            Row(
+              children: [
+                StoryDetailBase(
+                  child: Text(story.level.toUpperCase(), style: context.text.bodySmall),
                 ),
-              ),
-            ),*/
+                StoryDetailBase(
+                  child: Text(story.category.title, style: context.text.bodySmall).tr(),
+                ),
+              ],
+            ),
           ],
         ),
-      ),
-    );
-  }
-
-  Widget _title(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Text(
-        story.title,
-        style: textTheme.bodyMedium?.copyWith(fontWeight: FontWeight.w500),
-        maxLines: 1,
       ),
     );
   }

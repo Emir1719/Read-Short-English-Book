@@ -9,15 +9,17 @@ class HomeStoriesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double mainAxisSpacing = 16;
+
     return GridView.builder(
       itemCount: state.stories.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: 2,
-        mainAxisSpacing: 15,
-        crossAxisSpacing: 15,
+        mainAxisSpacing: mainAxisSpacing,
+        crossAxisSpacing: mainAxisSpacing,
         childAspectRatio: 3 / 5.2,
       ),
-      padding: AppPadding.defaults,
+      padding: AppPadding.defaults16,
       itemBuilder: (context, index) {
         return StoryListItem(story: state.stories[index], showLevel: true);
       },

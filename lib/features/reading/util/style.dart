@@ -6,17 +6,6 @@ class AppStyle {
   AppStyle._();
   factory AppStyle() => instance;
 
-  static BoxDecoration get level => BoxDecoration(
-        color: Colors.transparent,
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(10),
-      );
-
-  static BoxDecoration storyLevel(Color? color) => BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(8),
-      );
-
   static BoxDecoration categoryBox(bool isDark, bool isSelected) {
     return !isDark
         ? BoxDecoration(
