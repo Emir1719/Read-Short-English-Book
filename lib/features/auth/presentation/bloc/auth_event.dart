@@ -12,9 +12,8 @@ class AppStarted extends AuthEvent {}
 class SignUpRequested extends AuthEvent {
   final String email;
   final String password;
-  final String age;
 
-  const SignUpRequested(this.email, this.password, this.age);
+  const SignUpRequested(this.email, this.password);
 
   @override
   List<Object?> get props => [email, password];

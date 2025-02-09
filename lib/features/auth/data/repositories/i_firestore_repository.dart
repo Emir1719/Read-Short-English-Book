@@ -3,7 +3,7 @@ import 'package:english_will_fly/features/reading/data/models/word_list.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 abstract class IFirestoreRepository {
-  Future<bool> saveUser(User firebaseUser, String age);
+  Future<bool> saveUser(User firebaseUser);
   Future<AppUser?> getCurrentUser(String userId);
 
   // TODO: interfaceyi ayır

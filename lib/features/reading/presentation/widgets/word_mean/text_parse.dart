@@ -1,10 +1,13 @@
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_read_snackbar.dart';
-import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class TextParse {
-  static TextSpan build(String text, BuildContext context) {
+  final TextStyle _style;
+
+  TextParse(this._style);
+
+  TextSpan build(String text, BuildContext context) {
     List<TextSpan> textSpans = [];
     int start = 0;
 
@@ -20,7 +23,7 @@ class TextParse {
 
       // Add text before the current match
       if (start < startMatch) {
-        textSpans.add(TextSpan(text: text.substring(start, startMatch)));
+        textSpans.add(TextSpan(text: text.substring(start, startMatch), style: _style));
       }
 
       // Check if the matched text is a word and if it is in definitions
@@ -28,26 +31,19 @@ class TextParse {
         textSpans.add(_linkedWord(matchedText, context, null));
       } else {
         // Add space or non-word characters (e.g., punctuation) as is
-        textSpans.add(TextSpan(text: matchedText));
+        textSpans.add(TextSpan(text: matchedText, style: _style));
       }
 
       start = endMatch;
     }
 
-    return TextSpan(
-      children: textSpans,
-      style: context.text.bodyLarge?.copyWith(height: 1.7, fontWeight: FontWeight.normal),
-    );
+    return TextSpan(children: textSpans, style: _style);
   }
 
-  static TextSpan _linkedWord(String matchedText, BuildContext context, Color? color) {
+  TextSpan _linkedWord(String matchedText, BuildContext context, Color? color) {
     return TextSpan(
       text: matchedText,
-      style: context.text.bodyLarge?.copyWith(
-        height: 1.7,
-        color: color,
-        fontWeight: FontWeight.normal,
-      ),
+      style: _style,
       recognizer: TapGestureRecognizer()
         ..onTap = () async => StoryReadSnackBar.showWordMean(context: context, word: matchedText),
     );

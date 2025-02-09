@@ -10,36 +10,35 @@ class SignUpView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final TextEditingController email = TextEditingController();
-    final TextEditingController age = TextEditingController();
     final TextEditingController password = TextEditingController();
     const space = SizedBox(height: 20);
 
     return Scaffold(
       appBar: AppBar(title: const Text("auth.register").tr()),
-      body: ListView(
-        padding: AppPadding.defaults,
-        children: [
-          TextField(
-            controller: email,
-            decoration: const InputDecoration(labelText: "Email"),
-            keyboardType: TextInputType.emailAddress,
-          ),
-          space,
-          TextField(
-            controller: password,
-            decoration: const InputDecoration(labelText: "Password"),
-            obscureText: true,
-          ),
-          space,
-          TextField(
-            controller: age,
-            decoration: const InputDecoration(labelText: "Age"),
-            keyboardType: TextInputType.number,
-          ),
-          space,
-          SignUpButton(email: email, password: password, age: age),
-          const AuthErrorListener(),
-        ],
+      body: Center(
+        child: ListView(
+          shrinkWrap: true,
+          padding: AppPadding.defaults,
+          children: [
+            TextField(
+              controller: email,
+              decoration: const InputDecoration(labelText: "Email"),
+              keyboardType: TextInputType.emailAddress,
+              textInputAction: TextInputAction.next,
+            ),
+            space,
+            TextField(
+              controller: password,
+              decoration: const InputDecoration(labelText: "Password"),
+              obscureText: true,
+            ),
+            space,
+            space,
+            space,
+            SignUpButton(email: email, password: password),
+            const AuthErrorListener(),
+          ],
+        ),
       ),
     );
   }

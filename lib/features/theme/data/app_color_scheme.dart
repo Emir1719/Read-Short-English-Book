@@ -42,6 +42,8 @@ final class AppColorScheme {
         error: Colors.red,
 
         tertiary: Colors.blue,
+
+        brightness: Brightness.dark,
       );
 
   static ColorScheme get dark => ColorScheme.dark(
@@ -80,5 +82,7 @@ final class AppColorScheme {
         error: Colors.red.shade300,
 
         tertiary: const Color.fromARGB(255, 142, 219, 255),
+
+        brightness: Brightness.light,
       );
 }

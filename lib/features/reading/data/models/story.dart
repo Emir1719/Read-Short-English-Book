@@ -9,6 +9,7 @@ class Story {
   final String title;
   final String thumbnail;
   final String level;
+  final String introduction;
   final String? authorId;
   final DateTime? createdAt;
   final DateTime? updatedAt;
@@ -26,6 +27,7 @@ class Story {
     this.updatedAt,
     required this.category,
     required this.chapters,
+    required this.introduction,
     this.isLiked = false,
   });
 
@@ -41,6 +43,7 @@ class Story {
       'category': category.id,
       'chapters': chapters.map((x) => x.toMap()).toList(),
       'isLiked': isLiked,
+      "introduction": introduction,
     };
   }
 
@@ -56,6 +59,7 @@ class Story {
       category: Category.getById(map['category'] as int),
       chapters: List<Chapter>.from(map['chapters']?.map((x) => Chapter.fromMap(x)) ?? []),
       isLiked: map['isLiked'] as bool? ?? false,
+      introduction: map["introduction"],
     );
   }
 
@@ -74,6 +78,7 @@ class Story {
     DateTime? updatedAt,
     Category? category,
     List<Chapter>? chapters,
+    String? introduction,
     bool? isLiked,
   }) {
     return Story(
@@ -87,6 +92,7 @@ class Story {
       category: category ?? this.category,
       chapters: chapters ?? this.chapters,
       isLiked: isLiked ?? this.isLiked,
+      introduction: introduction ?? this.introduction,
     );
   }
 }

@@ -36,6 +36,7 @@ final class StoryRepository extends IStory {
         createdAt: story.createdAt,
         updatedAt: story.updatedAt,
         isLiked: story.isLiked,
+        introduction: story.introduction,
       );
     }).toList();
 

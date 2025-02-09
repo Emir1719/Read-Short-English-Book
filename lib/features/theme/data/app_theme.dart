@@ -86,15 +86,15 @@ final class AppThemeNew {
   ElevatedButtonThemeData _elevatedButtonTheme() {
     return ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        fixedSize: const Size.fromHeight(50),
-        backgroundColor: _colorScheme.surfaceTint,
+        fixedSize: const Size.fromHeight(55),
+        backgroundColor: _colorScheme.secondary,
         foregroundColor: _colorScheme.primary,
-        surfaceTintColor: _colorScheme.surfaceTint,
-        shadowColor: _colorScheme.surfaceTint,
-        side: BorderSide(width: 1, color: _colorScheme.primary),
-        textStyle: _textTheme.bodyMedium?.copyWith(color: _colorScheme.primary),
+        surfaceTintColor: _colorScheme.secondary,
+        shadowColor: _colorScheme.secondary,
+        side: BorderSide(width: 0, color: _colorScheme.secondary),
+        textStyle: _textTheme.bodyMedium?.copyWith(color: _colorScheme.onPrimary),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
+          borderRadius: BorderRadius.circular(25.0),
         ),
       ),
     );
@@ -103,17 +103,17 @@ final class AppThemeNew {
   TextButtonThemeData _textButtonThemeData() {
     return TextButtonThemeData(
       style: ButtonStyle(
-        fixedSize: WidgetStatePropertyAll(const Size.fromHeight(50)),
+        fixedSize: WidgetStatePropertyAll(const Size.fromHeight(55)),
         textStyle: WidgetStatePropertyAll(_textTheme.bodyMedium),
         surfaceTintColor: WidgetStateProperty.resolveWith((states) {
           return _colorScheme.onPrimary;
         }),
         foregroundColor: WidgetStateProperty.resolveWith((states) {
-          return _colorScheme.primary;
+          return _colorScheme.secondary;
         }),
         backgroundColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.pressed)) {
-            return _colorScheme.primaryContainer;
+            return _colorScheme.surfaceContainerLow;
           }
           return _colorScheme.surfaceTint;
         }),
@@ -123,7 +123,7 @@ final class AppThemeNew {
 
   TextSelectionThemeData _textSelectionTheme() {
     return TextSelectionThemeData(
-      cursorColor: _colorScheme.primary,
+      cursorColor: _colorScheme.onSurface,
       selectionColor: _colorScheme.primary,
       selectionHandleColor: _colorScheme.primary,
     );
@@ -150,9 +150,6 @@ final class AppThemeNew {
   }
 
   AppBarTheme _appBarTheme() {
-    bool isLight = _colorScheme.primary == Colors.white;
-    Brightness brightness = isLight ? Brightness.dark : Brightness.light;
-
     return AppBarTheme(
       centerTitle: true,
       elevation: 0,
@@ -164,11 +161,11 @@ final class AppThemeNew {
         color: _colorScheme.onSurface,
       ),
       systemOverlayStyle: SystemUiOverlayStyle(
-        statusBarColor: _colorScheme.onSurface,
-        statusBarIconBrightness: brightness,
-        statusBarBrightness: brightness,
-        systemNavigationBarColor: _colorScheme.onSurface,
-        systemNavigationBarIconBrightness: brightness,
+        statusBarColor: _colorScheme.primary,
+        statusBarIconBrightness: _colorScheme.brightness,
+        statusBarBrightness: _colorScheme.brightness,
+        systemNavigationBarColor: _colorScheme.surface,
+        systemNavigationBarIconBrightness: _colorScheme.brightness,
       ),
     );
   }
@@ -181,10 +178,7 @@ final class AppThemeNew {
   }
 
   InputDecorationTheme _inputDecorationTheme() {
-    final border = OutlineInputBorder(
-      borderRadius: BorderRadius.all(Radius.circular(10)),
-      borderSide: BorderSide(color: _colorScheme.onSurface),
-    );
+    final border = UnderlineInputBorder(borderSide: BorderSide(color: _colorScheme.secondary));
 
     return InputDecorationTheme(
       labelStyle: _textTheme.bodyMedium,
@@ -192,10 +186,9 @@ final class AppThemeNew {
       outlineBorder: BorderSide.none,
       border: border,
       disabledBorder: border,
-      focusedBorder: border.copyWith(borderSide: BorderSide(color: _colorScheme.primary)),
+      focusedBorder: border,
       enabledBorder: border,
       errorBorder: border.copyWith(borderSide: BorderSide(color: _colorScheme.error)),
-      contentPadding: EdgeInsets.only(top: 16, left: 15, right: 15, bottom: 16),
     );
   }
 

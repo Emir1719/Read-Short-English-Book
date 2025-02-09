@@ -43,8 +43,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     try {
       final user = await _authRepository.signUp(event.email, event.password);
       final appUser = AppUser.fromFirebaseUser(user!);
-      await _firestoreRepository.saveUser(user, event.age);
-      appUser.age = event.age;
+      await _firestoreRepository.saveUser(user);
       emit(Authenticated(appUser));
     } catch (e) {
       emit(AuthFailure(e.toString()));
