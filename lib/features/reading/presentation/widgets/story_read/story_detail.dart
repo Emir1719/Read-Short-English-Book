@@ -1,4 +1,3 @@
-import 'package:english_will_fly/features/reading/presentation/widgets/story_detail/story_detail_chapters.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_detail/story_detail_settings.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_detail_item.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_read/story_like_button.dart';
@@ -8,7 +7,8 @@ import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class StoryDetail extends StatelessWidget {
-  const StoryDetail({super.key});
+  const StoryDetail({super.key, required this.scaffoldKey});
+  final GlobalKey<ScaffoldState> scaffoldKey;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +34,11 @@ class StoryDetail extends StatelessWidget {
             tooltip: "Kitaplığa Ekle",
             onTap: () => print("Kitaplığa"),
           ),
-          StoryDetailChapters(),
+          StoryDetailItem(
+            icon: Icons.menu_rounded,
+            tooltip: "Bölümler",
+            onTap: () => scaffoldKey.currentState?.openDrawer(),
+          ),
           TextToSpeechButton(),
           StoryDetailSettings(),
         ],

@@ -44,6 +44,9 @@ final class AppColorScheme {
         tertiary: Colors.blue,
 
         brightness: Brightness.dark,
+
+        /// Chapters
+        inversePrimary: Colors.grey.shade200,
       );
 
   static ColorScheme get dark => ColorScheme.dark(
@@ -84,5 +87,7 @@ final class AppColorScheme {
         tertiary: const Color.fromARGB(255, 142, 219, 255),
 
         brightness: Brightness.light,
+
+        inversePrimary: Colors.grey.shade900,
       );
 }
