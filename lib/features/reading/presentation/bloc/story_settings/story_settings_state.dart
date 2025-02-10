@@ -11,11 +11,22 @@ final class StorySettingsLoading extends StorySettingsState {}
 
 final class StorySettingsLoaded extends StorySettingsState {
   final TextStyle style;
+  final TextAlign textAlign;
 
-  const StorySettingsLoaded({required this.style});
+  const StorySettingsLoaded({required this.style, required this.textAlign});
 
   @override
-  List<Object> get props => [style];
+  List<Object> get props => [style, textAlign];
+
+  StorySettingsLoaded copyWith({
+    TextStyle? style,
+    TextAlign? textAlign,
+  }) {
+    return StorySettingsLoaded(
+      style: style ?? this.style,
+      textAlign: textAlign ?? this.textAlign,
+    );
+  }
 }
 
 final class StorySettingsError extends StorySettingsState {

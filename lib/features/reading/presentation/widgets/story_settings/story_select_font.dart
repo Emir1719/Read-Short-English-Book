@@ -14,7 +14,6 @@ class StorySelectFont extends StatelessWidget {
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<StorySettingsBloc>(context);
     final List<String> availableFonts = [
-      'Open Sans',
       'Roboto',
       'Lato',
       'Poppins',
@@ -36,14 +35,7 @@ class StorySelectFont extends StatelessWidget {
         return SettingsContainerBase(
           child: DropdownButton<String>(
             isExpanded: true,
-            value: availableFonts.firstWhere(
-              (font) {
-                final fontFamily =
-                    stateLoad.style.fontFamily?.split("_")[0] ?? availableFonts.first;
-                return fontFamily == font;
-              },
-              orElse: () => 'Urbanist',
-            ),
+            value: _value(availableFonts, stateLoad),
             underline: SizedBox(),
             iconEnabledColor: context.color.onSurface,
             onChanged: (String? newFont) {
@@ -52,6 +44,7 @@ class StorySelectFont extends StatelessWidget {
                 TextStyle newStyle = GoogleFonts.getFont(
                   newFont,
                   fontSize: stateLoad.style.fontSize,
+                  height: stateLoad.style.height,
                   color: context.color.onSurface,
                 );
                 bloc.add(ChangeStyle(newStyle));
@@ -62,13 +55,23 @@ class StorySelectFont extends StatelessWidget {
                 value: font,
                 child: Text(
                   font,
-                  style: GoogleFonts.getFont(font),
+                  style: GoogleFonts.getFont(font, fontSize: 17),
                 ),
               );
             }).toList(),
           ),
         );
       },
+    );
+  }
+
+  String _value(List<String> availableFonts, StorySettingsLoaded stateLoad) {
+    return availableFonts.firstWhere(
+      (font) {
+        final fontFamily = stateLoad.style.fontFamily?.split("_")[0] ?? availableFonts.first;
+        return fontFamily == font;
+      },
+      orElse: () => availableFonts.last,
     );
   }
 }

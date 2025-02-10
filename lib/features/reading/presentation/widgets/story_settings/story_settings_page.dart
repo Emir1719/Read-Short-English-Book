@@ -1,4 +1,7 @@
 import 'package:english_will_fly/features/reading/presentation/widgets/story_settings/story_select_font.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/story_settings/story_select_font_size.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/story_settings/story_select_text_align.dart';
+import 'package:english_will_fly/features/reading/presentation/widgets/story_settings/story_select_text_height.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -19,23 +22,30 @@ class StorySettingsPage extends StatelessWidget {
             StorySelectFont(),
           ],
         ),
-        Text("Font Size", style: context.text.bodyMedium),
-        /*Slider(
-          value: selectedStyle.fontSize ?? 16,
-          min: 10,
-          max: 30,
-          divisions: 20,
-          activeColor: context.color.secondary,
-          onChanged: (value) {
-            // Font boyutu değiştiğinde, yeni stil oluşturulup Bloc'a gönderilir
-            TextStyle newStyle = selectedStyle.copyWith(fontSize: value);
-            bloc.add(ChangeStyle(newStyle));
-          },
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Font Size", style: context.text.bodyMedium),
+            StorySelectFontSize(),
+          ],
         ),
-        Text(
-          "Font Size: ${selectedStyle.fontSize?.toStringAsFixed(1)}",
-          style: selectedStyle.copyWith(fontSize: 16),
-        ),*/
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Text Height", style: context.text.bodyMedium),
+            StorySelectTextHeight(),
+          ],
+        ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text("Text Align", style: context.text.bodyMedium),
+            StorySelectTextAlign(),
+          ],
+        ),
       ],
     );
   }

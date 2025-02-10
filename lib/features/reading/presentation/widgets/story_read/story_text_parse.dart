@@ -13,8 +13,6 @@ class StoryTextParse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final style = GoogleFonts.urbanist(height: 1.7, fontSize: 18, color: context.color.onSurface);
-
     return BlocBuilder<StorySettingsBloc, StorySettingsState>(
       builder: (context, state) {
         if (state is StorySettingsLoading) {
@@ -32,7 +30,7 @@ class StoryTextParse extends StatelessWidget {
             padding: AppPadding.storyRead,
             child: RichText(
               text: TextParse(state.style).build(text, context),
-              textAlign: TextAlign.justify,
+              textAlign: state.textAlign,
             ),
           ),
         );

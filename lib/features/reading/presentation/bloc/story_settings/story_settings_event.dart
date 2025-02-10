@@ -15,3 +15,12 @@ class ChangeStyle extends StorySettingsEvent {
   @override
   List<Object> get props => [style];
 }
+
+class ChangeAlign extends StorySettingsEvent {
+  final TextAlign textAlign;
+
+  const ChangeAlign(this.textAlign);
+
+  @override
+  List<Object> get props => [textAlign];
+}
