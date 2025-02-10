@@ -7,7 +7,7 @@
         "createdAt": "2025-02-08",
         "updatedAt": "2025-02-08",
         "thumbnail": "https://images.pexels.com/photos/531857/pexels-photo-531857.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "introduction": "",
+        "introduction": "Sophia and her friend Alex try to solve a mystery when Sophia’s cat, Whiskers, goes missing.",
         "level": "a1",
         "chapters": [
             {
@@ -37,7 +37,7 @@
         "createdAt": "2025-02-08",
         "updatedAt": "2025-02-08",
         "thumbnail": "https://images.pexels.com/photos/1298684/pexels-photo-1298684.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "introduction": "",
+        "introduction": "Sophia and her friend Alex try to solve a mystery when Sophia’s cat, Whiskers, goes missing.",
         "level": "a1",
         "chapters": [
             {
@@ -68,7 +68,7 @@
         "createdAt": "2025-02-08",
         "updatedAt": "2025-02-08",
         "thumbnail": "https://images.pexels.com/photos/267151/pexels-photo-267151.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "introduction": "",
+        "introduction": "Sophia and her friend Alex try to solve a mystery when Sophia’s cat, Whiskers, goes missing.",
         "level": "a1",
         "chapters": [
             {
@@ -99,25 +99,53 @@
         "createdAt": "2025-02-08",
         "updatedAt": "2025-02-08",
         "thumbnail": "https://images.pexels.com/photos/9648468/pexels-photo-9648468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "introduction": "",
+        "introduction": "Sophia and her friend Alex try to solve a mystery when Sophia’s cat, Whiskers, goes missing.",
         "level": "a1",
         "chapters": [
             {
                 "id": 1,
-                "title": "story title 1",
+                "title": "The Rainy Day",
                 "image": "https://images.pexels.com/photos/9648468/pexels-photo-9648468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
                 "paragraphs": [
-                    "One day, it started to rain. The sky was grey, and the drops were big.",
-                    "Liam was at home. He looked out the window. The rain made everything wet."
+                    "One morning, Sophia woke up and looked out the window. The sky was dark and gray. Large raindrops were falling on the ground. The trees and flowers in the garden were wet. The streets were empty, and everything looked quiet.",
+                    "Sophia loved rainy days. She liked to sit by the window with a cup of hot chocolate and watch the rain. But today, something was different. She could not see her cat, Whiskers. He usually sat near the window, watching the rain with her.",
+                    "Sophia looked around the house. 'Whiskers!' she called, but there was no answer. She checked under the sofa, behind the curtains, and even in the kitchen. Whiskers was not there. Sophia started to feel worried."
                 ]
             },
             {
                 "id": 2,
-                "title": "story title 2",
+                "title": "A Mysterious Clue",
                 "paragraphs": [
-                    "Liam loved the sound of the rain. It was soft and relaxing.",
-                    "He decided to go outside with his umbrella. He walked in the rain, feeling happy.",
-                    "Liam thought rain was beautiful. It made him feel peaceful."
+                    "Sophia decided to call her best friend, Alex. Alex lived next door, and he always helped her when she had a problem.",
+                    "'Alex, Whiskers is missing!' Sophia said on the phone.",
+                    "'Don't worry! I will come to your house,' Alex replied.",
+                    "A few minutes later, Alex arrived with his raincoat and boots. The rain was still falling, but they decided to look for Whiskers outside.",
+                    "In the garden, Sophia saw something strange. There were small paw prints on the wet ground. The prints were leading toward the park. 'Look, Alex! Maybe Whiskers went this way!' she said excitedly.",
+                    "Alex nodded. 'Let’s follow the footprints!'"
+                ]
+            },
+            {
+                "id": 3,
+                "title": "Searching in the Rain",
+                "paragraphs": [
+                    "Sophia and Alex walked to the park with their umbrellas. The rain was soft, and the air was fresh. The park was empty, and the grass was wet.",
+                    "They followed the paw prints carefully. The prints went near a big tree and then disappeared. Sophia looked around. 'Where could he be?' she wondered.",
+                    "Suddenly, they heard a soft meow. It was coming from the tree! Sophia and Alex looked up and saw Whiskers sitting on a low branch.",
+                    "'Whiskers! There you are!' Sophia said happily.",
+                    "Whiskers looked a little scared but also happy to see them."
+                ]
+            },
+            {
+                "id": 4,
+                "title": "Back Home",
+                "paragraphs": [
+                    "Sophia reached up, but the branch was too high. 'How do we get him down?' she asked.",
+                    "Alex had an idea. He found a small wooden bench and moved it under the tree. Sophia stood on it and carefully picked up Whiskers.",
+                    "'Got you!' she said, hugging her cat.",
+                    "They walked back home together. Sophia dried Whiskers with a towel and gave him some food. He purred happily.",
+                    "'Thank you, Alex! You are a great friend!' Sophia said.",
+                    "'Anytime!' Alex replied with a smile.",
+                    "Sophia looked outside. The rain was still falling, but now everything felt warm and happy. She was glad to have her best friend—and her cat—by her side."
                 ]
             }
         ]

@@ -21,6 +21,7 @@ class StorySettingsBloc extends Bloc<StorySettingsEvent, StorySettingsState> {
         ) {
     on<ChangeStyle>(_changeStyle);
     on<ChangeAlign>(_changeAlign);
+    on<RefreshSettings>(_refresh);
   }
 
   FutureOr<void> _changeStyle(ChangeStyle event, Emitter<StorySettingsState> emit) async {
@@ -47,6 +48,22 @@ class StorySettingsBloc extends Bloc<StorySettingsEvent, StorySettingsState> {
         // textAlign'i güncellerken style aynı kalsın.
         emit(currentState.copyWith(textAlign: event.textAlign));
         await settingsRepository.setTextAlign(event.textAlign);
+      }
+    } catch (e) {
+      emit(StorySettingsError(e.toString()));
+    }
+  }
+
+  FutureOr<void> _refresh(RefreshSettings event, Emitter<StorySettingsState> emit) async {
+    try {
+      if (state is StorySettingsLoaded) {
+        emit(StorySettingsLoading());
+        emit(
+          StorySettingsLoaded(
+            style: settingsRepository.getTextStyle(context).copyWith(color: event.color),
+            textAlign: settingsRepository.getTextAlign(),
+          ),
+        );
       }
     } catch (e) {
       emit(StorySettingsError(e.toString()));

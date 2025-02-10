@@ -24,7 +24,7 @@ class ThemeStorage {
 
   bool getThemeMode() {
     try {
-      return prefs.getBool(_themeModeKey) ?? true;
+      return prefs.getBool(_themeModeKey) ?? false;
     } catch (e) {
       rethrow;
     }

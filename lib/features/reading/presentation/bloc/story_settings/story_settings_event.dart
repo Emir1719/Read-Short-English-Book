@@ -24,3 +24,12 @@ class ChangeAlign extends StorySettingsEvent {
   @override
   List<Object> get props => [textAlign];
 }
+
+class RefreshSettings extends StorySettingsEvent {
+  final Color? color;
+
+  const RefreshSettings(this.color);
+
+  @override
+  List<Object> get props => [color ?? true];
+}
