@@ -6,6 +6,7 @@ import 'package:english_will_fly/features/reading/presentation/widgets/settings_
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class SettingsEmailVerifyButton extends StatelessWidget {
   const SettingsEmailVerifyButton({super.key});
@@ -20,6 +21,7 @@ class SettingsEmailVerifyButton extends StatelessWidget {
           content: "Size bir mail gönderilecek. (Spamlar bölümünü de kontrol ediniz)",
           onSuccess: () {
             context.read<AuthBloc>().add(EmailVerify());
+            context.pop();
           },
         );
       },

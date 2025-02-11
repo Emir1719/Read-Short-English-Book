@@ -37,7 +37,7 @@ class WordDetailView extends StatelessWidget {
                     const SizedBox(height: 6),
                     WordExample(value: definitions.example),
                     const Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 60, vertical: 5),
+                      padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
                       child: Divider(),
                     ),
                   ],

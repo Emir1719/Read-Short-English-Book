@@ -22,5 +22,5 @@ class AppPadding {
 
   static EdgeInsets get categoryOut => EdgeInsets.symmetric(horizontal: 5, vertical: 8);
 
-  static EdgeInsets get storyDetailPanel => EdgeInsets.symmetric(vertical: 8);
+  static EdgeInsets get storyDetailPanel => EdgeInsets.symmetric(vertical: 10);
 }

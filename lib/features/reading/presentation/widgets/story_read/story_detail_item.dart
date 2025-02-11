@@ -1,4 +1,4 @@
-import 'package:english_will_fly/features/reading/util/color.dart';
+import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
 
 class StoryDetailItem extends StatelessWidget {
@@ -15,11 +15,12 @@ class StoryDetailItem extends StatelessWidget {
         message: tooltip,
         child: Container(
           decoration: BoxDecoration(
-            color: AppColor.profileInfoBack,
+            color: context.color.surface,
             borderRadius: BorderRadius.all(Radius.circular(10)),
+            border: Border.all(color: context.color.surfaceContainerLow),
           ),
-          padding: EdgeInsets.symmetric(vertical: 7, horizontal: 14),
-          child: Icon(icon, color: Colors.white),
+          padding: EdgeInsets.symmetric(vertical: 10, horizontal: 14),
+          child: Icon(icon, color: context.color.surfaceContainerHighest),
         ),
       ),
     );

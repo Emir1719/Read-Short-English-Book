@@ -1,3 +1,4 @@
+import 'package:english_will_fly/features/reading/presentation/widgets/word_mean/snackbar_translated_text.dart';
 import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:flutter/material.dart';
 
@@ -32,6 +33,8 @@ class WordExample extends StatelessWidget {
             style: textTheme.bodyMedium,
             maxLines: 10,
           ),
+          space,
+          SnackbarTranslatedText(text: value?.trim() ?? ""),
         ],
       ),
     );

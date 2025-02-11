@@ -30,7 +30,12 @@ final class AppThemeNew {
       switchTheme: _switchThemeData(),
       snackBarTheme: _snackBarTheme(),
       listTileTheme: _listTileTheme(),
+      dividerTheme: _dividerTheme(),
     );
+  }
+
+  DividerThemeData _dividerTheme() {
+    return DividerThemeData(color: _colorScheme.surfaceContainerLow);
   }
 
   ListTileThemeData _listTileTheme() {

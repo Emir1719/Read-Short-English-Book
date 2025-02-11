@@ -21,9 +21,8 @@ class BottomSheetBottomSection extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       spacing: 15,
       children: [
-        SnackbarTranslatedText(
-          text: state.dictionaryList.first.meanings?.first.definitions?.first.definition ?? "",
-        ),
+        // text: state.dictionaryList.first.meanings?.first.definitions?.first.definition ?? "",
+        SnackbarTranslatedText(text: word),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

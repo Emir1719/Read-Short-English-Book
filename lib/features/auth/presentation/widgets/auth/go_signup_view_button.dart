@@ -8,7 +8,7 @@ class GoSignUpButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: () => context.push("/signUp"),
-      child: const Text("Have An Account?"),
+      child: const Text("Haven't An Account?"),
     );
   }
 }
