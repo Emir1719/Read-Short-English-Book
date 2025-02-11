@@ -3,7 +3,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/core/dependency.dart';
 import 'package:english_will_fly/features/auth/data/repositories/i_auth_repository.dart';
-import 'package:english_will_fly/features/auth/data/repositories/i_firestore_repository.dart';
+import 'package:english_will_fly/features/auth/data/repositories/i_firestore_user.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_event.dart';
 import 'package:english_will_fly/features/auth/presentation/view/auth/login_view.dart';
@@ -64,8 +64,8 @@ final class AppInit {
       BlocProvider(create: (context) => DictionaryBloc(getIt<IDictionaryRepository>())),
       BlocProvider(
         create: (context) => AuthBloc(
-          getIt<IAuthenticationRepository>(),
-          getIt<IFirestoreRepository>(),
+          getIt<IAuthRepository>(),
+          getIt<IFirestoreUser>(),
         )..add(AppStarted()),
       ),
       BlocProvider(create: (context) => WordListBloc()..add(GetAllWords())),

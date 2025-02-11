@@ -32,7 +32,7 @@ class StoryDetail extends StatelessWidget {
           StoryDetailItem(
             icon: Icons.bookmark_border_rounded,
             tooltip: "Kitaplığa Ekle",
-            onTap: () => print("Kitaplığa"),
+            onTap: () => debugPrint("Kitaplığa"),
           ),
           StoryDetailItem(
             icon: Icons.menu_rounded,

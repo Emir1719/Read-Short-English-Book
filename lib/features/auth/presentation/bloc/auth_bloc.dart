@@ -1,14 +1,14 @@
 import 'package:english_will_fly/features/auth/data/models/user.dart';
 import 'package:english_will_fly/features/auth/data/repositories/i_auth_repository.dart';
-import 'package:english_will_fly/features/auth/data/repositories/i_firestore_repository.dart';
+import 'package:english_will_fly/features/auth/data/repositories/i_firestore_user.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_event.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
-  final IAuthenticationRepository _authRepository;
-  final IFirestoreRepository _firestoreRepository;
+  final IAuthRepository _authRepository;
+  final IFirestoreUser _firestoreRepository;
   final _analytics = FirebaseAnalytics.instance;
 
   AuthBloc(this._authRepository, this._firestoreRepository) : super(AuthInitial()) {
@@ -16,6 +16,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     on<SignUpRequested>(_onSignUpRequested);
     on<SignInRequested>(_onSignInRequested);
     on<SignOutRequested>(_onSignOutRequested);
+    on<EmailVerify>(_onEmailVerify);
+    on<ForgotPassword>(_onForgotPassword);
   }
 
   Future<void> _onAppStarted(AppStarted event, Emitter<AuthState> emit) async {
@@ -82,5 +84,25 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     }
 
     _analytics.logEvent(name: "sign_out");
+  }
+
+  Future<void> _onEmailVerify(EmailVerify event, Emitter<AuthState> emit) async {
+    try {
+      await _authRepository.sendEmailVerification();
+    } on Exception catch (e) {
+      emit(AuthFailure(e.toString()));
+    }
+
+    _analytics.logEvent(name: "email_verify");
+  }
+
+  Future<void> _onForgotPassword(ForgotPassword event, Emitter<AuthState> emit) async {
+    try {
+      await _authRepository.forgotPassword(event.email, event.langCode);
+    } on Exception catch (e) {
+      emit(AuthFailure(e.toString()));
+    }
+
+    _analytics.logEvent(name: "forgot_password");
   }
 }

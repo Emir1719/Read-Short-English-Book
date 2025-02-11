@@ -23,10 +23,10 @@ class TextToSpeechView extends StatefulWidget {
   const TextToSpeechView({super.key, required this.textToSpeak});
 
   @override
-  _TextToSpeechViewState createState() => _TextToSpeechViewState();
+  TextToSpeechViewState createState() => TextToSpeechViewState();
 }
 
-class _TextToSpeechViewState extends State<TextToSpeechView> {
+class TextToSpeechViewState extends State<TextToSpeechView> {
   double _sliderValue = 0;
 
   @override

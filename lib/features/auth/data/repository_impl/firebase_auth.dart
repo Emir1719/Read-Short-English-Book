@@ -1,10 +1,10 @@
 import 'package:english_will_fly/features/auth/data/repositories/i_auth_repository.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-class FirebaseAuthenticationRepository implements IAuthenticationRepository {
+class FirebaseAuthRepository implements IAuthRepository {
   final FirebaseAuth _firebaseAuth;
 
-  FirebaseAuthenticationRepository(this._firebaseAuth);
+  FirebaseAuthRepository(this._firebaseAuth);
 
   @override
   Future<User?> signUp(String email, String password) async {
@@ -12,6 +12,10 @@ class FirebaseAuthenticationRepository implements IAuthenticationRepository {
       email: email,
       password: password,
     );
+
+    // Mail doğrulama gönderildi
+    sendEmailVerification();
+
     return userCredential.user;
   }
 
@@ -32,5 +36,19 @@ class FirebaseAuthenticationRepository implements IAuthenticationRepository {
   @override
   Future<User?> getCurrentUser() async {
     return _firebaseAuth.currentUser;
+  }
+
+  @override
+  Future<void> sendEmailVerification() async {
+    User? user = _firebaseAuth.currentUser;
+    if (user != null && !user.emailVerified) {
+      await user.sendEmailVerification();
+    }
+  }
+
+  @override
+  Future<void> forgotPassword(String email, [String langCode = "tr"]) async {
+    await _firebaseAuth.setLanguageCode(langCode);
+    await _firebaseAuth.sendPasswordResetEmail(email: email);
   }
 }

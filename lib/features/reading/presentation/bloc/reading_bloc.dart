@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:english_will_fly/features/auth/data/repositories/firestore_reading.dart';
+import 'package:english_will_fly/features/auth/data/repository_impl/firestore_reading.dart';
 import 'package:english_will_fly/features/reading/data/models/category.dart';
 import 'package:english_will_fly/features/reading/data/models/story.dart';
 import 'package:english_will_fly/features/reading/data/models/story_readed.dart';

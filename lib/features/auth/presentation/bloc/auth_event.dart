@@ -30,3 +30,15 @@ class SignInRequested extends AuthEvent {
 }
 
 class SignOutRequested extends AuthEvent {}
+
+class EmailVerify extends AuthEvent {}
+
+class ForgotPassword extends AuthEvent {
+  final String email;
+  final String langCode;
+
+  const ForgotPassword({required this.email, required this.langCode});
+
+  @override
+  List<Object?> get props => [email, langCode];
+}
