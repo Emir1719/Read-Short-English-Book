@@ -2,6 +2,8 @@ import 'package:english_will_fly/features/auth/presentation/widgets/auth/error_l
 import 'package:english_will_fly/features/auth/presentation/widgets/auth/forgot_password_button.dart';
 import 'package:english_will_fly/features/auth/presentation/widgets/auth/go_signup_view_button.dart';
 import 'package:english_will_fly/features/auth/presentation/widgets/auth/login_button.dart';
+import 'package:english_will_fly/features/auth/presentation/widgets/text_fields/email_text_field.dart';
+import 'package:english_will_fly/features/auth/presentation/widgets/text_fields/password_text_field.dart';
 import 'package:english_will_fly/features/reading/util/padding.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +12,8 @@ class LoginContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController email = TextEditingController();
-    final TextEditingController password = TextEditingController();
+    final email = TextEditingController();
+    final password = TextEditingController();
     const space = SizedBox(height: 20);
 
     return Center(
@@ -19,21 +21,16 @@ class LoginContent extends StatelessWidget {
         padding: AppPadding.defaults,
         shrinkWrap: true,
         children: [
-          TextField(
-            controller: email,
-            decoration: const InputDecoration(labelText: "Email"),
-            keyboardType: TextInputType.emailAddress,
-            textInputAction: TextInputAction.next,
+          Padding(
+            padding: AppPadding.signForButton,
+            child: Column(
+              spacing: 20,
+              children: [
+                EmailTextField(controller: email),
+                PasswordTextField(controller: password),
+              ],
+            ),
           ),
-          space,
-          TextField(
-            controller: password,
-            decoration: const InputDecoration(labelText: "Password"),
-            obscureText: true,
-          ),
-          space,
-          space,
-          space,
           LoginButton(email: email, password: password),
           space,
           const ForgotPasswordButton(),

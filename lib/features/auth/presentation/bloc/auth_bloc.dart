@@ -47,6 +47,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       final appUser = AppUser.fromFirebaseUser(user!);
       await _firestoreRepository.saveUser(user);
       emit(Authenticated(appUser));
+
+      await _analytics.logEvent(name: "sign_up");
     } catch (e) {
       emit(AuthFailure(e.toString()));
     }
@@ -68,6 +70,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }
 
       emit(Authenticated(appUser));
+
+      await _analytics.logEvent(name: "sign_in");
     } catch (e) {
       emit(AuthFailure(e.toString()));
     }
@@ -83,7 +87,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(AuthFailure(e.toString()));
     }
 
-    _analytics.logEvent(name: "sign_out");
+    await _analytics.logEvent(name: "sign_out");
   }
 
   Future<void> _onEmailVerify(EmailVerify event, Emitter<AuthState> emit) async {
@@ -93,7 +97,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(AuthFailure(e.toString()));
     }
 
-    _analytics.logEvent(name: "email_verify");
+    await _analytics.logEvent(name: "email_verify");
   }
 
   Future<void> _onForgotPassword(ForgotPassword event, Emitter<AuthState> emit) async {
@@ -103,6 +107,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       emit(AuthFailure(e.toString()));
     }
 
-    _analytics.logEvent(name: "forgot_password");
+    await _analytics.logEvent(name: "forgot_password");
   }
 }

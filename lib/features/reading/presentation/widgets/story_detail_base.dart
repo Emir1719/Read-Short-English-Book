@@ -13,7 +13,7 @@ class StoryDetailBase extends StatelessWidget {
         borderRadius: BorderRadius.circular(8),
       ),
       margin: EdgeInsets.only(left: 8),
-      padding: const EdgeInsets.symmetric(horizontal: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
       child: child,
     );
   }

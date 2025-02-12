@@ -193,6 +193,9 @@ final class AppThemeNew {
       disabledBorder: border,
       focusedBorder: border,
       enabledBorder: border,
+      iconColor: _colorScheme.onSurface,
+      prefixIconColor: _colorScheme.onSurface,
+      suffixIconColor: _colorScheme.onSurface,
       errorBorder: border.copyWith(borderSide: BorderSide(color: _colorScheme.error)),
     );
   }

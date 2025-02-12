@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:english_will_fly/features/reading/presentation/widgets/story_settings/settings_repository.dart';
+import 'package:english_will_fly/features/theme/data/context_extension.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,8 @@ class StorySettingsBloc extends Bloc<StorySettingsEvent, StorySettingsState> {
   StorySettingsBloc(this.settingsRepository, this.context)
       : super(
           StorySettingsLoaded(
-            style: settingsRepository.getTextStyle(context),
+            style:
+                settingsRepository.getTextStyle(context).copyWith(color: context.color.onSurface),
             textAlign: settingsRepository.getTextAlign(),
           ),
         ) {

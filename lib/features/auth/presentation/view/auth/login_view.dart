@@ -1,7 +1,7 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:english_will_fly/features/auth/presentation/bloc/auth_state.dart';
-import 'package:english_will_fly/features/auth/presentation/widgets/auth/content.dart';
+import 'package:english_will_fly/features/auth/presentation/widgets/auth/login_content.dart';
 import 'package:english_will_fly/features/reading/util/init_state/error.dart';
 import 'package:english_will_fly/features/reading/util/init_state/loading.dart';
 import 'package:flutter/material.dart';
@@ -23,9 +23,11 @@ class LoginView extends StatelessWidget {
               return const LoginContent();
             } else if (state is AuthLoading) {
               return const AppLoading();
-            } else {
+            } else if (state is AuthFailure) {
               return const AppError(message: "No user information available");
             }
+
+            return SizedBox();
           },
         ),
       ),
